@@ -28,14 +28,14 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
           <span className="inline-flex items-center gap-2"><span className="flag-zm" /> Zambia</span>
         </div>
       </div>
-      <div className="mx-auto grid h-20 max-w-screen-2xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 sm:px-6 lg:flex lg:justify-between">
+      <div className="mx-auto grid h-24 max-w-screen-2xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 sm:px-6 lg:flex lg:justify-between">
         <Brand inverted={overlay} />
         <nav className="hidden items-stretch self-stretch lg:flex" aria-label="Main navigation">
           {navGroups.map((group) => (
             <div className="nav-group flex items-center" key={group.label}>
-               <button className={`flex h-full items-center gap-1 px-3 font-condensed text-[15px] font-semibold transition-colors ${overlay ? "text-primary-foreground hover:text-accent" : "text-foreground hover:text-primary"}`}>
+               <Button variant="ghost" className={`h-full rounded-none px-3 font-condensed text-[15px] font-semibold ${overlay ? "text-primary-foreground hover:bg-primary-foreground/10 hover:text-accent" : "text-foreground hover:text-primary"}`}>
                 {group.label}<ChevronDown className="size-3" />
-              </button>
+               </Button>
               <div className="nav-panel">
                 <p className="mb-3 font-condensed text-xs font-bold uppercase tracking-[0.16em] text-accent">Explore {group.label}</p>
                 <div className="grid grid-cols-2 gap-x-8 gap-y-1">
@@ -66,7 +66,6 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
 export function SiteFooter() {
   return (
     <footer className="relative mt-auto overflow-hidden bg-primary text-primary-foreground">
-      <div className="field-horizon" />
       <div className="mx-auto max-w-screen-2xl px-6 pb-8 pt-20">
         <div className="grid gap-10 border-b border-primary-foreground/15 pb-12 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2"><Brand inverted /><p className="mt-5 max-w-sm text-sm leading-7 text-primary-foreground/70">Certified, high-yielding seed varieties bred in Africa for African climatic and geographic conditions.</p><a href="mailto:Zambia.seedco@seedcogroup.com" className="mt-6 inline-flex items-center gap-2 font-condensed font-semibold text-accent">Zambia.seedco@seedcogroup.com <ArrowRight className="size-4" /></a></div>
