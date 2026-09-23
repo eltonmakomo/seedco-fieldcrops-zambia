@@ -61,7 +61,8 @@ export const faqs = [
 
 export type PageContent = { eyebrow: string; title: string; intro: string; sections: { title: string; body: string }[]; kind?: "products"|"faq"|"contact"|"team"|"media"|"calculator" };
 
-const standard = (eyebrow: string, title: string, intro: string, sections: PageContent["sections"], kind?: PageContent["kind"]): PageContent => ({ eyebrow, title, intro, sections, kind });
+const standard = (eyebrow: string, title: string, intro: string, sections: PageContent["sections"], kind?: PageContent["kind"]): PageContent =>
+  kind ? { eyebrow, title, intro, sections, kind } : { eyebrow, title, intro, sections };
 
 export const pages: Record<string, PageContent> = {
   "about-us/overview": standard("About Seed Co Zambia", "The heart of agriculture", "Seed Co develops and markets certified crop seed, bred in Africa for African climatic and geographic conditions.", [
