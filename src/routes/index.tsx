@@ -7,6 +7,14 @@ import heroImage from "@/assets/seedco-zambia-hero.jpg";
 import maizeImage from "@/assets/seedco-maize.jpg";
 import farmersImage from "@/assets/seedco-farmers.jpg";
 import cropsImage from "@/assets/seedco-crops.jpg";
+import whiteMaizeImage from "@/assets/crop-white-maize.jpg";
+import yellowMaizeImage from "@/assets/crop-yellow-maize.jpg";
+import soyabeansImage from "@/assets/crop-soyabeans.jpg";
+import wheatImage from "@/assets/crop-wheat.jpg";
+import sugarBeansImage from "@/assets/crop-sugar-beans.jpg";
+import riceImage from "@/assets/crop-rice.jpg";
+
+const cropImages = [whiteMaizeImage, yellowMaizeImage, soyabeansImage, wheatImage, sugarBeansImage, riceImage];
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -19,15 +27,15 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
-  return <PageShell>
+  return <PageShell overlayHeader>
     <section className="hero-panel">
       <img src={heroImage} width={1920} height={1200} alt="Zambian farmer walking through a maize field at sunrise" className="absolute inset-0 h-full w-full object-cover" />
       <div className="hero-shade absolute inset-0" />
-      <div className="relative mx-auto flex min-h-[680px] max-w-screen-2xl items-end px-6 pb-16 pt-28 lg:min-h-[760px] lg:pb-24">
+      <div className="relative mx-auto flex min-h-[700px] max-w-screen-2xl items-end px-6 pb-24 pt-36 lg:min-h-[790px] lg:pb-28">
         <div className="max-w-3xl text-primary-foreground">
-          <p className="eyebrow text-accent">Climate-smart seed. Bred for Zambia.</p>
-          <h1 className="mt-5 font-display text-5xl font-extrabold leading-[0.98] sm:text-6xl lg:text-8xl">It starts with<br />the right seed.</h1>
-          <p className="mt-6 max-w-xl text-lg leading-8 text-primary-foreground/85">Certified field crop varieties developed for African conditions, backed by practical support from planting to harvest.</p>
+          <p className="hero-kicker"><span /> Climate-smart seed · Bred for Zambia</p>
+          <h1 className="mt-5 font-display text-5xl font-semibold leading-[1.02] sm:text-6xl lg:text-8xl">Growing Zambia,<br /><em>together.</em></h1>
+          <p className="mt-6 max-w-lg text-lg leading-8 text-primary-foreground/85">High-yield seed technology engineered for local seasons, backed by practical support from planting to harvest.</p>
           <div className="mt-8 flex flex-wrap gap-3"><Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90"><a href="/products">Find your seed <ArrowRight /></a></Button><Button asChild size="lg" variant="outline" className="border-primary-foreground/40 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground"><a href="https://www.seedcoonlineshop.com/zm/" target="_blank" rel="noreferrer">Buy seeds online</a></Button></div>
         </div>
       </div>
@@ -35,8 +43,8 @@ function HomePage() {
     </section>
 
     <section className="bg-background py-20 lg:py-28"><div className="mx-auto max-w-screen-2xl px-6">
-      <SectionHeading eyebrow="The home of bumper harvests" title="Seed for every field" action={<a href="/products" className="hidden items-center gap-2 font-condensed font-bold text-primary sm:flex">View all products <ArrowRight className="size-4" /></a>} />
-      <div className="crop-grid">{crops.map((crop, index)=><a key={crop.slug} href={`/product_category/${crop.slug}`} className={`crop-card crop-${index+1}`}><div className="flex items-start justify-between gap-4"><span className="crop-number">0{index+1}</span><ArrowRight className="size-5 transition-transform group-hover:translate-x-1" /></div><div><h3>{crop.name}</h3><p>{crop.note}</p></div></a>)}</div>
+      <SectionHeading eyebrow="Crop discovery" title="Seed for every field" action={<a href="/products" className="hidden items-center gap-2 font-condensed font-bold text-primary sm:flex">Browse all varieties <ArrowRight className="size-4" /></a>} />
+      <div className="crop-grid">{crops.map((crop, index)=><a key={crop.slug} href={`/product_category/${crop.slug}`} className="crop-card"><div className="crop-image-wrap"><img src={cropImages[index]} width={912} height={1200} loading="lazy" alt={`${crop.name} growing in a Zambian field`} /><span className="crop-number">0{index+1}</span><span className="crop-arrow"><ArrowRight /></span></div><div className="crop-copy"><h3>{crop.name}</h3><p>{crop.note}</p></div></a>)}</div>
     </div></section>
 
     <section className="bg-secondary py-20 lg:py-28"><div className="mx-auto grid max-w-screen-2xl items-center gap-12 px-6 lg:grid-cols-2">
