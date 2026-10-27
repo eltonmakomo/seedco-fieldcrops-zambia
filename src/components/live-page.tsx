@@ -29,7 +29,8 @@ type Segment = { kind: "cards"; cards: Card[] } | { kind: "list"; items: string[
 
 const CTA = /^(buy\s+now|read\s+more|find\s+out\s+more|apply|learn\s+more|download|view|more)/i;
 
-const isTitleLink = (b: LiveBlock | undefined) => b?.t === "link" && !CTA.test(b.text.trim());
+const isContact = (b: LiveBlock | undefined) => b?.t === "link" && /^(mailto|tel):/.test(b.href);
+const isTitleLink = (b: LiveBlock | undefined) => b?.t === "link" && !CTA.test(b.text.trim()) && !isContact(b);
 
 function isShort(b: LiveBlock | undefined, next: LiveBlock | undefined) {
   if (!b) return false;
@@ -50,13 +51,13 @@ function segment(blocks: LiveBlock[]): Segment[] {
       segs.push({ kind: "list", items });
       continue;
     }
-    const linkThenImg = b.t === "link" && at(i + 1)?.t === "img";
+    const linkThenImg = isTitleLink(b) && at(i + 1)?.t === "img";
     if (b.t === "img" || linkThenImg) {
       const cards: Card[] = [];
       while (i < blocks.length) {
         const pre: LiveBlock[] = [];
         const first = at(i);
-        if (first?.t === "link" && !CTA.test(first.text.trim()) && at(i + 1)?.t === "img") { pre.push(first); i++; }
+        if (first && isTitleLink(first) && at(i + 1)?.t === "img") { pre.push(first); i++; }
         const cur = at(i);
         if (!cur || cur.t !== "img") { i -= pre.length; break; }
         i++;
@@ -78,7 +79,7 @@ function segment(blocks: LiveBlock[]): Segment[] {
 }
 
 function CardView({ card }: { card: Card }) {
-  const links = card.items.filter((x): x is Extract<LiveBlock, { t: "link" }> => x.t === "link");
+  const links = card.items.filter((x): x is Extract<LiveBlock, { t: "link" }> => x.t === "link" && !isContact(x));
   const main = links[0];
   const caption = card.items.find((x) => x.t === "p");
   const videoTitle = caption && caption.t === "p" ? caption.text : "Seed Co video";
@@ -91,6 +92,7 @@ function CardView({ card }: { card: Card }) {
       ) : null}
       <div className="live-card-copy">
         {card.items.map((x, k) => {
+          if (x.t === "link" && isContact(x)) return <a key={k} href={x.href} className="card-contact">{x.text}</a>;
           if (x.t === "link") return !card.video && !CTA.test(x.text.trim()) ? <h3 key={k}>{x.text}</h3> : <span key={k} className="card-link">{x.text} <ArrowRight /></span>;
           if (x.t === "p") return <p key={k}>{x.text}</p>;
           if (x.t === "img" || x.t === "video") return null;

@@ -179,3 +179,6 @@
 
 /* Keep the round badges fully on screen */
 @media(max-width:899px){.organic-stamp-years{right:0;width:7.5rem;height:7.5rem;padding:1.1rem}.organic-stamp-depots{left:0;width:7.5rem;height:7.5rem;padding:1.1rem}.organic-stamp strong{font-size:1.7rem}.organic-stamp span{font-size:.6rem}}
+
+.card-contact{display:block;font-size:.85rem;font-weight:600;color:var(--primary);overflow-wrap:anywhere;text-decoration:underline;text-underline-offset:3px}
+.live-card-copy h3{overflow-wrap:anywhere}
