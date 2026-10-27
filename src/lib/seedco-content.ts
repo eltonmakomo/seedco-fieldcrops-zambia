@@ -10,25 +10,22 @@ export const navGroups: NavGroup[] = [
     { label: "Careers", href: "/about-us/careers" },
   ]},
   { label: "Products", children: [
-    { label: "All Products", href: "/products" }, { label: "White Maize", href: "/product_category/maize" },
-    { label: "Yellow Maize", href: "/product_category/yellow-maize" }, { label: "Soya beans", href: "/product_category/soyabeans" },
-    { label: "Wheat", href: "/product_category/wheat" }, { label: "Sugar beans", href: "/product_category/sugar-beans" },
-    { label: "Rice", href: "/product_category/rice" },
+    { label: "White Maize", href: "/product_category/maize" }, { label: "Yellow Maize", href: "/product_category/yellow-maize" },
+    { label: "Soya beans", href: "/product_category/soyabeans" }, { label: "Wheat", href: "/product_category/wheat" },
   ]},
   { label: "Innovations", children: [
     { label: "Service Innovations", href: "/service-innovations" }, { label: "Product Innovations", href: "/product-innovations" },
-    { label: "Seed Co Agronomy App", href: "/seed-co-agronomy-app" },
   ]},
   { label: "Farmers' Hub", children: [
     { label: "Maize Farming Regions", href: "/farming-regions" }, { label: "Maize", href: "/maize-2" },
     { label: "Wheat", href: "/farming-regions/wheat" }, { label: "Soya", href: "/farming-regions/soya" },
-    { label: "Calculators", href: "/calculators" }, { label: "Learn With Seed Co", href: "/learn-with-seed-co" },
+    { label: "Calculators", href: "/calculators" },
   ]},
   { label: "Media", children: [
     { label: "News", href: "/news" }, { label: "Events Calendar", href: "/media/events-calendar" },
     { label: "Blog", href: "/blog" }, { label: "FAQs", href: "/media/faqs" },
     { label: "Testimonials", href: "/testimonial" }, { label: "Photo Gallery", href: "/media/photo-gallery" },
-    { label: "Video Gallery", href: "/media/video-gallery" }, { label: "Promotions", href: "/promotions" },
+    { label: "Video Gallery", href: "/media/video-gallery" },
   ]},
 ];
 
