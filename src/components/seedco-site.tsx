@@ -3,17 +3,15 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, ChevronDown, ExternalLink, Menu, Search, ShoppingBag, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navGroups } from "@/lib/seedco-content";
+import logo from "@/assets/seedco-logo.svg";
+import logoWhite from "@/assets/seedco-logo-white.svg";
 
 const onlineShop = "https://www.seedcoonlineshop.com/zm/";
 
 function Brand({ inverted = false }: { inverted?: boolean }) {
   return (
-    <Link to="/" className="flex shrink-0 items-center gap-3" aria-label="Seed Co Zambia home">
-      <span className={`seed-mark ${inverted ? "seed-mark-inverted" : ""}`} aria-hidden="true"><i /><b>SC</b></span>
-      <span className="min-w-0 leading-none">
-        <strong className={`block font-display text-lg font-extrabold ${inverted ? "text-primary-foreground" : "text-primary"}`}>SEED CO</strong>
-        <small className={`mt-1 block font-condensed text-[10px] font-semibold uppercase tracking-[0.14em] ${inverted ? "text-primary-foreground/70" : "text-muted-foreground"}`}>Field Crops · Zambia</small>
-      </span>
+    <Link to="/" className="flex shrink-0 items-center" aria-label="Seed Co Zambia home">
+      <img src={inverted ? logoWhite : logo} alt="Seed Co Logo" width={72} height={72} className="h-16 w-16 object-contain" />
     </Link>
   );
 }
@@ -63,17 +61,22 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
   );
 }
 
+const socials = [
+  ["Facebook", "https://www.facebook.com/seedcozambia"], ["Twitter", "https://twitter.com/SeedCoZambia"],
+  ["YouTube", "https://www.youtube.com/channel/UCrlVuj5uYRjTRXJWSmkozjQ"], ["LinkedIn", "https://www.linkedin.com/company/seedco-zambia-international-zambia-limited/"],
+];
+
 export function SiteFooter() {
   return (
     <footer className="relative mt-auto overflow-hidden bg-primary text-primary-foreground">
       <div className="mx-auto max-w-screen-2xl px-6 pb-8 pt-20">
-        <div className="grid gap-10 border-b border-primary-foreground/15 pb-12 md:grid-cols-2 lg:grid-cols-5">
-          <div className="lg:col-span-2"><Brand inverted /><p className="mt-5 max-w-sm text-sm leading-7 text-primary-foreground/70">Certified, high-yielding seed varieties bred in Africa for African climatic and geographic conditions.</p><a href="mailto:Zambia.seedco@seedcogroup.com" className="mt-6 inline-flex items-center gap-2 font-condensed font-semibold text-accent">Zambia.seedco@seedcogroup.com <ArrowRight className="size-4" /></a></div>
-          <div><h3 className="footer-title">Explore</h3><a className="footer-link" href="/products">Products</a><a className="footer-link" href="/farming-regions">Farmers' Hub</a><a className="footer-link" href="/product-innovations">Innovations</a><a className="footer-link" href="/media/faqs">FAQs</a></div>
-          <div><h3 className="footer-title">Company</h3><a className="footer-link" href="/about-us/overview">About Us</a><a className="footer-link" href="/about-us/careers">Careers</a><a className="footer-link" href="/news">News</a><a className="footer-link" href="/contact-us">Contact</a></div>
-          <div><h3 className="footer-title">Grow</h3><a className="footer-link" href="/learn-with-seed-co">Learn with Seed Co</a><a className="footer-link" href="/calculators">Calculators</a><a className="footer-link" href="/seed-co-agronomy-app">Seedney App</a><a className="footer-link" href={onlineShop} target="_blank" rel="noreferrer">Online Shop <ExternalLink className="inline size-3" /></a></div>
+        <div className="grid gap-10 border-b border-primary-foreground/15 pb-12 md:grid-cols-2 lg:grid-cols-4">
+          <div><Brand inverted /><h3 className="footer-title mt-6">Find us on:</h3>{socials.map(([n, h]) => <a key={n} className="footer-link" href={h} target="_blank" rel="noreferrer">{n} <ExternalLink className="inline size-3" /></a>)}</div>
+          <div><h3 className="footer-title">Quick Links</h3><a className="footer-link" href={onlineShop} target="_blank" rel="noreferrer">Buy Seeds Online</a><a className="footer-link" href="/farming-regions">Learn With Seed Co</a><a className="footer-link" href="/news">News</a><a className="footer-link" href="/contact-us">Contact Us</a></div>
+          <div><h3 className="footer-title">Innovations</h3><a className="footer-link" href="/service-innovations">Service Innovations</a><a className="footer-link" href="/product-innovations">Product Innovations</a></div>
+          <div><h3 className="footer-title">Become part of our mailing list</h3><a href="mailto:Zambia.seedco@seedcogroup.com" className="mt-2 inline-flex items-center gap-2 font-condensed font-semibold text-accent">Zambia.seedco@seedcogroup.com <ArrowRight className="size-4" /></a></div>
         </div>
-        <div className="flex flex-col gap-3 pt-7 text-xs text-primary-foreground/55 sm:flex-row sm:items-center sm:justify-between"><p>© 2026 Seed Co Zambia. All Rights Reserved.</p><a href="/privacy-policy" className="hover:text-primary-foreground">Privacy policy</a></div>
+        <div className="flex flex-col gap-3 pt-7 text-xs text-primary-foreground/55 sm:flex-row sm:items-center sm:justify-between"><p>Copyright © 2026 Seed Co Zambia. All Rights Reserved.</p><a href="/privacy-policy" className="hover:text-primary-foreground">Privacy policy</a></div>
       </div>
     </footer>
   );
