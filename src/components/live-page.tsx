@@ -29,6 +29,8 @@ type Segment = { kind: "cards"; cards: Card[] } | { kind: "list"; items: string[
 
 const CTA = /^(buy\s+now|read\s+more|find\s+out\s+more|apply|learn\s+more|download|view|more)/i;
 
+const isTitleLink = (b: LiveBlock | undefined) => b?.t === "link" && !CTA.test(b.text.trim());
+
 function isShort(b: LiveBlock | undefined, next: LiveBlock | undefined) {
   if (!b) return false;
   if ((b.t === "h3" || b.t === "h4" || b.t === "h5") && next?.t === "li") return false;
@@ -54,12 +56,12 @@ function segment(blocks: LiveBlock[]): Segment[] {
       while (i < blocks.length) {
         const pre: LiveBlock[] = [];
         const first = at(i);
-        if (first?.t === "link" && at(i + 1)?.t === "img") { pre.push(first); i++; }
+        if (first?.t === "link" && !CTA.test(first.text.trim()) && at(i + 1)?.t === "img") { pre.push(first); i++; }
         const cur = at(i);
         if (!cur || cur.t !== "img") { i -= pre.length; break; }
         i++;
         const items = [...pre];
-        while (items.length < 5 && isShort(at(i), at(i + 1)) && !(at(i)?.t === "link" && at(i + 1)?.t === "img" && items.length > 0)) { const x = at(i); if (x) items.push(x); i++; }
+        while (items.length < 5 && isShort(at(i), at(i + 1)) && !(isTitleLink(at(i)) && at(i + 1)?.t === "img" && items.length > 0)) { const x = at(i); if (x) items.push(x); i++; }
         const id = ytId(cur.src);
         cards.push(id ? { video: id, alt: cur.alt, items } : { img: cur.src, alt: cur.alt, items });
       }
