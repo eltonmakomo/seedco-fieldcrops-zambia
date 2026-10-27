@@ -188,3 +188,8 @@
 .live-media,.live-media img{background:var(--surface-pure)}
 .live-media img{object-fit:contain}
 .live-card-photo .live-media img{object-fit:cover}
+
+/* Interactive Zambia farming-regions map */
+.zambia-regions-map{margin-top:2rem;max-width:760px}
+.zambia-regions-map svg{display:block;width:100%;height:auto}
+.zambia-regions-map a{cursor:pointer}
