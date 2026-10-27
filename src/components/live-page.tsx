@@ -57,7 +57,7 @@ function segment(blocks: LiveBlock[]): Segment[] {
       while (i < blocks.length) {
         const pre: LiveBlock[] = [];
         const first = at(i);
-        if (isTitleLink(first) && at(i + 1)?.t === "img") { pre.push(first); i++; }
+        if (first && isTitleLink(first) && at(i + 1)?.t === "img") { pre.push(first); i++; }
         const cur = at(i);
         if (!cur || cur.t !== "img") { i -= pre.length; break; }
         i++;
