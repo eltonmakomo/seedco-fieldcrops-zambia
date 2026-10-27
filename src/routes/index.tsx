@@ -59,7 +59,7 @@ function HomePage() {
         </div>
         <div className="organic-hero-visual">
           <div className="organic-hero-image"><img src={heroImage} width={1600} height={1200} alt="Mature maize cob in a Zambian field" /></div>
-          <a className="organic-stamp organic-stamp-years" href="/seed-co-agronomy-app"><strong>Seedney</strong><span>Download Seedney, the new Seed Co Agronomy App</span></a>
+          <a className="organic-stamp organic-stamp-years" href="/seed-co-agronomy-app"><strong>App</strong><span>Download Seedney</span></a>
         </div>
       </div>
     </section>

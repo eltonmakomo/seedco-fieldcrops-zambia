@@ -27,7 +27,7 @@ function SmartLink({ href, className, children }: { href: string; className?: st
 type Card = { img?: string; alt: string; video?: string; items: LiveBlock[] };
 type Segment = { kind: "cards"; cards: Card[] } | { kind: "list"; items: string[] } | { kind: "block"; block: LiveBlock };
 
-const CTA = /^(buy now|read more|find out more|apply now|learn more|download)/i;
+const CTA = /^(buy\s+now|read\s+more|find\s+out\s+more|apply|learn\s+more|download|view|more)/i;
 
 function isShort(b: LiveBlock | undefined, next: LiveBlock | undefined) {
   if (!b) return false;
@@ -89,7 +89,7 @@ function CardView({ card }: { card: Card }) {
       ) : null}
       <div className="live-card-copy">
         {card.items.map((x, k) => {
-          if (x.t === "link") return k === 0 && !card.video && !CTA.test(x.text) ? <h3 key={k}>{x.text}</h3> : <span key={k} className="card-link">{x.text} <ArrowRight /></span>;
+          if (x.t === "link") return !card.video && !CTA.test(x.text.trim()) ? <h3 key={k}>{x.text}</h3> : <span key={k} className="card-link">{x.text} <ArrowRight /></span>;
           if (x.t === "p") return <p key={k}>{x.text}</p>;
           if (x.t === "img" || x.t === "video") return null;
           return <h3 key={k}>{x.text}</h3>;
