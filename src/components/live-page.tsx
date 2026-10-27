@@ -27,37 +27,45 @@ function SmartLink({ href, className, children }: { href: string; className?: st
 type Card = { img?: string; alt: string; video?: string; items: LiveBlock[] };
 type Segment = { kind: "cards"; cards: Card[] } | { kind: "list"; items: string[] } | { kind: "block"; block: LiveBlock };
 
-const isShort = (b: LiveBlock) =>
-  b.t === "link" || b.t === "h3" || b.t === "h4" || b.t === "h5" || (b.t === "p" && b.text.length < 220);
+const CTA = /^(buy now|read more|find out more|apply now|learn more|download)/i;
+
+function isShort(b: LiveBlock | undefined, next: LiveBlock | undefined) {
+  if (!b) return false;
+  if ((b.t === "h3" || b.t === "h4" || b.t === "h5") && next?.t === "li") return false;
+  return b.t === "link" || b.t === "h3" || b.t === "h4" || b.t === "h5" || (b.t === "p" && b.text.length < 220);
+}
 
 function segment(blocks: LiveBlock[]): Segment[] {
   const segs: Segment[] = [];
+  const at = (n: number): LiveBlock | undefined => blocks[n];
   let i = 0;
   while (i < blocks.length) {
-    const b = blocks[i];
+    const b = at(i);
+    if (!b) break;
     if (b.t === "li") {
       const items: string[] = [];
-      while (i < blocks.length && blocks[i].t === "li") { items.push((blocks[i] as { text: string }).text); i++; }
+      for (let x = at(i); x && x.t === "li"; x = at(++i)) items.push(x.text);
       segs.push({ kind: "list", items });
       continue;
     }
-    const linkThenImg = b.t === "link" && blocks[i + 1]?.t === "img";
+    const linkThenImg = b.t === "link" && at(i + 1)?.t === "img";
     if (b.t === "img" || linkThenImg) {
       const cards: Card[] = [];
       while (i < blocks.length) {
         const pre: LiveBlock[] = [];
-        if (blocks[i].t === "link" && blocks[i + 1]?.t === "img") { pre.push(blocks[i]); i++; }
-        const cur = blocks[i];
+        const first = at(i);
+        if (first?.t === "link" && at(i + 1)?.t === "img") { pre.push(first); i++; }
+        const cur = at(i);
         if (!cur || cur.t !== "img") { i -= pre.length; break; }
         i++;
         const items = [...pre];
-        while (i < blocks.length && items.length < 5 && isShort(blocks[i]) && !(blocks[i].t === "link" && blocks[i + 1]?.t === "img" && items.length > 0)) { items.push(blocks[i]); i++; }
+        while (items.length < 5 && isShort(at(i), at(i + 1)) && !(at(i)?.t === "link" && at(i + 1)?.t === "img" && items.length > 0)) { const x = at(i); if (x) items.push(x); i++; }
         const id = ytId(cur.src);
         cards.push(id ? { video: id, alt: cur.alt, items } : { img: cur.src, alt: cur.alt, items });
       }
-      if (cards.length === 1 && cards[0].items.length === 0) {
-        const c = cards[0];
-        segs.push({ kind: "block", block: c.video ? { t: "video", src: `https://www.youtube.com/embed/${c.video}` } : { t: "img", src: c.img ?? "", alt: c.alt } });
+      const only = cards.length === 1 ? cards[0] : undefined;
+      if (only && only.items.length === 0) {
+        segs.push({ kind: "block", block: only.video ? { t: "video", src: `https://www.youtube.com/embed/${only.video}` } : { t: "img", src: only.img ?? "", alt: only.alt } });
       } else segs.push({ kind: "cards", cards });
       continue;
     }
@@ -81,7 +89,7 @@ function CardView({ card }: { card: Card }) {
       ) : null}
       <div className="live-card-copy">
         {card.items.map((x, k) => {
-          if (x.t === "link") return k === 0 && !card.video ? <h3 key={k}>{x.text}</h3> : <span key={k} className="card-link">{x.text} <ArrowRight /></span>;
+          if (x.t === "link") return k === 0 && !card.video && !CTA.test(x.text) ? <h3 key={k}>{x.text}</h3> : <span key={k} className="card-link">{x.text} <ArrowRight /></span>;
           if (x.t === "p") return <p key={k}>{x.text}</p>;
           if (x.t === "img" || x.t === "video") return null;
           return <h3 key={k}>{x.text}</h3>;
