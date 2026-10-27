@@ -82,6 +82,8 @@ function CardView({ card }: { card: Card }) {
   const links = card.items.filter((x): x is Extract<LiveBlock, { t: "link" }> => x.t === "link" && !isContact(x));
   const main = links[0];
   const caption = card.items.find((x) => x.t === "p");
+  const isArticle = card.items.some((x) => x.t === "link" && !isContact(x) && CTA.test(x.text.trim()));
+  const cardClass = isArticle ? "live-card live-card-photo" : "live-card";
   const videoTitle = caption && caption.t === "p" ? caption.text : "Seed Co video";
   const body = (
     <>

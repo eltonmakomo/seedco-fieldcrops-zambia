@@ -187,3 +187,4 @@
 .live-card,.live-card-copy{background:var(--surface-pure)}
 .live-media,.live-media img{background:var(--surface-pure)}
 .live-media img{object-fit:contain}
+.live-card-photo .live-media img{object-fit:cover}
