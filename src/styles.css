@@ -182,3 +182,8 @@
 
 .card-contact{display:block;font-size:.85rem;font-weight:600;color:var(--primary);overflow-wrap:anywhere;text-decoration:underline;text-underline-offset:3px}
 .live-card-copy h3{overflow-wrap:anywhere}
+
+/* White card backgrounds */
+.live-card,.live-card-copy{background:var(--surface-pure)}
+.live-media,.live-media img{background:var(--surface-pure)}
+.live-media img{object-fit:contain}
