@@ -139,8 +139,8 @@
 .live-h2 { margin-top: 1.5rem; font-family: var(--font-display); font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 800; color: var(--primary); line-height: 1.15; }
 .live-h3 { margin-top: 1.25rem; font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--primary); }
 .live-h4 { margin-top: .75rem; font-family: var(--font-condensed); font-size: 1.05rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--primary); }
-.live-p { max-width: 68ch; font-size: 1.05rem; line-height: 1.8; color: var(--foreground); }
-.live-list { display: grid; gap: .6rem; max-width: 68ch; padding-left: 0; list-style: none; }
+.live-p { max-width: 100%; font-size: 1.05rem; line-height: 1.8; color: var(--foreground); }
+.live-list { display: grid; gap: .6rem; max-width: 100%; padding-left: 0; list-style: none; }
 .live-list li { position: relative; padding-left: 1.6rem; line-height: 1.7; }
 .live-list li::before { content: ""; position: absolute; left: 0; top: .65em; width: .55rem; height: .55rem; border-radius: 999px; background: var(--accent); }
 .live-figure img { max-height: 520px; width: auto; max-width: 100%; border-radius: 1rem; }
@@ -188,3 +188,8 @@
 .live-media,.live-media img{background:var(--surface-pure)}
 .live-media img{object-fit:contain}
 .live-card-photo .live-media img{object-fit:cover}
+
+/* Interactive Zambia farming-regions map */
+.zambia-regions-map{margin-top:2rem;max-width:760px}
+.zambia-regions-map svg{display:block;width:100%;height:auto}
+.zambia-regions-map a{cursor:pointer}
