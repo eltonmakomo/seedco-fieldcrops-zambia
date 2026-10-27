@@ -70,10 +70,12 @@ function segment(blocks: LiveBlock[]): Segment[] {
 function CardView({ card }: { card: Card }) {
   const links = card.items.filter((x): x is Extract<LiveBlock, { t: "link" }> => x.t === "link");
   const main = links[0];
+  const caption = card.items.find((x) => x.t === "p");
+  const videoTitle = caption && caption.t === "p" ? caption.text : "Seed Co video";
   const body = (
     <>
       {card.video ? (
-        <div className="live-media live-media-video"><iframe src={`https://www.youtube.com/embed/${card.video}`} title={card.items.find((x) => x.t === "p")?.["text" as never] ?? "Seed Co video"} loading="lazy" allowFullScreen /></div>
+        <div className="live-media live-media-video"><iframe src={`https://www.youtube.com/embed/${card.video}`} title={videoTitle} loading="lazy" allowFullScreen /></div>
       ) : card.img ? (
         <div className="live-media"><img src={card.img} alt={card.alt || main?.text || ""} loading="lazy" /></div>
       ) : null}
