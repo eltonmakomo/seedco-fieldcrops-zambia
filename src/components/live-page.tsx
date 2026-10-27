@@ -103,7 +103,7 @@ function CardView({ card }: { card: Card }) {
       </div>
     </>
   );
-  return main && !card.video ? <SmartLink href={main.href} className="live-card live-card-link">{body}</SmartLink> : <article className="live-card">{body}</article>;
+  return main && !card.video ? <SmartLink href={main.href} className={`${cardClass} live-card-link`}>{body}</SmartLink> : <article className={cardClass}>{body}</article>;
 }
 
 function BlockView({ block }: { block: LiveBlock }) {
