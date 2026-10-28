@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Bean, Download, Leaf, ShoppingBag, Sprout, Wheat } from "lucide-react";
 import { Button } from "@/components/ui/button";
