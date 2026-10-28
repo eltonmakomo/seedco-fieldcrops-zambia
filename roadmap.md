@@ -10,3 +10,5 @@
 - [x] Recolor the whole site to the official logo palette (green #02A64D, red #EA2229, white); remove dark green
 - [x] Port dropdown styles + menu hover effects from "Seed Co Vegetables" project (5cf3488e)
 - [x] Verify logo-palette pages in browser (home + inner page + footer/Tip band)
+- [x] Pair farming-regions map with synchronized selectable zone list
+- [x] Verify map highlighting, zone navigation and smaller-screen layout
