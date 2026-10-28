@@ -259,4 +259,26 @@
 .tvid-body{display:flex;gap:.85rem;align-items:flex-start;padding:1.1rem 1.25rem 1.3rem;border-top:3px solid var(--brand-green)}
 .tvid-num{flex:none;font-family:var(--font-condensed);font-weight:700;font-size:.8rem;color:var(--brand-green);padding-top:.15rem}
 .tvid-body p{font-family:var(--font-display);font-weight:700;font-size:1rem;line-height:1.4;color:var(--primary)}
-/* rebuild */
+
+/* testimonial cards: portrait (height >= width) */
+.tvid{aspect-ratio:4/5;position:relative;background:var(--primary)}
+.tvid-media{flex:1;aspect-ratio:auto;min-height:0}
+.tvid-body{background:color-mix(in oklab,var(--card) 72%,transparent);backdrop-filter:blur(18px) saturate(150%);border-top:1px solid color-mix(in oklab,var(--primary-foreground) 50%,transparent)}
+
+/* site-wide glassmorphism */
+:root{--glass-bg:color-mix(in oklab,var(--card) 62%,transparent);--glass-border:color-mix(in oklab,var(--primary-foreground) 70%,transparent);--glass-blur:blur(16px) saturate(150%)}
+body{background:
+  radial-gradient(40rem 30rem at 8% 12%,color-mix(in oklab,var(--brand-green) 10%,transparent),transparent 70%),
+  radial-gradient(36rem 28rem at 92% 45%,color-mix(in oklab,var(--accent) 14%,transparent),transparent 70%),
+  radial-gradient(40rem 30rem at 15% 85%,color-mix(in oklab,var(--brand-green) 8%,transparent),transparent 70%),
+  var(--background);background-attachment:fixed}
+.organic-journey,.organic-stories,.section-y,.organic-hero{background:transparent}
+.organic-catalogue{background:color-mix(in oklab,var(--secondary) 70%,transparent)}
+.pcat,.live-card,.tvid-body,.glass-item{background:var(--glass-bg);backdrop-filter:var(--glass-blur);border-color:var(--glass-border)}
+.pcat-media{background:transparent}
+.glass-item{padding:0 1.25rem;margin-bottom:.6rem;border:1px solid var(--glass-border);border-radius:1rem}
+.organic-story-list a{padding-inline:1rem;border-radius:.9rem;transition:background .3s,backdrop-filter .3s}
+.organic-story-list a:hover{background:var(--glass-bg);backdrop-filter:var(--glass-blur)}
+.organic-story-feature div{padding:1.25rem 1.5rem;border-radius:1.25rem;background:color-mix(in oklab,var(--forest-shadow) 35%,transparent);backdrop-filter:blur(14px);border:1px solid color-mix(in oklab,var(--primary-foreground) 22%,transparent)}
+.inner-hero .max-w-4xl{padding:1.5rem 1.75rem;border-radius:1.25rem;background:color-mix(in oklab,var(--forest-shadow) 30%,transparent);backdrop-filter:blur(12px);border:1px solid color-mix(in oklab,var(--primary-foreground) 20%,transparent)}
+.tvid{background:var(--glass-bg);backdrop-filter:var(--glass-blur)}.tvid-body{background:transparent;backdrop-filter:none;border-top:3px solid var(--brand-green)}
