@@ -281,3 +281,4 @@ body{background:
 .organic-story-list a:hover{background:var(--glass-bg);backdrop-filter:var(--glass-blur)}
 .organic-story-feature div{padding:1.25rem 1.5rem;border-radius:1.25rem;background:color-mix(in oklab,var(--forest-shadow) 35%,transparent);backdrop-filter:blur(14px);border:1px solid color-mix(in oklab,var(--primary-foreground) 22%,transparent)}
 .inner-hero .max-w-4xl{padding:1.5rem 1.75rem;border-radius:1.25rem;background:color-mix(in oklab,var(--forest-shadow) 30%,transparent);backdrop-filter:blur(12px);border:1px solid color-mix(in oklab,var(--primary-foreground) 20%,transparent)}
+.tvid{background:var(--glass-bg);backdrop-filter:var(--glass-blur)}.tvid-body{background:transparent;backdrop-filter:none;border-top:3px solid var(--brand-green)}
