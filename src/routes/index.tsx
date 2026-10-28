@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Download, ShoppingBag } from "lucide-react";
+import { ArrowRight, Bean, Download, Leaf, ShoppingBag, Sprout, Wheat } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageShell } from "@/components/seedco-site";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -9,12 +9,12 @@ const U = "https://seedcogroup.com/zm/fieldcrops/wp-content/uploads";
 const shop = "https://www.seedcoonlineshop.com/zm/";
 
 const categories = [
-  { name: "White Maize", href: "/product_category/maize", img: `${U}/2021/11/white-3.jpg` },
-  { name: "Sugar beans", href: "/product_category/sugar-beans", img: `${U}/2024/04/beans.jpg.webp` },
-  { name: "Soya beans", href: "/product_category/soyabeans", img: `${U}/2024/04/soya_beans.jpg.webp` },
-  { name: "Wheat", href: "/product_category/wheat", img: `${U}/2021/12/wheat_image.jpg` },
-  { name: "Yellow Maize", href: "/product_category/yellow-maize", img: `${U}/2021/10/yellow.jpg` },
-  { name: "Rice", href: "/product_category/rice", img: `${U}/2024/04/rice-plant.webp` },
+  { name: "White Maize", Icon: Sprout, href: "/product_category/maize", img: `${U}/2021/11/white-3.jpg` },
+  { name: "Sugar beans", Icon: Bean, href: "/product_category/sugar-beans", img: `${U}/2024/04/beans.jpg.webp` },
+  { name: "Soya beans", Icon: Leaf, href: "/product_category/soyabeans", img: `${U}/2024/04/soya_beans.jpg.webp` },
+  { name: "Wheat", Icon: Wheat, href: "/product_category/wheat", img: `${U}/2021/12/wheat_image.jpg` },
+  { name: "Yellow Maize", Icon: Sprout, href: "/product_category/yellow-maize", img: `${U}/2021/10/yellow.jpg` },
+  { name: "Rice", Icon: Wheat, href: "/product_category/rice", img: `${U}/2024/04/rice-plant.webp` },
 ];
 
 const testimonials = [
@@ -76,7 +76,7 @@ function HomePage() {
 
     <section className="organic-catalogue"><div className="mx-auto max-w-screen-2xl px-6">
       <div className="organic-section-head"><div><p className="eyebrow">Our Products</p><h2>Products</h2></div><div><a href="/products">View all products <ArrowRight /></a></div></div>
-      <div className="organic-crop-grid">{categories.map((c, i) => <a key={c.href} href={c.href} className={`organic-crop organic-crop-${i + 1}`}><div><img src={c.img} loading="lazy" alt={c.name} /><span>0{i + 1}</span></div><h3>{c.name}</h3><ArrowRight /></a>)}</div>
+      <div className="crop-card-grid">{categories.map(({ Icon, ...c }) => <a key={c.href} href={c.href} className="crop-card"><img src={c.img} loading="lazy" alt="" aria-hidden="true" /><span className="crop-card-icon"><Icon /></span><h3>{c.name}</h3><span className="crop-card-foot">View varieties<span className="crop-card-arrow"><ArrowRight /></span></span></a>)}</div></div>
     </div></section>
 
     <section className="organic-field-note"><div className="organic-note-image"><img src={`${U}/2021/09/tips2.jpg`} loading="lazy" alt="Tip of the Day" /></div><div className="organic-note-copy"><p className="eyebrow text-accent">Tip of the Day</p><blockquote>Seed Co varieties combine high yielding ability and good agronomic traits such as drought and disease tolerance, good “standability”, stability across seasons and regions.</blockquote>
