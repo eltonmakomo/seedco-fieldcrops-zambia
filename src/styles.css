@@ -204,30 +204,30 @@
 .organic-primary-link:hover svg,.live-button{background:var(--brand-red);color:var(--primary-foreground)}
 .live-button:hover{background:color-mix(in oklab,var(--brand-red) 85%,var(--forest-shadow))}
 
-.crop-card-grid{display:grid;gap:1rem;margin-top:2rem;grid-template-columns:repeat(2,1fr)}
-@media (min-width:640px){.crop-card-grid{grid-template-columns:repeat(3,1fr)}}
-@media (min-width:1100px){.crop-card-grid{grid-template-columns:repeat(6,1fr)}}
-.crop-card{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;min-height:11rem;padding:1.25rem;border:1px solid var(--border);border-radius:.85rem;background:var(--card);color:var(--foreground);box-shadow:0 8px 20px -16px color-mix(in oklab,var(--primary) 40%,transparent);transition:transform .35s,box-shadow .35s,color .35s}
-.crop-card>img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .4s,transform .6s}
-.crop-card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,color-mix(in oklab,var(--primary) 78%,transparent),color-mix(in oklab,var(--primary) 95%,transparent));opacity:0;transition:opacity .4s}
-.crop-card-icon{display:grid;place-items:center;width:2.6rem;height:2.6rem;border-radius:.6rem;color:var(--brand-green);transition:background .35s,color .35s}
-.crop-card-icon svg{width:1.9rem;height:1.9rem}
-.crop-card h3{margin-top:.9rem;font-family:var(--font-display);font-size:1.1rem;font-weight:700;line-height:1.2}
-.crop-card-foot{margin-top:auto;padding-top:1rem;display:flex;align-items:center;justify-content:space-between;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-green);transition:color .35s}
-.crop-card-arrow{display:grid;place-items:center;width:1.8rem;height:1.8rem;border-radius:999px;opacity:0;background:color-mix(in oklab,var(--card) 20%,transparent);transition:opacity .35s,transform .35s}
-.crop-card-arrow svg{width:.9rem;height:.9rem}
-.crop-card:hover,.crop-card:focus-visible{transform:translateY(-4px);color:var(--primary-foreground);box-shadow:0 22px 36px -20px color-mix(in oklab,var(--primary) 65%,transparent)}
-.crop-card:hover>img,.crop-card:focus-visible>img{opacity:1;transform:scale(1)}
-.crop-card:hover::after,.crop-card:focus-visible::after{opacity:1}
-.crop-card:hover .crop-card-icon,.crop-card:focus-visible .crop-card-icon{background:var(--card);color:var(--brand-green)}
-.crop-card:hover .crop-card-foot,.crop-card:focus-visible .crop-card-foot{color:var(--primary-foreground)}
-.crop-card:hover .crop-card-arrow,.crop-card:focus-visible .crop-card-arrow{opacity:1;transform:translateX(2px)}
-.crop-card-grid{grid-template-columns:1fr}
-@media (min-width:560px){.crop-card-grid{grid-template-columns:repeat(2,1fr)}}
-@media (min-width:1000px){.crop-card-grid{grid-template-columns:repeat(3,1fr)}}
-.crop-card{min-height:0;flex-direction:row;align-items:center;gap:1rem;padding:1rem 1.25rem}
-.crop-card h3{margin:0;flex:1}
-.crop-card-foot{margin:0;padding:0;gap:.6rem}
-.crop-card-arrow{opacity:1;background:color-mix(in oklab,var(--brand-green) 12%,transparent)}
-.crop-card-icon{flex:none;background:color-mix(in oklab,var(--brand-green) 10%,transparent)}
-@media (max-width:420px){.crop-card-foot{font-size:0}.crop-card-foot .crop-card-arrow{font-size:1rem}}
+.pcat-grid{display:grid;gap:1rem;margin-top:2rem;grid-template-columns:repeat(2,1fr)}
+@media (min-width:640px){.pcat-grid{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:1100px){.pcat-grid{grid-template-columns:repeat(6,1fr)}}
+.pcat{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;min-height:11rem;padding:1.25rem;border:1px solid var(--border);border-radius:.85rem;background:var(--card);color:var(--foreground);box-shadow:0 8px 20px -16px color-mix(in oklab,var(--primary) 40%,transparent);transition:transform .35s,box-shadow .35s,color .35s}
+.pcat>img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .4s,transform .6s}
+.pcat::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,color-mix(in oklab,var(--primary) 78%,transparent),color-mix(in oklab,var(--primary) 95%,transparent));opacity:0;transition:opacity .4s}
+.pcat-icon{display:grid;place-items:center;width:2.6rem;height:2.6rem;border-radius:.6rem;color:var(--brand-green);transition:background .35s,color .35s}
+.pcat-icon svg{width:1.9rem;height:1.9rem}
+.pcat h3{margin-top:.9rem;font-family:var(--font-display);font-size:1.1rem;font-weight:700;line-height:1.2}
+.pcat-foot{margin-top:auto;padding-top:1rem;display:flex;align-items:center;justify-content:space-between;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-green);transition:color .35s}
+.pcat-arrow{display:grid;place-items:center;width:1.8rem;height:1.8rem;border-radius:999px;opacity:0;background:color-mix(in oklab,var(--card) 20%,transparent);transition:opacity .35s,transform .35s}
+.pcat-arrow svg{width:.9rem;height:.9rem}
+.pcat:hover,.pcat:focus-visible{transform:translateY(-4px);color:var(--primary-foreground);box-shadow:0 22px 36px -20px color-mix(in oklab,var(--primary) 65%,transparent)}
+.pcat:hover>img,.pcat:focus-visible>img{opacity:1;transform:scale(1)}
+.pcat:hover::after,.pcat:focus-visible::after{opacity:1}
+.pcat:hover .pcat-icon,.pcat:focus-visible .pcat-icon{background:var(--card);color:var(--brand-green)}
+.pcat:hover .pcat-foot,.pcat:focus-visible .pcat-foot{color:var(--primary-foreground)}
+.pcat:hover .pcat-arrow,.pcat:focus-visible .pcat-arrow{opacity:1;transform:translateX(2px)}
+.pcat-grid{grid-template-columns:1fr}
+@media (min-width:560px){.pcat-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.pcat-grid{grid-template-columns:repeat(3,1fr)}}
+.pcat{min-height:0;flex-direction:row;align-items:center;gap:1rem;padding:1rem 1.25rem}
+.pcat h3{margin:0;flex:1}
+.pcat-foot{margin:0;padding:0;gap:.6rem}
+.pcat-arrow{opacity:1;background:color-mix(in oklab,var(--brand-green) 12%,transparent)}
+.pcat-icon{flex:none;background:color-mix(in oklab,var(--brand-green) 10%,transparent)}
+@media (max-width:420px){.pcat-foot{font-size:0}.pcat-foot .pcat-arrow{font-size:1rem}}

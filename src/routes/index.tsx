@@ -76,7 +76,7 @@ function HomePage() {
 
     <section className="organic-catalogue"><div className="mx-auto max-w-screen-2xl px-6">
       <div className="organic-section-head"><div><p className="eyebrow">Our Products</p><h2>Products</h2></div><div><a href="/products">View all products <ArrowRight /></a></div></div>
-      <div className="crop-card-grid">{categories.map(({ Icon, ...c }) => <a key={c.href} href={c.href} className="crop-card"><img src={c.img} loading="lazy" alt="" aria-hidden="true" /><span className="crop-card-icon"><Icon strokeWidth={1.6} /></span><h3>{c.name}</h3><span className="crop-card-foot">View varieties<span className="crop-card-arrow"><ArrowRight /></span></span></a>)}</div>
+      <div className="pcat-grid">{categories.map(({ Icon, ...c }) => <a key={c.href} href={c.href} className="pcat"><img src={c.img} loading="lazy" alt="" aria-hidden="true" /><span className="pcat-icon"><Icon strokeWidth={1.6} /></span><h3>{c.name}</h3><span className="pcat-foot">View varieties<span className="pcat-arrow"><ArrowRight /></span></span></a>)}</div>
     </div></section>
 
     <section className="organic-field-note"><div className="organic-note-image"><img src={`${U}/2021/09/tips2.jpg`} loading="lazy" alt="Tip of the Day" /></div><div className="organic-note-copy"><p className="eyebrow text-accent">Tip of the Day</p><blockquote>Seed Co varieties combine high yielding ability and good agronomic traits such as drought and disease tolerance, good “standability”, stability across seasons and regions.</blockquote>
