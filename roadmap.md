@@ -3,3 +3,6 @@
 - [x] Add interactive Zambia farming-regions map (from live site SVG) with zone links
 - [x] Let inner-page paragraphs/lists span the full container width (68ch cap removed)
 - [x] Verify map + zone pages + text widths on desktop and mobile
+- [x] Recolor the whole site to the official logo palette (green #02A64D, red #EA2229, white); remove dark green
+- [ ] Port dropdown styles + menu hover effects from "Seed Co Vegetables" project (5cf3488e)
+- [ ] Verify logo-palette pages in browser (home + inner page + footer/Tip band)
