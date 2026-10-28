@@ -18,7 +18,7 @@ const categories = [
   { name: "Rice", Icon: Wheat, href: "/product_category/rice", img: `${U}/2024/04/rice-plant.webp` },
 ];
 
-const testimonials = [
+const testimonials: Array<[string, string]> = [
   ["0FTan-mW4QI", "Seed Co Farmer Testimonial Petauke"],
   ["iKrZJIIJj7g", "Seed Co Farmer Testimonial Kasama"],
   ["EltACOVd3AA", "Seed Co Zambia Chikankata Testimonial"],
