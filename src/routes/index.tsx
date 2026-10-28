@@ -86,8 +86,13 @@ function HomePage() {
     </div></section>
 
     <section className="organic-stories"><div className="mx-auto max-w-screen-2xl px-6"><div className="organic-section-head"><div><p className="eyebrow">Farmer voices</p><h2>Testimonials</h2></div><a href="/testimonial">View all testimonials <ArrowRight /></a></div>
-      <div className="tvid-grid">{testimonials.map(([id, t], i) => <article className="tvid" key={id}><div className="tvid-media"><iframe src={`https://www.youtube.com/embed/${id}`} title={t} loading="lazy" allowFullScreen /></div><div className="tvid-body"><span className="tvid-num">{String(i + 1).padStart(2, "0")}</span><p>{t}</p></div></article>)}</div>
-    </div></section>
+      <div className="tvid-grid">{testimonials.map(([id, t], i) => <article className="tvid" key={id}><button type="button" className="tvid-media" onClick={() => setActive(id)} aria-label={`Play video: ${t}`}><img className="tvid-thumb" src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`} onError={(e) => { const img = e.currentTarget; if (!img.dataset.fallback) { img.dataset.fallback = "1"; img.src = `https://i.ytimg.com/vi/${id}/mqdefault.jpg`; } }} alt="" loading="lazy" /><span className="tvid-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" /></svg></span></button><div className="tvid-body"><span className="tvid-num">{String(i + 1).padStart(2, "0")}</span><p>{t}</p></div></article>)}</div>
+    </div>
+    {active && <div className="vid-lightbox" role="dialog" aria-modal="true" aria-label="Testimonial video" onClick={() => setActive(null)}>
+      <button type="button" className="vid-lightbox-close" aria-label="Close video" onClick={() => setActive(null)}>×</button>
+      <div className="vid-lightbox-frame" onClick={(e) => e.stopPropagation()}><iframe src={`https://www.youtube.com/embed/${active}?autoplay=1&rel=0`} title="Seed Co Zambia testimonial video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen /></div>
+    </div>}
+    </section>
 
     <section className="organic-stories"><div className="mx-auto max-w-screen-2xl px-6"><div className="organic-section-head"><div><p className="eyebrow">Media</p><h2>Latest News</h2></div><a href="/news">Latest News <ArrowRight /></a></div><div className="organic-story-grid"><a href="/preparing-africas-farmers-for-the-2026-27-el-nino-season" className="organic-story-feature"><img src={`${U}/2026/07/elnino-banner.webp`} alt="El Niño" /><div><span>July 14, 2026</span><h3>Preparing Africa’s Farmers for the 2026/27 El Niño Season</h3></div></a><div className="organic-story-list"><a href="/beyond-the-fields-into-the-white-marbles-of-the-taj-mahal"><span>July 15, 2025</span><h3>Beyond the fields into the white marbles of the Taj Mahal</h3><ArrowRight /></a><a href="/successful-maize-crop-establishment-2"><span>March 2, 2023</span><h3>Successful Maize Crop Establishment</h3><ArrowRight /></a></div></div></div></section>
 
