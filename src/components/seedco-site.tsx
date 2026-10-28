@@ -31,18 +31,18 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
         <nav className="hidden items-stretch self-stretch lg:flex" aria-label="Main navigation">
           {navGroups.map((group) => (
             <div className="nav-group flex items-center" key={group.label}>
-               <Button variant="ghost" className={`h-full rounded-none px-3 font-condensed text-[15px] font-semibold ${overlay ? "text-primary-foreground hover:bg-primary-foreground/10 hover:text-accent" : "text-foreground hover:text-primary"}`}>
+               <Button variant="ghost" className={`h-full rounded-none bg-transparent px-3 font-condensed text-[15px] font-semibold hover:bg-transparent ${overlay ? "text-primary-foreground hover:text-accent" : "text-foreground hover:text-brand-red"}`}>
                 {group.label}<ChevronDown className="size-3" />
                </Button>
               <div className="nav-panel">
                 <p className="mb-3 font-condensed text-xs font-bold uppercase tracking-[0.16em] text-accent">Explore {group.label}</p>
                 <div className="grid grid-cols-2 gap-x-8 gap-y-1">
-                  {group.children.map((item) => <a key={item.href} href={item.href} className="rounded px-2 py-2 text-sm font-medium text-card-foreground transition-colors hover:bg-muted hover:text-primary">{item.label}</a>)}
+                  {group.children.map((item) => <a key={item.href} href={item.href} className="dropdown-link">{item.label}<ArrowRight /></a>)}
                 </div>
               </div>
             </div>
           ))}
-          <a href="/contact-us" className={`flex items-center px-3 font-condensed text-[15px] font-semibold transition-colors ${overlay ? "text-primary-foreground hover:text-accent" : "text-foreground hover:text-primary"}`}>Contact Us</a>
+          <a href="/contact-us" className={`flex items-center px-3 font-condensed text-[15px] font-semibold transition-colors ${overlay ? "text-primary-foreground hover:text-accent" : "text-foreground hover:text-brand-red"}`}>Contact Us</a>
         </nav>
         <div className="flex shrink-0 items-center gap-2">
           <Button asChild variant="ghost" size="icon" className={`hidden sm:inline-flex ${overlay ? "text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground" : ""}`} aria-label="Search"><a href="/products"><Search /></a></Button>
@@ -74,7 +74,7 @@ export function SiteFooter() {
           <div><Brand inverted /><h3 className="footer-title mt-6">Find us on:</h3>{socials.map(([n, h]) => <a key={n} className="footer-link" href={h} target="_blank" rel="noreferrer">{n} <ExternalLink className="inline size-3" /></a>)}</div>
           <div><h3 className="footer-title">Quick Links</h3><a className="footer-link" href={onlineShop} target="_blank" rel="noreferrer">Buy Seeds Online</a><a className="footer-link" href="/farming-regions">Learn With Seed Co</a><a className="footer-link" href="/news">News</a><a className="footer-link" href="/contact-us">Contact Us</a></div>
           <div><h3 className="footer-title">Innovations</h3><a className="footer-link" href="/service-innovations">Service Innovations</a><a className="footer-link" href="/product-innovations">Product Innovations</a></div>
-          <div><h3 className="footer-title">Become part of our mailing list</h3><a href="mailto:Zambia.seedco@seedcogroup.com" className="mt-2 inline-flex items-center gap-2 font-condensed font-semibold text-accent">Zambia.seedco@seedcogroup.com <ArrowRight className="size-4" /></a></div>
+          <div><h3 className="footer-title">Become part of our mailing list</h3><a href="mailto:Zambia.seedco@seedcogroup.com" className="mt-2 inline-flex items-center gap-2 font-condensed font-semibold text-primary-foreground">Zambia.seedco@seedcogroup.com <ArrowRight className="size-4" /></a></div>
         </div>
         <div className="flex flex-col gap-3 pt-7 text-xs text-primary-foreground/55 sm:flex-row sm:items-center sm:justify-between"><p>Copyright © 2026 Seed Co Zambia. All Rights Reserved.</p><a href="/privacy-policy" className="hover:text-primary-foreground">Privacy policy</a></div>
       </div>

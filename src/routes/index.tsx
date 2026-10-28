@@ -79,7 +79,7 @@ function HomePage() {
       <div className="pcat-grid">{categories.map(({ Icon, ...c }) => <a key={c.href} href={c.href} className="pcat"><div className="pcat-media"><img src={c.img} loading="lazy" alt={c.name} /></div><div className="pcat-body"><span className="pcat-icon"><Icon strokeWidth={1.7} /></span><h3>{c.name}</h3><span className="pcat-arrow"><ArrowRight /></span></div></a>)}</div>
     </div></section>
 
-    <section className="organic-field-note"><div className="organic-note-image"><img src={`${U}/2021/09/tips2.jpg`} loading="lazy" alt="Tip of the Day" /></div><div className="organic-note-copy"><p className="eyebrow text-accent">Tip of the Day</p><blockquote>Seed Co varieties combine high yielding ability and good agronomic traits such as drought and disease tolerance, good “standability”, stability across seasons and regions.</blockquote>
+    <section className="organic-field-note"><div className="organic-note-image"><img src={`${U}/2021/09/tips2.jpg`} loading="lazy" alt="Tip of the Day" /></div><div className="organic-note-copy"><p className="eyebrow text-primary-foreground">Tip of the Day</p><blockquote>Seed Co varieties combine high yielding ability and good agronomic traits such as drought and disease tolerance, good “standability”, stability across seasons and regions.</blockquote>
       <h3 className="mt-8 font-display text-2xl font-bold">Quick Links</h3>
       <div className="organic-resource-list"><a href={shop} target="_blank" rel="noreferrer"><ShoppingBag /><span><b>1.</b>Buy Seeds Online</span><ArrowRight /></a><a href="/learn-with-seed-co"><span><b>2.</b>Learn With Seed Co</span><ArrowRight /></a><a href="/news"><span><b>3.</b>News</span><ArrowRight /></a><a href="/contact-us"><span><b>4.</b>Contact Us</span><ArrowRight /></a></div>
     </div></section>
@@ -95,6 +95,6 @@ function HomePage() {
       <Button asChild variant="outline" className="mt-8"><a href="/media/faqs">View all FAQs <ArrowRight /></a></Button>
     </div></section>
 
-    <section className="app-band"><div className="mx-auto grid max-w-screen-2xl gap-10 px-6 py-16 md:grid-cols-[1fr_auto] md:items-center"><div><p className="eyebrow text-primary">Seedney</p><h2 className="mt-2 max-w-3xl font-display text-4xl font-extrabold leading-tight text-accent-foreground sm:text-5xl">Download Seedney, the new Seed Co Agronomy App</h2></div><Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90"><a href="/seed-co-agronomy-app"><Download />Download App</a></Button></div></section>
+    <section className="app-band"><div className="mx-auto grid max-w-screen-2xl gap-10 px-6 py-16 md:grid-cols-[1fr_auto] md:items-center"><div><p className="eyebrow text-primary-foreground">Seedney</p><h2 className="mt-2 max-w-3xl font-display text-4xl font-extrabold leading-tight text-accent-foreground sm:text-5xl">Download Seedney, the new Seed Co Agronomy App</h2></div><Button asChild size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"><a href="/seed-co-agronomy-app"><Download />Download App</a></Button></div></section>
   </PageShell>;
 }
