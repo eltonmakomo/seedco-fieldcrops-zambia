@@ -204,19 +204,19 @@
 .organic-primary-link:hover svg,.live-button{background:var(--brand-red);color:var(--primary-foreground)}
 .live-button:hover{background:color-mix(in oklab,var(--brand-red) 85%,var(--forest-shadow))}
 
-.crop-card-grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,15rem),1fr));margin-top:2.5rem}
-.crop-card{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;min-height:15rem;padding:1.75rem;border:1px solid var(--border);border-radius:1rem;background:var(--card);color:var(--foreground);transition:transform .35s,box-shadow .35s,color .35s}
-.crop-card img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .45s,transform .6s}
-.crop-card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,color-mix(in oklab,var(--primary) 70%,transparent),var(--primary));opacity:0;transition:opacity .45s}
-.crop-card-icon{display:grid;place-items:center;width:3.25rem;height:3.25rem;border-radius:.85rem;background:color-mix(in oklab,var(--brand-green,var(--primary)) 12%,transparent);color:var(--brand-green,var(--primary));transition:background .35s,color .35s}
-.crop-card-icon svg{width:1.75rem;height:1.75rem}
-.crop-card h3{margin-top:1.5rem;font-family:var(--font-display);font-size:1.4rem;font-weight:700}
-.crop-card-foot{margin-top:auto;padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-green,var(--primary));transition:color .35s}
-.crop-card-arrow{display:grid;place-items:center;width:2.25rem;height:2.25rem;border-radius:999px;background:color-mix(in oklab,currentColor 12%,transparent);transition:transform .35s}
+.crop-card-grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,16rem),1fr));margin-top:2.5rem}
+.crop-card{position:relative;display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--border);border-radius:1.25rem;background:var(--card);color:var(--foreground);transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s,border-color .4s}
+.crop-card-media{position:relative;aspect-ratio:4/3;background:radial-gradient(circle at 50% 60%,color-mix(in oklab,var(--brand-lime) 22%,var(--card)),var(--card) 70%);overflow:hidden}
+.crop-card-media img{width:100%;height:100%;object-fit:contain;padding:1rem;mix-blend-mode:multiply;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.crop-card-num{position:absolute;top:1rem;left:1rem;font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:.12em;color:var(--muted-foreground)}
+.crop-card-icon{position:absolute;right:1rem;bottom:-1.4rem;z-index:1;display:grid;place-items:center;width:3rem;height:3rem;border-radius:.9rem;background:var(--brand-green);color:var(--primary-foreground);box-shadow:0 10px 20px -10px var(--brand-green);transition:transform .4s,background .4s}
+.crop-card-icon svg{width:1.5rem;height:1.5rem}
+.crop-card-body{display:flex;flex-direction:column;flex:1;padding:1.5rem 1.5rem 1.25rem;border-top:1px solid var(--border)}
+.crop-card h3{font-family:var(--font-display);font-size:1.35rem;font-weight:700;color:var(--primary)}
+.crop-card-foot{margin-top:1rem;display:flex;align-items:center;justify-content:space-between;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-green)}
+.crop-card-arrow{display:grid;place-items:center;width:2.25rem;height:2.25rem;border-radius:999px;border:1px solid var(--border);color:var(--primary);transition:background .35s,color .35s,transform .35s,border-color .35s}
 .crop-card-arrow svg{width:1rem;height:1rem}
-.crop-card:hover,.crop-card:focus-visible{transform:translateY(-4px);box-shadow:0 24px 40px -24px color-mix(in oklab,var(--primary) 60%,transparent);color:var(--primary-foreground)}
-.crop-card:hover img,.crop-card:focus-visible img{opacity:1;transform:scale(1)}
-.crop-card:hover::after,.crop-card:focus-visible::after{opacity:1}
-.crop-card:hover .crop-card-icon,.crop-card:focus-visible .crop-card-icon{background:var(--card);color:var(--primary)}
-.crop-card:hover .crop-card-foot,.crop-card:focus-visible .crop-card-foot{color:var(--primary-foreground)}
-.crop-card:hover .crop-card-arrow{transform:translateX(4px)}
+.crop-card:hover,.crop-card:focus-visible{transform:translateY(-6px);border-color:color-mix(in oklab,var(--brand-green) 40%,var(--border));box-shadow:0 30px 50px -30px color-mix(in oklab,var(--primary) 55%,transparent)}
+.crop-card:hover .crop-card-media img{transform:scale(1.08) rotate(-2deg)}
+.crop-card:hover .crop-card-icon{transform:rotate(-8deg) scale(1.05);background:var(--primary)}
+.crop-card:hover .crop-card-arrow{background:var(--brand-red);border-color:var(--brand-red);color:var(--primary-foreground);transform:translateX(3px)}
