@@ -215,6 +215,15 @@
 .regions-map-link{margin-top:1.5rem;width:100%;white-space:normal;height:auto;min-height:2.75rem}
 @media(max-width:760px){.zambia-regions-map{grid-template-columns:minmax(0,1fr)}.regions-map-list{border-left:0;padding-left:0}.regions-map-options{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:1rem}.regions-map-title{font-size:1.25rem}.regions-map-link{width:fit-content}}
 
+/* Our Story: Africa footprint map (reuses the regions-map list styles) */
+.africa-footprint-map{margin-top:var(--head-gap);display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,.45fr);gap:var(--head-gap);align-items:center;width:100%;max-width:none}
+.africa-footprint-map .regions-map-canvas{min-width:0}
+.africa-footprint-map path{fill:var(--secondary);stroke:var(--card);stroke-width:.6;stroke-linejoin:round;transition:fill .2s ease}
+.africa-footprint-map path.fp{fill:color-mix(in oklab,var(--brand-green) 30%,var(--secondary));cursor:pointer}
+.africa-footprint-map path.fp[data-active="true"]{fill:var(--brand-green)}
+.africa-footprint-map path.fp:focus-visible{outline:2px solid var(--brand-red)}
+@media(max-width:760px){.africa-footprint-map{grid-template-columns:minmax(0,1fr)}.africa-footprint-map .regions-map-list{border-left:0;padding-left:0}}
+
 /* Fresh-green identifiers and red actions from the logo palette. */
 .organic-note-copy .eyebrow,.app-band .eyebrow{color:var(--primary-foreground)}
 .eyebrow{color:var(--brand-green)}
