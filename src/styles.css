@@ -219,3 +219,4 @@
 .pcat:hover .pcat-media img{transform:scale(1.07)}
 .pcat:hover .pcat-arrow{background:var(--brand-green);border-color:var(--brand-green);color:var(--primary-foreground);transform:translateX(2px)}
 @media (max-width:480px){.pcat-body{padding:.65rem .75rem;gap:.5rem}.pcat-icon{display:none}.pcat h3{font-size:.9rem}}
+@media (min-width:900px){.pcat-media{aspect-ratio:2/1}}
