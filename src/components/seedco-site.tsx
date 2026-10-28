@@ -74,7 +74,7 @@ export function SiteFooter() {
           <div><Brand inverted /><h3 className="footer-title mt-6">Find us on:</h3>{socials.map(([n, h]) => <a key={n} className="footer-link" href={h} target="_blank" rel="noreferrer">{n} <ExternalLink className="inline size-3" /></a>)}</div>
           <div><h3 className="footer-title">Quick Links</h3><a className="footer-link" href={onlineShop} target="_blank" rel="noreferrer">Buy Seeds Online</a><a className="footer-link" href="/farming-regions">Learn With Seed Co</a><a className="footer-link" href="/news">News</a><a className="footer-link" href="/contact-us">Contact Us</a></div>
           <div><h3 className="footer-title">Innovations</h3><a className="footer-link" href="/service-innovations">Service Innovations</a><a className="footer-link" href="/product-innovations">Product Innovations</a></div>
-          <div><h3 className="footer-title">Become part of our mailing list</h3><a href="mailto:Zambia.seedco@seedcogroup.com" className="mt-2 inline-flex items-center gap-2 font-condensed font-semibold text-accent">Zambia.seedco@seedcogroup.com <ArrowRight className="size-4" /></a></div>
+          <div><h3 className="footer-title">Become part of our mailing list</h3><a href="mailto:Zambia.seedco@seedcogroup.com" className="mt-2 inline-flex items-center gap-2 font-condensed font-semibold text-primary-foreground">Zambia.seedco@seedcogroup.com <ArrowRight className="size-4" /></a></div>
         </div>
         <div className="flex flex-col gap-3 pt-7 text-xs text-primary-foreground/55 sm:flex-row sm:items-center sm:justify-between"><p>Copyright © 2026 Seed Co Zambia. All Rights Reserved.</p><a href="/privacy-policy" className="hover:text-primary-foreground">Privacy policy</a></div>
       </div>
