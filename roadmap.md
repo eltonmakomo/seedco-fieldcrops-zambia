@@ -1,8 +1,8 @@
 # Roadmap
 
-- [ ] Refresh inside-page presentation without changing live content
-- [ ] Add sticky sibling menus and stronger dropdown blur
-- [ ] Verify inside pages and navigation at desktop and smaller widths
+- [x] Refresh inside-page presentation without changing live content
+- [x] Add sticky sibling menus and stronger dropdown blur
+- [x] Verify inside pages and navigation at desktop and smaller widths
 
 - [x] Add interactive Zambia farming-regions map (from live site SVG) with zone links
 - [x] Let inner-page paragraphs/lists span the full container width (68ch cap removed)
