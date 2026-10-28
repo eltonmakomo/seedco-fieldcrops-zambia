@@ -203,3 +203,20 @@
 .organic-primary-link svg{border-color:var(--brand-red)}
 .organic-primary-link:hover svg,.live-button{background:var(--brand-red);color:var(--primary-foreground)}
 .live-button:hover{background:color-mix(in oklab,var(--brand-red) 85%,var(--forest-shadow))}
+
+.crop-card-grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,15rem),1fr));margin-top:2.5rem}
+.crop-card{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;min-height:15rem;padding:1.75rem;border:1px solid var(--border);border-radius:1rem;background:var(--card);color:var(--foreground);transition:transform .35s,box-shadow .35s,color .35s}
+.crop-card img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .45s,transform .6s}
+.crop-card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,color-mix(in oklab,var(--primary) 70%,transparent),var(--primary));opacity:0;transition:opacity .45s}
+.crop-card-icon{display:grid;place-items:center;width:3.25rem;height:3.25rem;border-radius:.85rem;background:color-mix(in oklab,var(--brand-green,var(--primary)) 12%,transparent);color:var(--brand-green,var(--primary));transition:background .35s,color .35s}
+.crop-card-icon svg{width:1.75rem;height:1.75rem}
+.crop-card h3{margin-top:1.5rem;font-family:var(--font-display);font-size:1.4rem;font-weight:700}
+.crop-card-foot{margin-top:auto;padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-green,var(--primary));transition:color .35s}
+.crop-card-arrow{display:grid;place-items:center;width:2.25rem;height:2.25rem;border-radius:999px;background:color-mix(in oklab,currentColor 12%,transparent);transition:transform .35s}
+.crop-card-arrow svg{width:1rem;height:1rem}
+.crop-card:hover,.crop-card:focus-visible{transform:translateY(-4px);box-shadow:0 24px 40px -24px color-mix(in oklab,var(--primary) 60%,transparent);color:var(--primary-foreground)}
+.crop-card:hover img,.crop-card:focus-visible img{opacity:1;transform:scale(1)}
+.crop-card:hover::after,.crop-card:focus-visible::after{opacity:1}
+.crop-card:hover .crop-card-icon,.crop-card:focus-visible .crop-card-icon{background:var(--card);color:var(--primary)}
+.crop-card:hover .crop-card-foot,.crop-card:focus-visible .crop-card-foot{color:var(--primary-foreground)}
+.crop-card:hover .crop-card-arrow{transform:translateX(4px)}
