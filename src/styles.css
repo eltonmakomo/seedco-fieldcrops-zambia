@@ -222,3 +222,12 @@
 .crop-card:hover .crop-card-icon,.crop-card:focus-visible .crop-card-icon{background:var(--card);color:var(--brand-green)}
 .crop-card:hover .crop-card-foot,.crop-card:focus-visible .crop-card-foot{color:var(--primary-foreground)}
 .crop-card:hover .crop-card-arrow,.crop-card:focus-visible .crop-card-arrow{opacity:1;transform:translateX(2px)}
+.crop-card-grid{grid-template-columns:1fr}
+@media (min-width:560px){.crop-card-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.crop-card-grid{grid-template-columns:repeat(3,1fr)}}
+.crop-card{min-height:0;flex-direction:row;align-items:center;gap:1rem;padding:1rem 1.25rem}
+.crop-card h3{margin:0;flex:1}
+.crop-card-foot{margin:0;padding:0;gap:.6rem}
+.crop-card-arrow{opacity:1;background:color-mix(in oklab,var(--brand-green) 12%,transparent)}
+.crop-card-icon{flex:none;background:color-mix(in oklab,var(--brand-green) 10%,transparent)}
+@media (max-width:420px){.crop-card-foot{font-size:0}.crop-card-foot .crop-card-arrow{font-size:1rem}}
