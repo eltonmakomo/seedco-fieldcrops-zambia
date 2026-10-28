@@ -222,6 +222,8 @@
 @media (min-width:900px){.pcat-media{aspect-ratio:2/1}}
 /* consistent home section rhythm */
 .organic-journey,.organic-catalogue,.organic-stories{padding:clamp(3.5rem,7vw,6rem) 0}
+.organic-journey{padding-bottom:clamp(1.5rem,2.5vw,2.25rem)}
+.organic-catalogue{padding-top:clamp(1.75rem,3vw,2.75rem)}
 .organic-journey .grid{align-items:center}
 .organic-journey-copy{padding-top:0;padding-bottom:0}
 .organic-section-head{margin-bottom:2.5rem;gap:1.5rem;align-items:end}
