@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import liveContent from "@/lib/live-content.json";
+import { AfricaFootprintMap } from "@/components/africa-footprint-map";
 
 export type LiveBlock =
   | { t: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "li"; text: string }
@@ -9,6 +10,10 @@ export type LiveBlock =
 export type LivePageData = { title: string; blocks: LiveBlock[] };
 
 const live = liveContent as unknown as Record<string, LivePageData>;
+
+/** Countries listed verbatim on the live "Our Story" page ("Our proud African footprint"). */
+const FOOTPRINT_COUNTRIES = ["Zambia", "South Africa", "Tanzania", "Nigeria", "Botswana", "Rwanda", "Malawi", "Congo", "Mozambique", "Kenya", "Ghana", "Zimbabwe"];
+const FOOTPRINT_MARKER = "\u2063africa-footprint-map\u2063";
 
 export function getLivePage(path: string): LivePageData | undefined {
   return live[path.replace(/^\/+|\/+$/g, "")];
@@ -119,11 +124,23 @@ function BlockView({ block }: { block: LiveBlock }) {
   }
 }
 
-export function LiveContent({ page }: { page: LivePageData }) {
+export function LiveContent({ page, footprint = false }: { page: LivePageData; footprint?: boolean }) {
+  // On the Our Story page the plain country list becomes the interactive
+  // Africa footprint map; the same country names render as the map's side list.
+  const blocks: LiveBlock[] = [];
+  let placed = false;
+  for (const b of page.blocks) {
+    if (footprint && b.t === "li" && FOOTPRINT_COUNTRIES.includes(b.text)) {
+      if (!placed) { blocks.push({ t: "p", text: FOOTPRINT_MARKER }); placed = true; }
+      continue;
+    }
+    blocks.push(b);
+  }
   return (
     <div className="live-content">
-      {segment(page.blocks).map((s, i) =>
-        s.kind === "list" ? <ul key={i} className="live-list">{s.items.map((t, k) => <li key={k}>{t}</li>)}</ul>
+      {segment(blocks).map((s, i) =>
+        s.kind === "block" && s.block.t === "p" && s.block.text === FOOTPRINT_MARKER ? <AfricaFootprintMap key={i} />
+        : s.kind === "list" ? <ul key={i} className="live-list">{s.items.map((t, k) => <li key={k}>{t}</li>)}</ul>
         : s.kind === "cards" ? <div key={i} className="live-cards">{s.cards.map((c, k) => <CardView key={k} card={c} />)}</div>
         : <BlockView key={i} block={s.block} />,
       )}
