@@ -227,5 +227,7 @@
 .organic-section-head{margin-bottom:2.5rem;gap:1.5rem;align-items:end}
 .organic-section-head h2{margin-top:.5rem}
 .organic-field-note{min-height:0}
+.organic-journey-visual{min-height:0}
+.organic-journey-copy{padding-top:0;padding-bottom:0}
 .organic-note-image{margin:clamp(2rem,5vw,4rem) 0 clamp(2rem,5vw,4rem) clamp(1.5rem,4vw,4rem)}
 .pcat-grid{margin-top:0}
