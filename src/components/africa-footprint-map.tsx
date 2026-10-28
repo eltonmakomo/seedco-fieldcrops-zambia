@@ -16,7 +16,7 @@ const countries = [
  * country in the list or on the map highlights it in both places.
  */
 export function AfricaFootprintMap() {
-  const [selected, setSelected] = useState(countries[0].name);
+  const [selected, setSelected] = useState("Zambia");
   const [hovered, setHovered] = useState<string | null>(null);
   const highlighted = hovered ?? selected;
   const svg = countries.reduce((markup, c) => markup.replace(
