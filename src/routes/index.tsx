@@ -43,6 +43,14 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
+  const [active, setActive] = useState<string | null>(null);
+  useEffect(() => {
+    if (!active) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setActive(null); };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => { document.removeEventListener("keydown", onKey); document.body.style.overflow = ""; };
+  }, [active]);
   return <PageShell>
     <section className="organic-hero">
       <div className="organic-hero-grid mx-auto max-w-screen-2xl px-6">
