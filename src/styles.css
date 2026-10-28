@@ -220,3 +220,12 @@
 .pcat:hover .pcat-arrow{background:var(--brand-green);border-color:var(--brand-green);color:var(--primary-foreground);transform:translateX(2px)}
 @media (max-width:480px){.pcat-body{padding:.65rem .75rem;gap:.5rem}.pcat-icon{display:none}.pcat h3{font-size:.9rem}}
 @media (min-width:900px){.pcat-media{aspect-ratio:2/1}}
+/* consistent home section rhythm */
+.organic-journey,.organic-catalogue,.organic-stories{padding:clamp(3.5rem,7vw,6rem) 0}
+.organic-journey .grid{align-items:center}
+.organic-journey-copy{padding-top:0;padding-bottom:0}
+.organic-section-head{margin-bottom:2.5rem;gap:1.5rem;align-items:end}
+.organic-section-head h2{margin-top:.5rem}
+.organic-field-note{min-height:0}
+.organic-note-image{margin:clamp(2rem,5vw,4rem) 0 clamp(2rem,5vw,4rem) clamp(1.5rem,4vw,4rem)}
+.pcat-grid{margin-top:0}
