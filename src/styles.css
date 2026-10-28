@@ -232,3 +232,20 @@
 .organic-journey-visual{min-height:0}
 .organic-note-image{margin:clamp(2rem,5vw,4rem) 0 clamp(2rem,5vw,4rem) clamp(1.5rem,4vw,4rem)}
 .pcat-grid{margin-top:0}
+
+/* unified spacing scale */
+:root{--section-y:clamp(3rem,6vw,5rem);--head-gap:clamp(1.75rem,3vw,2.5rem);--stack:1.25rem}
+.organic-hero{padding:clamp(2rem,4vw,3.5rem) 0 var(--section-y)}
+.organic-journey,.organic-catalogue,.organic-stories,.organic-innovation,.section-y{padding:var(--section-y) 0}
+.organic-section-head{margin-bottom:var(--head-gap)}
+.organic-note-copy{padding:var(--section-y) clamp(1.5rem,5vw,5rem)}
+.organic-note-image{margin:var(--section-y) 0 var(--section-y) clamp(1.5rem,4vw,4rem)}
+.organic-note-copy blockquote{margin:var(--stack) 0}
+.organic-note-copy>a,.organic-resource-list{margin-top:calc(var(--stack)*1.5)}
+.organic-story-grid{gap:var(--head-gap)}
+.organic-hero-grid{gap:var(--head-gap) clamp(2rem,5vw,4rem)}
+.organic-crop-index{margin-top:var(--head-gap)}
+.live-content{gap:var(--stack)}
+.live-cards{gap:var(--stack);margin:0}
+.live-h2,.live-h3{margin-top:calc(var(--stack)*.75)}
+@media(max-width:640px){.organic-note-image{margin:1.5rem 1.5rem 0}.organic-story-list a{padding:var(--stack) 0}}

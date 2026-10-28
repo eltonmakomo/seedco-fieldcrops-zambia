@@ -69,7 +69,7 @@ const socials = [
 export function SiteFooter() {
   return (
     <footer className="relative mt-auto overflow-hidden bg-primary text-primary-foreground">
-      <div className="mx-auto max-w-screen-2xl px-6 pb-8 pt-20">
+      <div className="mx-auto max-w-screen-2xl px-6 pb-8 pt-16">
         <div className="grid gap-10 border-b border-primary-foreground/15 pb-12 md:grid-cols-2 lg:grid-cols-4">
           <div><Brand inverted /><h3 className="footer-title mt-6">Find us on:</h3>{socials.map(([n, h]) => <a key={n} className="footer-link" href={h} target="_blank" rel="noreferrer">{n} <ExternalLink className="inline size-3" /></a>)}</div>
           <div><h3 className="footer-title">Quick Links</h3><a className="footer-link" href={onlineShop} target="_blank" rel="noreferrer">Buy Seeds Online</a><a className="footer-link" href="/farming-regions">Learn With Seed Co</a><a className="footer-link" href="/news">News</a><a className="footer-link" href="/contact-us">Contact Us</a></div>
