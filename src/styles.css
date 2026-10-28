@@ -198,7 +198,7 @@
 
 /* Interactive Zambia farming-regions map */
 .zambia-regions-map{margin-top:var(--head-gap);display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,.45fr);gap:var(--head-gap);align-items:center;width:100%;max-width:none}
-.zambia-regions-map svg{display:block;width:100%;height:auto}
+.regions-map-canvas>svg{display:block;width:100%;height:auto}
 .zambia-regions-map a{cursor:pointer}
 .regions-map-canvas{min-width:0}
 .regions-map-canvas a :is(.cls-1,.cls-2,.cls-3,.cls-4){fill:var(--border);transition:fill .2s ease}
@@ -208,7 +208,7 @@
 .regions-map-title{font-family:var(--font-display);font-size:1.4rem;font-weight:700;line-height:1.4;margin:.5rem 0 1.5rem;color:var(--foreground)}
 .regions-map-options{display:grid;border-top:1px solid var(--border)}
 .regions-map-option{display:flex;justify-content:flex-start;gap:1rem;width:100%;height:3.75rem;padding:.75rem;border-radius:0;border-bottom:1px solid var(--border);font-family:var(--font-condensed);font-size:1.1rem;color:var(--foreground)}
-.regions-map-option svg{margin-left:auto;color:var(--muted-foreground)}
+.regions-map-option svg{margin-left:auto;width:1rem;height:1rem;flex:none;color:var(--muted-foreground)}
 .regions-map-option.is-active,.regions-map-option:hover{background:var(--secondary);color:var(--foreground)}
 .regions-map-option.is-active svg{color:var(--brand-red)}
 .regions-map-number{color:var(--primary);font-size:.8rem}
