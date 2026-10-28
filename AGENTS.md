@@ -9,3 +9,4 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 - Inner pages render verbatim live-site content from `src/lib/live-content.json` (scraped blocks keyed by path) via `src/components/live-page.tsx`; unknown paths 404. Why: the site must mirror the live Field Crops content exactly; swap the JSON to adapt to another country.
+- Inner-page sibling navigation is derived from shared navGroups and sticks below the header; use a horizontal strip on smaller screens. Why: country navigation remains reusable without duplicating links.
