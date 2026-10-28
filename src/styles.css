@@ -274,9 +274,9 @@ body{background:
   var(--background);background-attachment:fixed}
 .organic-journey,.organic-stories,.section-y,.organic-hero{background:transparent}
 .organic-catalogue{background:color-mix(in oklab,var(--secondary) 70%,transparent)}
-.pcat,.live-card,.tvid-body,[data-slot="accordion-item"]{background:var(--glass-bg);backdrop-filter:var(--glass-blur);border-color:var(--glass-border)}
+.pcat,.live-card,.tvid-body,.glass-item{background:var(--glass-bg);backdrop-filter:var(--glass-blur);border-color:var(--glass-border)}
 .pcat-media{background:transparent}
-[data-slot="accordion-item"]{padding:0 1.25rem;margin-bottom:.6rem;border:1px solid var(--glass-border);border-radius:1rem}
+.glass-item{padding:0 1.25rem;margin-bottom:.6rem;border:1px solid var(--glass-border);border-radius:1rem}
 .organic-story-list a{padding-inline:1rem;border-radius:.9rem;transition:background .3s,backdrop-filter .3s}
 .organic-story-list a:hover{background:var(--glass-bg);backdrop-filter:var(--glass-blur)}
 .organic-story-feature div{padding:1.25rem 1.5rem;border-radius:1.25rem;background:color-mix(in oklab,var(--forest-shadow) 35%,transparent);backdrop-filter:blur(14px);border:1px solid color-mix(in oklab,var(--primary-foreground) 22%,transparent)}
