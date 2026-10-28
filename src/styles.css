@@ -15,13 +15,23 @@
 
 :root {
   --radius: .5rem;
-  --background: oklch(.975 .012 94); --foreground: oklch(.2 .045 145); --card: oklch(1 0 0); --card-foreground: oklch(.2 .045 145);
-  --popover: oklch(1 0 0); --popover-foreground: oklch(.2 .045 145); --primary: oklch(.39 .12 145); --primary-foreground: oklch(.985 .006 94);
-  --secondary: oklch(.94 .025 102); --secondary-foreground: oklch(.31 .085 145); --muted: oklch(.94 .018 100); --muted-foreground: oklch(.48 .03 145);
-  --accent: oklch(.82 .15 88); --accent-foreground: oklch(.22 .055 145); --destructive: oklch(.58 .22 28); --destructive-foreground: oklch(.985 .006 94);
-  --border: oklch(.86 .025 105); --input: oklch(.86 .025 105); --ring: oklch(.55 .15 145);
-  --surface-pure: oklch(1 0 0); --forest-shadow: oklch(.18 .065 150); --shadow-soft: 0 18px 50px color-mix(in oklab, var(--forest-shadow) 14%, transparent); --line-faint: color-mix(in oklab,var(--primary) 14%,transparent);
+  /* Palette shared with the Seed Co Vegetables reference design. */
+  --brand-green: #009f4f; --brand-red: #ed1c24; --brand-lime: #8cc63f;
+  --background: #f6f7f1; --foreground: #1d302a; --card: #ffffff; --card-foreground: #1d302a;
+  --popover: #ffffff; --popover-foreground: #1d302a; --primary: #113a2e; --primary-foreground: #ffffff;
+  --secondary: #dcebd9; --secondary-foreground: #113a2e; --muted: #eaf3e7; --muted-foreground: #67736c;
+  --accent: #8cc63f; --accent-foreground: #113a2e; --destructive: #ed1c24; --destructive-foreground: #ffffff;
+  --border: #dcebd9; --input: #dcebd9; --ring: #009f4f;
+  --surface-pure: #ffffff; --forest-shadow: #092f26; --shadow-soft: 0 18px 50px color-mix(in oklab, var(--forest-shadow) 14%, transparent); --line-faint: color-mix(in oklab,var(--primary) 14%,transparent);
 }
+
+/* Fresh-green identifiers and red actions, without changing the page layout. */
+.eyebrow{color:var(--brand-green)}
+.organic-hero-copy h1 em,.organic-section-head h2 em,.organic-journey h2 em,.organic-innovation h2 em,.organic-stories h2 em{color:var(--brand-green)}
+.organic-primary-link,.card-link{color:var(--brand-red)}
+.organic-primary-link svg{border-color:var(--brand-red)}
+.organic-primary-link:hover svg,.live-button{background:var(--brand-red);color:var(--primary-foreground)}
+.live-button:hover{background:color-mix(in oklab,var(--brand-red) 85%,var(--forest-shadow))}
 
 @layer base {
   * { border-color: var(--color-border); }
