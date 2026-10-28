@@ -220,3 +220,13 @@
 .crop-card:hover .crop-card-media img{transform:scale(1.08) rotate(-2deg)}
 .crop-card:hover .crop-card-icon{transform:rotate(-8deg) scale(1.05);background:var(--primary)}
 .crop-card:hover .crop-card-arrow{background:var(--brand-red);border-color:var(--brand-red);color:var(--primary-foreground);transform:translateX(3px)}
+.crop-card-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,11rem),1fr));gap:1rem}
+.crop-card-media{aspect-ratio:16/11}
+.crop-card-media img{padding:.6rem}
+.crop-card-body{padding:1.1rem 1rem .9rem}
+.crop-card h3{font-size:1.05rem}
+.crop-card-foot{margin-top:.6rem;font-size:.65rem}
+.crop-card-arrow{width:1.85rem;height:1.85rem}
+.crop-card-icon{width:2.4rem;height:2.4rem;bottom:-1.2rem;border-radius:.7rem}
+.crop-card-icon svg{width:1.2rem;height:1.2rem}
+@media (min-width:1024px){.crop-card-grid{grid-template-columns:repeat(6,1fr)}}
