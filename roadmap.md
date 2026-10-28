@@ -11,4 +11,4 @@
 - [x] Port dropdown styles + menu hover effects from "Seed Co Vegetables" project (5cf3488e)
 - [x] Verify logo-palette pages in browser (home + inner page + footer/Tip band)
 - [x] Pair farming-regions map with synchronized selectable zone list
-- [ ] Verify map highlighting, zone navigation and smaller-screen layout
+- [x] Verify map highlighting, zone navigation and smaller-screen layout
