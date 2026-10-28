@@ -31,7 +31,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
         <nav className="hidden items-stretch self-stretch lg:flex" aria-label="Main navigation">
           {navGroups.map((group) => (
             <div className="nav-group flex items-center" key={group.label}>
-               <Button variant="ghost" className={`h-full rounded-none px-3 font-condensed text-[15px] font-semibold ${overlay ? "text-primary-foreground hover:bg-primary-foreground/10 hover:text-accent" : "text-foreground hover:text-brand-red"}`}>
+               <Button variant="ghost" className={`h-full rounded-none bg-transparent px-3 font-condensed text-[15px] font-semibold hover:bg-transparent ${overlay ? "text-primary-foreground hover:text-accent" : "text-foreground hover:text-brand-red"}`}>
                 {group.label}<ChevronDown className="size-3" />
                </Button>
               <div className="nav-panel">
