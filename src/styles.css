@@ -195,6 +195,10 @@
 .live-media,.live-media img{background:var(--surface-pure)}
 .live-media img{object-fit:contain}
 .live-card-photo .live-media img{object-fit:cover}
+.live-card-portrait .live-media{aspect-ratio:5/3;background:var(--surface-pure)}
+.live-card-portrait .live-media img{object-position:center top}
+.live-card-portrait .live-media-extended-portrait img{height:auto;display:block}
+.live-card-portrait.live-card-link:hover .live-media img{transform:none}
 
 
 /* Interactive Zambia farming-regions map */

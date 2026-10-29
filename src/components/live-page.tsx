@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import liveContent from "@/lib/live-content.json";
-import { teamPhoto } from "@/lib/team-photos";
+import { isExtendedTeamPhoto, teamPhoto } from "@/lib/team-photos";
 import { AfricaFootprintMap } from "@/components/africa-footprint-map";
 
 export type LiveBlock =
@@ -84,19 +84,20 @@ function segment(blocks: LiveBlock[]): Segment[] {
   return segs;
 }
 
-function CardView({ card }: { card: Card }) {
+function CardView({ card, team = false }: { card: Card; team?: boolean }) {
   const links = card.items.filter((x): x is Extract<LiveBlock, { t: "link" }> => x.t === "link" && !isContact(x));
   const main = links[0];
   const caption = card.items.find((x) => x.t === "p");
   const isArticle = card.items.some((x) => x.t === "link" && !isContact(x) && CTA.test(x.text.trim()));
-  const cardClass = isArticle ? "live-card live-card-photo" : "live-card";
+  const isPortrait = Boolean(card.img && (team || isExtendedTeamPhoto(card.img)));
+  const cardClass = isArticle ? "live-card live-card-photo" : isPortrait ? "live-card live-card-portrait" : "live-card";
   const videoTitle = caption && caption.t === "p" ? caption.text : "Seed Co video";
   const body = (
     <>
       {card.video ? (
         <div className="live-media live-media-video"><iframe src={`https://www.youtube.com/embed/${card.video}`} title={videoTitle} loading="lazy" allowFullScreen /></div>
       ) : card.img ? (
-        <div className="live-media"><img src={teamPhoto(card.img)} alt={card.alt || main?.text || ""} loading="lazy" /></div>
+        <div className={`live-media${isExtendedTeamPhoto(card.img) ? " live-media-extended-portrait" : ""}`}><img src={teamPhoto(card.img)} alt={card.alt || main?.text || ""} loading="lazy" /></div>
       ) : null}
       <div className="live-card-copy">
         {card.items.map((x, k) => {
@@ -125,7 +126,7 @@ function BlockView({ block }: { block: LiveBlock }) {
   }
 }
 
-export function LiveContent({ page, footprint = false }: { page: LivePageData; footprint?: boolean }) {
+export function LiveContent({ page, footprint = false, team = false }: { page: LivePageData; footprint?: boolean; team?: boolean }) {
   // On the Our Story page the plain country list becomes the interactive
   // Africa footprint map; the same country names render as the map's side list.
   const blocks: LiveBlock[] = [];
@@ -142,7 +143,7 @@ export function LiveContent({ page, footprint = false }: { page: LivePageData; f
       {segment(blocks).map((s, i) =>
         s.kind === "block" && s.block.t === "p" && s.block.text === FOOTPRINT_MARKER ? <AfricaFootprintMap key={i} />
         : s.kind === "list" ? <ul key={i} className="live-list">{s.items.map((t, k) => <li key={k}>{t}</li>)}</ul>
-        : s.kind === "cards" ? <div key={i} className="live-cards">{s.cards.map((c, k) => <CardView key={k} card={c} />)}</div>
+        : s.kind === "cards" ? <div key={i} className="live-cards">{s.cards.map((c, k) => <CardView key={k} card={c} team={team} />)}</div>
         : <BlockView key={i} block={s.block} />,
       )}
     </div>
