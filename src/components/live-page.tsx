@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import liveContent from "@/lib/live-content.json";
+import { teamPhoto } from "@/lib/team-photos";
 import { AfricaFootprintMap } from "@/components/africa-footprint-map";
 
 export type LiveBlock =
@@ -95,7 +96,7 @@ function CardView({ card }: { card: Card }) {
       {card.video ? (
         <div className="live-media live-media-video"><iframe src={`https://www.youtube.com/embed/${card.video}`} title={videoTitle} loading="lazy" allowFullScreen /></div>
       ) : card.img ? (
-        <div className="live-media"><img src={card.img} alt={card.alt || main?.text || ""} loading="lazy" /></div>
+        <div className="live-media"><img src={teamPhoto(card.img)} alt={card.alt || main?.text || ""} loading="lazy" /></div>
       ) : null}
       <div className="live-card-copy">
         {card.items.map((x, k) => {
