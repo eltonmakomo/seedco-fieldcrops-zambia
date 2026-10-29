@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Restyle Vision, Mission, Brands and Values as balanced cards and verify desktop/mobile
+- [x] Restyle Vision, Mission, Brands and Values as balanced cards and verify desktop/mobile
 
 - [x] Refresh inside-page presentation without changing live content
 - [x] Add sticky sibling menus and stronger dropdown blur
