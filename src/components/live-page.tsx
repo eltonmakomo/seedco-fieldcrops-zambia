@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Eye, Sprout, Wheat, HeartHandshake, Users, Handshake, CircleCheck, Award, ShieldCheck, Lightbulb } from "lucide-react";
 import liveContent from "@/lib/live-content.json";
 import { isExtendedTeamPhoto, teamPhoto } from "@/lib/team-photos";
 import { AfricaFootprintMap } from "@/components/africa-footprint-map";
@@ -31,7 +31,29 @@ function SmartLink({ href, className, children }: { href: string; className?: st
 }
 
 type Card = { img?: string; alt: string; video?: string; items: LiveBlock[] };
-type Segment = { kind: "cards"; cards: Card[] } | { kind: "list"; items: string[] } | { kind: "block"; block: LiveBlock };
+type Statement = { title: string; items: string[] };
+type Segment = { kind: "cards"; cards: Card[] } | { kind: "statements"; statements: Statement[] } | { kind: "values"; title: string; items: string[] } | { kind: "list"; items: string[] } | { kind: "block"; block: LiveBlock };
+
+const statementIcons = [Eye, Sprout, Wheat];
+const valueIcons = [HeartHandshake, Users, Handshake, CircleCheck, Award, ShieldCheck, Lightbulb];
+
+function StatementCards({ statements }: { statements: Statement[] }) {
+  return <div className="company-statement-grid">{statements.map((statement, index) => {
+    const Icon = statementIcons[index % statementIcons.length] ?? Sprout;
+    return <article className="company-statement-card" key={statement.title}>
+      <div className="company-card-top"><span className="company-card-icon"><Icon aria-hidden="true" /></span><span className="company-card-index" aria-hidden="true">0{index + 1}</span></div>
+      <h3>{statement.title}</h3>{statement.items.map((text, i) => <p key={i}>{text}</p>)}
+    </article>;
+  })}</div>;
+}
+
+function ValueCards({ title, items }: { title: string; items: string[] }) {
+  return <section className="company-values" aria-label={title}><h3 className="company-values-title">{title}</h3><div className="company-value-grid">{items.map((text, index) => {
+    const Icon = valueIcons[index % valueIcons.length] ?? Sprout;
+    const separator = text.indexOf(":");
+    return <article className="company-value-card" key={text}><span className="company-card-icon"><Icon aria-hidden="true" /></span><div>{separator < 0 ? <p>{text}</p> : <><h4>{text.slice(0, separator)}:</h4><p>{text.slice(separator + 1)}</p></>}</div></article>;
+  })}</div></section>;
+}
 
 const CTA = /^(buy\s+now|read\s+more|find\s+out\s+more|apply|learn\s+more|download|view|more)/i;
 
@@ -51,6 +73,26 @@ function segment(blocks: LiveBlock[]): Segment[] {
   while (i < blocks.length) {
     const b = at(i);
     if (!b) break;
+    if (b.t === "h4" && ["Our Vision", "Our Mission", "Our Brands"].includes(b.text)) {
+      const statements: Statement[] = [];
+      while (i < blocks.length) {
+        const heading = at(i);
+        if (heading?.t !== "h4" || !["Our Vision", "Our Mission", "Our Brands"].includes(heading.text)) break;
+        i++;
+        const items: string[] = [];
+        while (at(i)?.t === "p") { const paragraph = at(i); if (paragraph?.t === "p") items.push(paragraph.text); i++; }
+        statements.push({ title: heading.text, items });
+      }
+      segs.push({ kind: "statements", statements });
+      continue;
+    }
+    if (b.t === "h4" && b.text === "Seed Co Values") {
+      i++;
+      const items: string[] = [];
+      while (at(i)?.t === "li") { const item = at(i); if (item?.t === "li") items.push(item.text); i++; }
+      segs.push({ kind: "values", title: b.text, items });
+      continue;
+    }
     if (b.t === "li") {
       const items: string[] = [];
       for (let x = at(i); x && x.t === "li"; x = at(++i)) items.push(x.text);
@@ -141,7 +183,9 @@ export function LiveContent({ page, footprint = false, team = false }: { page: L
   return (
     <div className="live-content">
       {segment(blocks).map((s, i) =>
-        s.kind === "block" && s.block.t === "p" && s.block.text === FOOTPRINT_MARKER ? <AfricaFootprintMap key={i} />
+        s.kind === "statements" ? <StatementCards key={i} statements={s.statements} />
+        : s.kind === "values" ? <ValueCards key={i} title={s.title} items={s.items} />
+        : s.kind === "block" && s.block.t === "p" && s.block.text === FOOTPRINT_MARKER ? <AfricaFootprintMap key={i} />
         : s.kind === "list" ? <ul key={i} className="live-list">{s.items.map((t, k) => <li key={k}>{t}</li>)}</ul>
         : s.kind === "cards" ? <div key={i} className="live-cards">{s.cards.map((c, k) => <CardView key={k} card={c} team={team} />)}</div>
         : <BlockView key={i} block={s.block} />,

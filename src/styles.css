@@ -363,4 +363,24 @@ body{background:
 .vid-lightbox-close:hover{background:var(--brand-red)}
 .tvid-media{overflow:hidden}
 .tvid-thumb-pad{top:-16.67%;bottom:auto;height:133.34%}
+
+/* Company statements and values: compact cards, original live copy. */
+.company-statement-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--stack);margin-block:var(--head-gap)}
+.company-statement-card{min-width:0;padding:1.75rem;border:1px solid var(--border);border-top:3px solid var(--brand-green);border-radius:8px;background:var(--card);box-shadow:var(--shadow-soft)}
+.company-statement-card:last-child{grid-column:1/-1;border-top-color:var(--brand-red)}
+.company-card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem}
+.company-card-icon{display:grid;place-items:center;flex:none;width:2.75rem;height:2.75rem;border-radius:8px;background:var(--secondary);color:var(--primary)}
+.company-card-icon svg{width:1.4rem;height:1.4rem;stroke-width:1.6}
+.company-card-index{font-family:var(--font-condensed);font-size:1.5rem;color:var(--muted-foreground)}
+.company-statement-card h3,.company-values-title{font-family:var(--font-display);font-size:1.35rem;font-weight:700;color:var(--foreground);line-height:1.4}
+.company-statement-card p{margin-top:.8rem;font-size:1rem;line-height:1.8;overflow-wrap:anywhere}
+.company-values{margin-top:var(--head-gap)}
+.company-values-title{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
+.company-values-title:after{content:"";height:1px;background:var(--border);flex:1}
+.company-value-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.company-value-card{display:flex;align-items:start;gap:1rem;min-width:0;padding:1.5rem;border:1px solid var(--border);border-radius:8px;background:var(--card)}
+.company-value-card h4{font-family:var(--font-display);font-size:1rem;font-weight:700;line-height:1.5;color:var(--foreground)}
+.company-value-card p{margin-top:.5rem;font-size:.9rem;line-height:1.8;overflow-wrap:anywhere;color:var(--foreground)}
+.company-value-card:last-child:nth-child(odd){grid-column:1/-1}
+@media(max-width:600px){.company-statement-grid,.company-value-grid{grid-template-columns:minmax(0,1fr)}.company-statement-card{padding:1.5rem}.company-value-card{padding:1.25rem}.company-statement-card:last-child,.company-value-card:last-child:nth-child(odd){grid-column:auto}}
 .tvid:hover .tvid-thumb-pad{transform:scale(1.05)}
