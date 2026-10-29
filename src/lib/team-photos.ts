@@ -16,3 +16,5 @@ const map: Record<string, string> = {
 };
 
 export const teamPhoto = (src: string) => map[src.split("/").pop() ?? ""] ?? src;
+
+export const isExtendedTeamPhoto = (src: string) => Boolean(map[src.split("/").pop() ?? ""]);

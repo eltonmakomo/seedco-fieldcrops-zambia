@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import liveContent from "@/lib/live-content.json";
-import { teamPhoto } from "@/lib/team-photos";
+import { isExtendedTeamPhoto, teamPhoto } from "@/lib/team-photos";
 import { AfricaFootprintMap } from "@/components/africa-footprint-map";
 
 export type LiveBlock =
@@ -89,14 +89,15 @@ function CardView({ card }: { card: Card }) {
   const main = links[0];
   const caption = card.items.find((x) => x.t === "p");
   const isArticle = card.items.some((x) => x.t === "link" && !isContact(x) && CTA.test(x.text.trim()));
-  const cardClass = isArticle ? "live-card live-card-photo" : "live-card";
+  const isPortrait = Boolean(card.img && (isExtendedTeamPhoto(card.img) || card.items.some((x) => x.t === "link" && /^\/(directors|management|sales_team|research_team)\//.test(x.href))));
+  const cardClass = isArticle ? "live-card live-card-photo" : isPortrait ? "live-card live-card-portrait" : "live-card";
   const videoTitle = caption && caption.t === "p" ? caption.text : "Seed Co video";
   const body = (
     <>
       {card.video ? (
         <div className="live-media live-media-video"><iframe src={`https://www.youtube.com/embed/${card.video}`} title={videoTitle} loading="lazy" allowFullScreen /></div>
       ) : card.img ? (
-        <div className="live-media"><img src={teamPhoto(card.img)} alt={card.alt || main?.text || ""} loading="lazy" /></div>
+        <div className={`live-media${isExtendedTeamPhoto(card.img) ? " live-media-extended-portrait" : ""}`}><img src={teamPhoto(card.img)} alt={card.alt || main?.text || ""} loading="lazy" /></div>
       ) : null}
       <div className="live-card-copy">
         {card.items.map((x, k) => {
