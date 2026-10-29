@@ -195,12 +195,7 @@
 .live-media,.live-media img{background:var(--surface-pure)}
 .live-media img{object-fit:contain}
 .live-card-photo .live-media img{object-fit:cover}
-/* Portraits are cut off at the chest in the source photos: fade the bottom
-   edge softly into the card so the cut reads as intentional, not broken. */
-.live-card:not(.live-card-photo) .live-media img{
-  -webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent 96%);
-  mask-image:linear-gradient(to bottom,#000 62%,transparent 96%);
-}
+
 
 /* Interactive Zambia farming-regions map */
 .zambia-regions-map{margin-top:var(--head-gap);display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,.45fr);gap:var(--head-gap);align-items:center;width:100%;max-width:none}
