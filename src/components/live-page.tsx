@@ -84,12 +84,12 @@ function segment(blocks: LiveBlock[]): Segment[] {
   return segs;
 }
 
-function CardView({ card }: { card: Card }) {
+function CardView({ card, team = false }: { card: Card; team?: boolean }) {
   const links = card.items.filter((x): x is Extract<LiveBlock, { t: "link" }> => x.t === "link" && !isContact(x));
   const main = links[0];
   const caption = card.items.find((x) => x.t === "p");
   const isArticle = card.items.some((x) => x.t === "link" && !isContact(x) && CTA.test(x.text.trim()));
-  const isPortrait = Boolean(card.img && (isExtendedTeamPhoto(card.img) || card.items.some((x) => x.t === "link" && /^\/(directors|management|sales_team|research_team)\//.test(x.href))));
+  const isPortrait = Boolean(card.img && (team || isExtendedTeamPhoto(card.img)));
   const cardClass = isArticle ? "live-card live-card-photo" : isPortrait ? "live-card live-card-portrait" : "live-card";
   const videoTitle = caption && caption.t === "p" ? caption.text : "Seed Co video";
   const body = (
@@ -126,7 +126,7 @@ function BlockView({ block }: { block: LiveBlock }) {
   }
 }
 
-export function LiveContent({ page, footprint = false }: { page: LivePageData; footprint?: boolean }) {
+export function LiveContent({ page, footprint = false, team = false }: { page: LivePageData; footprint?: boolean; team?: boolean }) {
   // On the Our Story page the plain country list becomes the interactive
   // Africa footprint map; the same country names render as the map's side list.
   const blocks: LiveBlock[] = [];
@@ -143,7 +143,7 @@ export function LiveContent({ page, footprint = false }: { page: LivePageData; f
       {segment(blocks).map((s, i) =>
         s.kind === "block" && s.block.t === "p" && s.block.text === FOOTPRINT_MARKER ? <AfricaFootprintMap key={i} />
         : s.kind === "list" ? <ul key={i} className="live-list">{s.items.map((t, k) => <li key={k}>{t}</li>)}</ul>
-        : s.kind === "cards" ? <div key={i} className="live-cards">{s.cards.map((c, k) => <CardView key={k} card={c} />)}</div>
+        : s.kind === "cards" ? <div key={i} className="live-cards">{s.cards.map((c, k) => <CardView key={k} card={c} team={team} />)}</div>
         : <BlockView key={i} block={s.block} />,
       )}
     </div>
