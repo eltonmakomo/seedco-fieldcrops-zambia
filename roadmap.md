@@ -1,7 +1,7 @@
 # Roadmap
 
 - [x] Remove the backgrounds from all six homepage product pictures
-- [ ] Verify the transparent product pictures in the page
+- [x] Verify the transparent product pictures in the page
 
 - [x] Restyle Vision, Mission, Brands and Values as balanced cards and verify desktop/mobile
 
