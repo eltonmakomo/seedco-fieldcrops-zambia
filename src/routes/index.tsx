@@ -5,17 +5,23 @@ import { Button } from "@/components/ui/button";
 import { PageShell } from "@/components/seedco-site";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import heroImage from "@/assets/seedco-editorial-hero.jpg";
+import whiteMaizeImage from "@/assets/product-white-maize-cutout.png";
+import sugarBeansImage from "@/assets/product-sugar-beans-cutout.png";
+import soyaBeansImage from "@/assets/product-soya-beans-cutout.png";
+import wheatImage from "@/assets/product-wheat-cutout.png";
+import yellowMaizeImage from "@/assets/product-yellow-maize-cutout.png";
+import riceImage from "@/assets/product-rice-cutout.png";
 
 const U = "https://seedcogroup.com/zm/fieldcrops/wp-content/uploads";
 const shop = "https://www.seedcoonlineshop.com/zm/";
 
 const categories = [
-  { name: "White Maize", Icon: Sprout, href: "/product_category/maize", img: `${U}/2021/11/white-3.jpg` },
-  { name: "Sugar beans", Icon: Bean, href: "/product_category/sugar-beans", img: `${U}/2024/04/beans.jpg.webp` },
-  { name: "Soya beans", Icon: Leaf, href: "/product_category/soyabeans", img: `${U}/2024/04/soya_beans.jpg.webp` },
-  { name: "Wheat", Icon: Wheat, href: "/product_category/wheat", img: `${U}/2021/12/wheat_image.jpg` },
-  { name: "Yellow Maize", Icon: Sprout, href: "/product_category/yellow-maize", img: `${U}/2021/10/yellow.jpg` },
-  { name: "Rice", Icon: Wheat, href: "/product_category/rice", img: `${U}/2024/04/rice-plant.webp` },
+  { name: "White Maize", Icon: Sprout, href: "/product_category/maize", img: whiteMaizeImage },
+  { name: "Sugar beans", Icon: Bean, href: "/product_category/sugar-beans", img: sugarBeansImage },
+  { name: "Soya beans", Icon: Leaf, href: "/product_category/soyabeans", img: soyaBeansImage },
+  { name: "Wheat", Icon: Wheat, href: "/product_category/wheat", img: wheatImage },
+  { name: "Yellow Maize", Icon: Sprout, href: "/product_category/yellow-maize", img: yellowMaizeImage },
+  { name: "Rice", Icon: Wheat, href: "/product_category/rice", img: riceImage },
 ];
 
 const testimonials: Array<[string, string]> = [
