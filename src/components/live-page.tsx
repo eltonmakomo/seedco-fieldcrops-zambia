@@ -39,7 +39,7 @@ function SmartLink({ href, className, children }: { href: string; className?: st
 
 type Card = { img?: string; alt: string; video?: string; items: LiveBlock[] };
 type Statement = { title: string; items: string[] };
-type Segment = { kind: "cards"; cards: Card[] } | { kind: "statements"; statements: Statement[] } | { kind: "values"; title: string; items: string[] } | { kind: "list"; items: string[] } | { kind: "block"; block: LiveBlock };
+type Segment = { kind: "cards"; cards: Card[] } | { kind: "statements"; statements: Statement[] } | { kind: "values"; title: string; items: string[] } | { kind: "list"; items: string[] } | { kind: "block"; block: LiveBlock } | { kind: "pagination"; p: Pagination };
 
 const statementIcons = [Eye, Sprout, Wheat];
 const valueIcons = [HeartHandshake, Users, Handshake, CircleCheck, Award, ShieldCheck, Lightbulb];
@@ -73,13 +73,30 @@ function isShort(b: LiveBlock | undefined, next: LiveBlock | undefined) {
   return b.t === "link" || b.t === "h3" || b.t === "h4" || b.t === "h5" || (b.t === "p" && b.text.length < 220);
 }
 
-function segment(blocks: LiveBlock[]): Segment[] {
+function segment(blocks: LiveBlock[], path?: string): Segment[] {
   const segs: Segment[] = [];
   const at = (n: number): LiveBlock | undefined => blocks[n];
   let i = 0;
+  const pageMatch = path ? PAGE_HREF.exec("/" + path.replace(/^\/+|\/+$/g, "")) : null;
+  const current = pageMatch ? Number(pageMatch[1]) : 1;
   while (i < blocks.length) {
     const b = at(i);
     if (!b) break;
+    // Numeric pagination links scraped from the live site ("1", "2", …) become one centered page row.
+    if (digitLink(b)) {
+      const links: { n: number; href: string }[] = [];
+      for (let x = i; digitLink(at(x)); x++) links.push(digitLink(at(x))!);
+      const withPage = links.filter((l) => PAGE_HREF.test(l.href));
+      const loneStart = links.length === 1 && links[0].n === 1 && !PAGE_HREF.test(links[0].href);
+      if (withPage.length || loneStart) {
+        const base = withPage.length ? withPage[0].href.replace(PAGE_HREF, "") : links[0].href;
+        let max = withPage.reduce((m, l) => Math.max(m, Number(PAGE_HREF.exec(l.href)![1])), 1);
+        max = Math.max(max, current);
+        segs.push({ kind: "pagination", p: { base, current, max } });
+        i += links.length;
+        continue;
+      }
+    }
     if (b.t === "h4" && ["Our Vision", "Our Mission", "Our Brands"].includes(b.text)) {
       const statements: Statement[] = [];
       while (i < blocks.length) {
