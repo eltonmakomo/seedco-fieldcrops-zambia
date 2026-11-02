@@ -14,3 +14,4 @@
 - The Our Story "proud African footprint" country list renders as the interactive Africa map (`src/components/africa-footprint-map.tsx`) instead of a plain list; map and list share one selection state and no country is invented. Why: the map highlights exactly the countries the live page names.
 - Identify team portraits through the team-page context and shared photo mapping; crop extended portraits in their media frame without modifying source images. Why: consistent team framing leaves other page photography unchanged and remains reversible.
 - Render company statement and value cards by grouping their original live-content blocks, never duplicating their copy. Why: the presentation stays reusable and preserves the source content.
+- Render all actual videos with the shared VideoPreview and grouped-video grid; leave map embeds unchanged. Why: consistent previews and accessible dialog playback stay reusable without mistaking maps for videos.
