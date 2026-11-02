@@ -10,8 +10,12 @@ const onlineShop = "https://www.seedcoonlineshop.com/zm/";
 
 function Brand({ inverted = false }: { inverted?: boolean }) {
   return (
-    <Link to="/" className="flex shrink-0 items-center" aria-label="Seed Co Zambia home">
+    <Link to="/" className="flex shrink-0 items-center gap-3" aria-label="Seed Co Zambia Field Crops home">
       <img src={inverted ? logoWhite : logo} alt="Seed Co Logo" width={80} height={80} className="h-20 w-20 object-contain" />
+      <span className={`flex flex-col border-l pl-3 ${inverted ? "border-primary-foreground/30" : "border-border"}`}>
+        <span className={`whitespace-nowrap font-display text-base font-bold uppercase leading-tight sm:text-lg ${inverted ? "text-primary-foreground" : "text-foreground"}`}>Field Crops</span>
+        <span className={`mt-1 font-display text-xs font-bold uppercase leading-tight ${inverted ? "text-primary-foreground" : "text-primary"}`}>Zambia</span>
+      </span>
     </Link>
   );
 }
