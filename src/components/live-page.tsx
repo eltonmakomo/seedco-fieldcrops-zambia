@@ -87,9 +87,9 @@ function segment(blocks: LiveBlock[], path?: string): Segment[] {
       const links: { n: number; href: string }[] = [];
       for (let x = i; digitLink(at(x)); x++) links.push(digitLink(at(x))!);
       const withPage = links.filter((l) => PAGE_HREF.test(l.href));
-      const loneStart = links.length === 1 && links[0].n === 1 && !PAGE_HREF.test(links[0].href);
+      const loneStart = links.length === 1 && links[0]!.n === 1 && !PAGE_HREF.test(links[0]!.href);
       if (withPage.length || loneStart) {
-        const base = withPage.length ? withPage[0].href.replace(PAGE_HREF, "") : links[0].href;
+        const base = withPage.length ? withPage[0]!.href.replace(PAGE_HREF, "") : links[0]!.href;
         let max = withPage.reduce((m, l) => Math.max(m, Number(PAGE_HREF.exec(l.href)![1])), 1);
         max = Math.max(max, current);
         segs.push({ kind: "pagination", p: { base, current, max } });
