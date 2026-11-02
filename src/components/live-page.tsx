@@ -192,7 +192,19 @@ function BlockView({ block }: { block: LiveBlock }) {
   }
 }
 
-export function LiveContent({ page, footprint = false, team = false }: { page: LivePageData; footprint?: boolean; team?: boolean }) {
+function PaginationRow({ p }: { p: Pagination }) {
+  return (
+    <nav className="live-pagination" aria-label="Pages">
+      {Array.from({ length: p.max }, (_, k) => k + 1).map((n) =>
+        n === p.current
+          ? <span key={n} className="live-page live-page-current" aria-current="page">{n}</span>
+          : <a key={n} className="live-page" href={n === 1 ? p.base : `${p.base}/page/${n}`}>{n}</a>,
+      )}
+    </nav>
+  );
+}
+
+export function LiveContent({ page, footprint = false, team = false, path }: { page: LivePageData; footprint?: boolean; team?: boolean; path?: string }) {
   // On the Our Story page the plain country list becomes the interactive
   // Africa footprint map; the same country names render as the map's side list.
   const blocks: LiveBlock[] = [];
@@ -206,9 +218,10 @@ export function LiveContent({ page, footprint = false, team = false }: { page: L
   }
   return (
     <div className="live-content">
-      {segment(blocks).map((s, i) =>
+      {segment(blocks, path).map((s, i) =>
         s.kind === "statements" ? <StatementCards key={i} statements={s.statements} />
         : s.kind === "values" ? <ValueCards key={i} title={s.title} items={s.items} />
+        : s.kind === "pagination" ? <PaginationRow key={i} p={s.p} />
         : s.kind === "block" && s.block.t === "p" && s.block.text === FOOTPRINT_MARKER ? <AfricaFootprintMap key={i} />
         : s.kind === "list" ? <ul key={i} className="live-list">{s.items.map((t, k) => <li key={k}>{t}</li>)}</ul>
         : s.kind === "cards" ? <div key={i} className={s.cards.every((c) => c.video) ? "tvid-grid" : "live-cards"}>{s.cards.map((c, k) => <CardView key={k} card={c} team={team} />)}</div>
