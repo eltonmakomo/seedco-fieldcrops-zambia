@@ -19,3 +19,7 @@
 - [x] Verify logo-palette pages in browser (home + inner page + footer/Tip band)
 - [x] Pair farming-regions map with synchronized selectable zone list
 - [x] Verify map highlighting, zone navigation and smaller-screen layout
+
+## Backlog
+- [ ] Centered page-pill pagination replacing scraped digit links (in progress)
+- [ ] Ensure faces in photos are not covered by the sticky nav bar (in progress)
