@@ -391,3 +391,6 @@ body{background:
 .live-page:hover { transform: translateY(-2px); border-color: var(--brand-green); color: var(--brand-green); }
 .live-page-current { background: var(--brand-green); border-color: var(--brand-green); color: var(--primary-foreground); }
 .live-page-current:hover { color: var(--primary-foreground); }
+
+/* Hero banners: keep people's faces fully visible (crop from the bottom, never clip heads at the top). */
+.editorial-hero img, .inner-hero img { object-position: center top; }
