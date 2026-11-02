@@ -2,6 +2,7 @@ import { ArrowRight, Eye, Sprout, Wheat, HeartHandshake, Users, Handshake, Circl
 import liveContent from "@/lib/live-content.json";
 import { isExtendedTeamPhoto, teamPhoto } from "@/lib/team-photos";
 import { AfricaFootprintMap } from "@/components/africa-footprint-map";
+import { VideoPreview } from "@/components/video-preview";
 
 export type LiveBlock =
   | { t: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "li"; text: string }
@@ -137,7 +138,7 @@ function CardView({ card, team = false }: { card: Card; team?: boolean }) {
   const body = (
     <>
       {card.video ? (
-        <div className="live-media live-media-video"><iframe src={`https://www.youtube.com/embed/${card.video}`} title={videoTitle} loading="lazy" allowFullScreen /></div>
+        <VideoPreview src={`https://www.youtube.com/embed/${card.video}`} title={videoTitle} />
       ) : card.img ? (
         <div className={`live-media${isExtendedTeamPhoto(card.img) ? " live-media-extended-portrait" : ""}`}><img src={teamPhoto(card.img)} alt={card.alt || main?.text || ""} loading="lazy" /></div>
       ) : null}
@@ -162,7 +163,7 @@ function BlockView({ block }: { block: LiveBlock }) {
     case "h5": return <h4 className="live-h4">{block.text}</h4>;
     case "p": return <p className="live-p">{block.text}</p>;
     case "img": return <figure className="live-figure"><img src={block.src} alt={block.alt} loading="lazy" /></figure>;
-    case "video": return <div className="live-media live-media-video live-embed"><iframe src={block.src} title="Embedded content" loading="lazy" allowFullScreen /></div>;
+    case "video": return <VideoPreview src={block.src} title="Seed Co Zambia video" />;
     case "link": return <SmartLink href={block.href} className="live-button">{block.text} <ArrowRight /></SmartLink>;
     default: return null;
   }
@@ -187,7 +188,7 @@ export function LiveContent({ page, footprint = false, team = false }: { page: L
         : s.kind === "values" ? <ValueCards key={i} title={s.title} items={s.items} />
         : s.kind === "block" && s.block.t === "p" && s.block.text === FOOTPRINT_MARKER ? <AfricaFootprintMap key={i} />
         : s.kind === "list" ? <ul key={i} className="live-list">{s.items.map((t, k) => <li key={k}>{t}</li>)}</ul>
-        : s.kind === "cards" ? <div key={i} className="live-cards">{s.cards.map((c, k) => <CardView key={k} card={c} team={team} />)}</div>
+        : s.kind === "cards" ? <div key={i} className={s.cards.every((c) => c.video) ? "tvid-grid" : "live-cards"}>{s.cards.map((c, k) => <CardView key={k} card={c} team={team} />)}</div>
         : <BlockView key={i} block={s.block} />,
       )}
     </div>
