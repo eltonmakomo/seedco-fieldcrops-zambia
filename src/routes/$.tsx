@@ -43,7 +43,7 @@ function ContentPage() {
   const page = Route.useLoaderData();
   const path = Route.useParams()._splat ?? "";
   return <PageShell>
-    <section className="inner-hero editorial-hero"><img src={farmersImage} width={1200} height={912} alt="" className="absolute inset-0 h-full w-full object-cover" /><div className="inner-shade absolute inset-0" />
+    <section className="inner-hero editorial-hero"><img src={bannerFor(path)} width={1920} height={720} alt="" className="absolute inset-0 h-full w-full object-cover" /><div className="inner-shade absolute inset-0" />
       <div className="editorial-hero-inner mx-auto max-w-screen-2xl px-6"><div className="editorial-hero-copy"><nav className="editorial-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><ArrowRight aria-hidden="true" /><span>{sectionLabel(path)}</span></nav><h1>{page.title}</h1><span className="editorial-title-rule" /></div></div>
     </section>
     <section className="editorial-section"><div className="editorial-layout mx-auto max-w-screen-2xl px-6"><SectionMenu path={path} /><div className="editorial-content"><LiveContent page={page} footprint={path === "about-us/our-story"} team={["about-us/board-of-directors", "about-us/management-team", "about-us/sales-team", "about-us/research-team"].includes(path)} />{path === "farming-regions" && <ZambiaRegionsMap />}</div></div></section>
