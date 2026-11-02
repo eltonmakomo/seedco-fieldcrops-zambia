@@ -17,6 +17,12 @@ const live = liveContent as unknown as Record<string, LivePageData>;
 const FOOTPRINT_COUNTRIES = ["Zambia", "South Africa", "Tanzania", "Nigeria", "Botswana", "Rwanda", "Malawi", "Congo", "Mozambique", "Kenya", "Ghana", "Zimbabwe"];
 const FOOTPRINT_MARKER = "\u2063africa-footprint-map\u2063";
 
+/** Scraped numeric pagination links ("1", "2", …) become a centered page-pill row. */
+type Pagination = { base: string; current: number; max: number };
+const PAGE_HREF = /\/page\/(\d+)\/?$/;
+const digitLink = (b: LiveBlock | undefined): { n: number; href: string } | undefined =>
+  b?.t === "link" && /^\d+$/.test(b.text.trim()) ? { n: Number(b.text), href: b.href } : undefined;
+
 export function getLivePage(path: string): LivePageData | undefined {
   return live[path.replace(/^\/+|\/+$/g, "")];
 }
