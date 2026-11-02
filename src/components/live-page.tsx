@@ -134,7 +134,7 @@ function segment(blocks: LiveBlock[], path?: string): Segment[] {
         if (!cur || cur.t !== "img") { i -= pre.length; break; }
         i++;
         const items = [...pre];
-        while (items.length < 5 && isShort(at(i), at(i + 1)) && !(isTitleLink(at(i)) && at(i + 1)?.t === "img" && items.length > 0)) { const x = at(i); if (x) items.push(x); i++; }
+        while (items.length < 5 && !digitLink(at(i)) && isShort(at(i), at(i + 1)) && !(isTitleLink(at(i)) && at(i + 1)?.t === "img" && items.length > 0)) { const x = at(i); if (x) items.push(x); i++; }
         const id = ytId(cur.src);
         cards.push(id ? { video: id, alt: cur.alt, items } : { img: cur.src, alt: cur.alt, items });
       }
