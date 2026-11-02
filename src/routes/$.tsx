@@ -4,7 +4,7 @@ import { PageShell } from "@/components/seedco-site";
 import { Button } from "@/components/ui/button";
 import { LiveContent, firstText, getLivePage } from "@/components/live-page";
 import { ZambiaRegionsMap } from "@/components/zambia-regions-map";
-import farmersImage from "@/assets/seedco-farmers.jpg";
+import { bannerFor } from "@/lib/banner-images";
 import { SectionMenu } from "@/components/section-menu";
 
 const sectionLabel = (path: string) => {
