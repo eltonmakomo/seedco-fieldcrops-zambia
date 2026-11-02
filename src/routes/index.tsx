@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { PageShell } from "@/components/seedco-site";
 import { VideoPreview } from "@/components/video-preview";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import heroImage from "@/assets/seedco-editorial-hero.jpg";
+import heroImage from "@/assets/seedco-editorial-hero-white.jpg";
 import whiteMaizeImage from "@/assets/product-white-maize-cutout.png";
 import sugarBeansImage from "@/assets/product-sugar-beans-cutout.png";
 import soyaBeansImage from "@/assets/product-soya-beans-cutout.png";
