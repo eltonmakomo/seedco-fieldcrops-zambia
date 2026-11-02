@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Apply the shared preview and player format to all videos and verify playback across pages
+- [x] Apply the shared preview and player format to all videos and verify player opening/closing across pages
 
 - [x] Remove the backgrounds from all six homepage product pictures
 - [x] Verify the transparent product pictures in the page
