@@ -384,3 +384,10 @@ body{background:
 .company-value-card p{margin-top:.5rem;font-size:.9rem;line-height:1.8;overflow-wrap:anywhere;color:var(--foreground)}
 .company-value-card:last-child:nth-child(odd){grid-column:1/-1}
 @media(max-width:600px){.company-statement-grid,.company-value-grid{grid-template-columns:minmax(0,1fr)}.company-statement-card{padding:1.5rem}.company-value-card{padding:1.25rem}.company-statement-card:last-child,.company-value-card:last-child:nth-child(odd){grid-column:auto}}
+
+/* Scraped numeric pagination -> centered page-pill row */
+.live-pagination { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: .55rem; margin-top: var(--head-gap); }
+.live-page { display: inline-flex; align-items: center; justify-content: center; min-width: 2.75rem; height: 2.75rem; padding: 0 .9rem; border-radius: 999px; background: var(--card); border: 1px solid var(--border); color: var(--secondary-foreground); font-family: var(--font-condensed); font-weight: 600; font-size: 1rem; box-shadow: 0 2px 12px -8px rgb(19 21 19 / .35); transition: transform .2s, border-color .2s, color .2s; }
+.live-page:hover { transform: translateY(-2px); border-color: var(--brand-green); color: var(--brand-green); }
+.live-page-current { background: var(--brand-green); border-color: var(--brand-green); color: var(--primary-foreground); }
+.live-page-current:hover { color: var(--primary-foreground); }
