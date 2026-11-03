@@ -542,3 +542,22 @@ body{background:
 .job-loc{display:flex;align-items:center;gap:.35rem;font-size:.85rem;font-weight:600;color:var(--brand-green)}
 .job-text{font-size:.92rem;line-height:1.6;color:var(--muted-foreground);overflow-wrap:anywhere}
 .job-card .zone-cta{margin-top:auto}
+.pinv{display:grid;gap:var(--stack,2rem)}
+.pinv-toc{display:grid;gap:.75rem;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr))}
+.pinv-toc-item{display:flex;align-items:center;gap:.6rem;padding:.9rem 1rem;border-radius:.9rem;background:color-mix(in oklab,var(--card) 80%,transparent);backdrop-filter:blur(12px);border:1px solid color-mix(in oklab,var(--primary) 12%,transparent);font-weight:700;color:var(--primary);transition:transform .25s,border-color .25s}
+.pinv-toc-item:hover{transform:translateY(-3px);border-color:var(--brand-green)}
+.pinv-toc-item svg{width:1.2rem;height:1.2rem;color:var(--brand-green);flex:none}
+.pinv-toc-item span{font-size:.75rem;color:var(--brand-red);letter-spacing:.08em}
+.pinv-section{scroll-margin-top:9rem;position:relative;padding:clamp(1.5rem,3vw,2.5rem);border-radius:1.25rem;background:var(--card);border:1px solid color-mix(in oklab,var(--primary) 10%,transparent);border-top:4px solid var(--brand-green);box-shadow:0 14px 34px -26px color-mix(in oklab,var(--primary) 55%,transparent);overflow:hidden}
+.pinv-section:nth-child(odd){border-top-color:var(--brand-red)}
+.pinv-head{display:flex;gap:1rem;align-items:center;margin-bottom:1.25rem}
+.pinv-head h2{font-family:var(--font-display);font-size:clamp(1.4rem,2.4vw,2rem);font-weight:800;color:var(--primary);line-height:1.15}
+.pinv-icon{flex:none;display:grid;place-items:center;width:3.25rem;height:3.25rem;border-radius:.9rem;background:var(--brand-green);color:var(--primary-foreground)}
+.pinv-icon svg{width:1.6rem;height:1.6rem}
+.pinv-lead{font-size:1.08rem;line-height:1.8;font-weight:500;color:var(--foreground);padding-left:1rem;border-left:3px solid color-mix(in oklab,var(--brand-green) 50%,transparent)}
+.pinv-text{margin-top:1rem;line-height:1.8;color:var(--muted-foreground)}
+.pinv-subs{display:grid;gap:1rem;margin-top:1.5rem;grid-template-columns:1fr}
+@media(min-width:900px){.pinv-subs{grid-template-columns:repeat(auto-fit,minmax(16rem,1fr))}}
+.pinv-sub{padding:1.25rem;border-radius:1rem;background:color-mix(in oklab,var(--brand-green) 5%,var(--card));border:1px solid color-mix(in oklab,var(--brand-green) 15%,transparent)}
+.pinv-sub h3{display:flex;align-items:center;gap:.7rem;font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--primary);margin-bottom:.75rem}
+.pinv-sub p{line-height:1.75;font-size:.95rem;color:var(--foreground)}.pinv-sub p+p{margin-top:.75rem}
