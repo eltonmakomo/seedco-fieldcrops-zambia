@@ -69,7 +69,7 @@ function ContentPage() {
   const career = isCareerDetail(path);
   const blog = blogArticle(path);
   const product = isProductDetail(path);
-  const service = path === "promotions" ? {} : serviceInnovation(path);
+  const service = path === "promotions" ? { date: undefined, image: undefined } : serviceInnovation(path);
   const news = !blog && !story ? newsArticle(path) : undefined;
   const detail = isGenericDetail(path, page);
   return <PageShell>
