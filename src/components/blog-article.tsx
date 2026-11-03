@@ -6,7 +6,7 @@ import { resolveLiveHref } from "@/lib/live-links";
 
 const listings = Object.entries(liveContent).filter(([path]) => /^blog(?:\/page\/\d+)?$/.test(path));
 
-export function blogArticle(path: string) {
+export function blogArticle(path: string): { date?: string | undefined } | undefined {
   const href = `/${path.replace(/^\/+|\/+$/g, "")}`;
   for (const [, listing] of listings) {
     const blocks = listing.blocks as LiveBlock[];
@@ -19,7 +19,7 @@ export function blogArticle(path: string) {
   return page?.blocks.some((block) => block.t === "link" && /^\/category\/blog\/?$/.test(resolveLiveHref(block.href))) ? {} : undefined;
 }
 
-export function BlogArticleHeader({ page, date }: { page: LivePageData; date?: string }) {
+export function BlogArticleHeader({ page, date }: { page: LivePageData; date?: string | undefined }) {
   return <header className="blog-article-header"><div className="mx-auto max-w-screen-2xl px-6">
     <Button asChild variant="link" className="h-auto px-0"><a href="/blog"><ArrowLeft />All blogs</a></Button>
     <h1>{page.title}</h1>
