@@ -2,7 +2,7 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageShell } from "@/components/seedco-site";
 import { Button } from "@/components/ui/button";
-import { LiveContent, firstText, getLivePage } from "@/components/live-page";
+import { LiveContent, firstImage, firstText, getLivePage } from "@/components/live-page";
 import { InnovationsContent } from "@/components/innovations-page";
 import { ProductInnovationsContent } from "@/components/product-innovations-page";
 import { ZoneList, parseZones } from "@/components/zone-list";
@@ -38,13 +38,15 @@ export const Route = createFileRoute("/$")({
     if (!page) throw notFound();
     return page;
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     const title = `${loaderData?.title ?? "Seed Co Zambia"} | Seed Co Zambia Field Crops`;
     const description = loaderData ? firstText(loaderData).slice(0, 160) : "Seed Co Zambia Field Crops";
+    const cover = loaderData && isProductDetail(params._splat ?? "") ? firstImage(loaderData) : undefined;
     return { meta: [
       { title }, { name: "description", content: description },
       { property: "og:title", content: title }, { property: "og:description", content: description },
       { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
+      ...(cover?.startsWith("https://") ? [{ property: "og:image", content: cover }, { name: "twitter:image", content: cover }] : []),
     ] };
   },
   component: ContentPage,

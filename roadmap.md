@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Style final product detail pages and verify content, product links and smaller-screen layout
+- [x] Style all 26 final product detail pages and verify content, photos, product links and smaller-screen layout
 
 - [x] Style all 13 individual blog articles and verify original content, photos, return links and mobile layout
 
