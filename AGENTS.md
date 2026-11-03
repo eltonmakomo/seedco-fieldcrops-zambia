@@ -29,3 +29,4 @@
 
 - Resolve displayed photos through the shared enhanced-image registry and videos through the verified thumbnail registry, retaining source JSON and original framing. Why: faithful CDN-backed image improvements apply consistently without rewriting live content.
 - Remaining terminal pages use the shared content-detail presentation; empty custom-post records reuse only exact matching listing facts or media through detail-content. Why: final pages stay styled without inventing biographies, event dates or video destinations.
+- Service Innovations detail pages are identified from their source listing and use a shared article layout with source dates, original download badges, uncropped images and VideoPreview. Why: app and shop stories receive consistent styling without inventing content or changing other articles.

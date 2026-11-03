@@ -24,6 +24,7 @@ import { isProductDetail, ProductDetail, ProductDetailHeader } from "@/component
 import { newsArticle, NewsArticle, NewsArticleHeader } from "@/components/news-article";
 import { detailContent, detailParent, isGenericDetail } from "@/lib/detail-content";
 import { ContentDetail, ContentDetailHeader } from "@/components/content-detail";
+import { serviceInnovation, ServiceInnovationDetail, ServiceInnovationHeader } from "@/components/service-innovation-detail";
 
 const sectionLabel = (path: string) => {
   const s = path.split("/")[0] ?? "";
@@ -45,7 +46,8 @@ export const Route = createFileRoute("/$")({
   head: ({ loaderData, params }) => {
     const title = `${loaderData?.title ?? "Seed Co Zambia"} | Seed Co Zambia Field Crops`;
     const description = loaderData ? firstText(loaderData).slice(0, 160) : "Seed Co Zambia Field Crops";
-    const cover = loaderData && isProductDetail(params._splat ?? "") ? firstImage(loaderData) : undefined;
+    const path = params._splat ?? "";
+    const cover = /^product_category\/(wheat|soyabeans)\/?$/.test(path) ? bannerFor(path) : loaderData && isProductDetail(path) ? firstImage(loaderData) : undefined;
     return { meta: [
       { title }, { name: "description", content: description },
       { property: "og:title", content: title }, { property: "og:description", content: description },
@@ -67,13 +69,14 @@ function ContentPage() {
   const career = isCareerDetail(path);
   const blog = blogArticle(path);
   const product = isProductDetail(path);
+  const service = serviceInnovation(path);
   const news = !blog && !story ? newsArticle(path) : undefined;
   const detail = isGenericDetail(path, page);
   return <PageShell>
-    {product ? <ProductDetailHeader page={page} /> : blog ? <BlogArticleHeader page={page} date={blog.date} /> : story ? <ResponsibilityStoryHeader page={page} date={story.date} /> : career ? <CareerDetailHeader page={page} /> : news ? <NewsArticleHeader page={page} date={news.date} /> : detail ? <ContentDetailHeader page={page} path={path} /> : <section className="inner-hero editorial-hero"><img src={enhancedImage(bannerFor(path))} width={1920} height={720} alt="" className="absolute inset-0 h-full w-full object-cover" /><div className="inner-shade absolute inset-0" />
+    {service ? <ServiceInnovationHeader page={page} date={service.date} /> : product ? <ProductDetailHeader page={page} /> : blog ? <BlogArticleHeader page={page} date={blog.date} /> : story ? <ResponsibilityStoryHeader page={page} date={story.date} /> : career ? <CareerDetailHeader page={page} /> : news ? <NewsArticleHeader page={page} date={news.date} /> : detail ? <ContentDetailHeader page={page} path={path} /> : <section className="inner-hero editorial-hero"><img src={enhancedImage(bannerFor(path))} width={1920} height={720} alt="" className="absolute inset-0 h-full w-full object-cover" /><div className="inner-shade absolute inset-0" />
       <div className="editorial-hero-inner mx-auto max-w-screen-2xl px-6"><div className="editorial-hero-copy"><nav className="editorial-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><ArrowRight aria-hidden="true" /><span>{sectionLabel(path)}</span></nav><h1>{page.title}</h1><span className="editorial-title-rule" /></div></div>
     </section>}
-    <section className="editorial-section"><div className="editorial-layout mx-auto max-w-screen-2xl px-6"><SectionMenu path={product ? "products" : blog ? "blog" : story ? "about-us/corporate-social-responsibility" : career ? "about-us/careers" : news ? "news" : detail ? detailParent(path) ?? path : path} /><div className="editorial-content">{product ? <ProductDetail page={page} path={path} /> : blog ? <BlogArticle page={page} path={path} /> : story ? <ResponsibilityStory page={page} path={path} /> : career ? <CareerDetail page={page} path={path} /> : news ? <NewsArticle page={page} path={path} /> : path === "contact-us" ? <ContactPage page={page} /> : path === "media/photo-gallery" ? <PhotoGallery page={page} albums={photoAlbums} /> : path === "media/faqs" ? <FaqsContent page={page} /> : path === "innovations" ? <InnovationsContent page={page} /> : path === "product-innovations" ? <ProductInnovationsContent page={page} /> : path === "calculators" ? <CalculatorsContent page={page} /> : isCareersList(path) ? <CareersList page={page} path={path} /> : zones ? <ZoneList zones={zones} /> : parseVarieties(page) ? <VarietySections page={page} path={path} /> : detail ? <ContentDetail page={page} path={path} /> : <LiveContent page={page} path={path} footprint={path === "about-us/our-story"} team={["about-us/board-of-directors", "about-us/management-team", "about-us/sales-team", "about-us/research-team"].includes(path)} />}{path === "farming-regions" && <ZambiaRegionsMap />}</div></div></section>
+    <section className="editorial-section"><div className="editorial-layout mx-auto max-w-screen-2xl px-6"><SectionMenu path={service ? "service-innovations" : product ? "products" : blog ? "blog" : story ? "about-us/corporate-social-responsibility" : career ? "about-us/careers" : news ? "news" : detail ? detailParent(path) ?? path : path} /><div className="editorial-content">{service ? <ServiceInnovationDetail page={page} path={path} /> : product ? <ProductDetail page={page} path={path} /> : blog ? <BlogArticle page={page} path={path} /> : story ? <ResponsibilityStory page={page} path={path} /> : career ? <CareerDetail page={page} path={path} /> : news ? <NewsArticle page={page} path={path} /> : path === "contact-us" ? <ContactPage page={page} /> : path === "media/photo-gallery" ? <PhotoGallery page={page} albums={photoAlbums} /> : path === "media/faqs" ? <FaqsContent page={page} /> : path === "innovations" ? <InnovationsContent page={page} /> : path === "product-innovations" ? <ProductInnovationsContent page={page} /> : path === "calculators" ? <CalculatorsContent page={page} /> : isCareersList(path) ? <CareersList page={page} path={path} /> : zones ? <ZoneList zones={zones} /> : parseVarieties(page) ? <VarietySections page={page} path={path} /> : detail ? <ContentDetail page={page} path={path} /> : <LiveContent page={page} path={path} footprint={path === "about-us/our-story"} team={["about-us/board-of-directors", "about-us/management-team", "about-us/sales-team", "about-us/research-team"].includes(path)} />}{path === "farming-regions" && <ZambiaRegionsMap />}</div></div></section>
     {path !== "contact-us" && <section className="bg-secondary"><div className="mx-auto flex max-w-screen-2xl flex-col items-start justify-between gap-6 px-6 py-10 sm:flex-row sm:items-center"><div><p className="eyebrow">Need local guidance?</p><h2 className="mt-2 font-display text-3xl font-bold text-primary">Our team is ready to help.</h2></div><Button asChild size="lg"><a href="/contact-us">Contact Us <ArrowRight /></a></Button></div></section>}
   </PageShell>;
 }
