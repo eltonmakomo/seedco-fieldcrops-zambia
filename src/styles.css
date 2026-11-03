@@ -528,6 +528,16 @@ body{background:
 .footer-social{width:2.5rem;height:2.5rem;border-radius:50%;color:var(--brand-green);background:var(--card);border-color:var(--border)}
 .footer-social:hover{background:var(--brand-red);border-color:var(--brand-red);color:var(--primary-foreground)}
 .footer-contact{border-left:1px solid var(--border);padding-left:2rem;min-width:0}
+.footer-newsletter{position:relative;isolation:isolate;overflow:hidden;min-width:0;background:var(--primary);color:var(--primary-foreground);border-radius:var(--radius)}
+.footer-newsletter-photo{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;opacity:.18}
+.footer-newsletter:before{content:"";position:absolute;inset:0;z-index:-1;background:color-mix(in oklab,var(--primary) 75%,transparent)}
+.footer-newsletter-inner{padding:1.5rem}
+.footer-newsletter h3{font-family:var(--font-display);font-size:1.15rem;font-weight:700;line-height:1.5;margin-bottom:1.5rem}
+.footer-newsletter .newsletter-input{height:3rem;border-color:var(--primary-foreground);color:var(--primary-foreground);background:transparent;border-radius:0}
+.footer-newsletter .newsletter-input::placeholder{color:var(--primary-foreground)}
+.footer-newsletter .newsletter-subscribe{height:3rem;width:100%;border-radius:0;background:var(--brand-red);color:var(--primary-foreground);font-size:1rem}
+.footer-newsletter .newsletter-subscribe:hover{background:color-mix(in oklab,var(--brand-red) 90%,var(--foreground))}
+@media(max-width:480px){.footer-newsletter{grid-column:1/-1}}
 .footer-mail-icon{width:1.5rem;height:1.5rem;color:var(--brand-red);margin-bottom:1rem}
 .footer-email{display:flex;align-items:center;gap:.75rem;font-family:var(--font-condensed);font-size:1rem;font-weight:600;color:var(--primary);padding-bottom:.8rem;border-bottom:1px solid var(--border)}
 .footer-email span{overflow-wrap:anywhere;min-width:0}.footer-email svg{width:1rem;height:1rem;flex:none}.footer-email:hover{color:var(--brand-red)}

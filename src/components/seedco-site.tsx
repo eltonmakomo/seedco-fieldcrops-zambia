@@ -1,12 +1,13 @@
 import { useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, ChevronDown, Facebook, Linkedin, Mail, Menu, ShoppingBag, Twitter, X, Youtube } from "lucide-react";
+import { ArrowRight, ChevronDown, Facebook, Linkedin, Menu, ShoppingBag, Twitter, X, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navGroups } from "@/lib/seedco-content";
 import logo from "@/assets/seedco-logo.svg";
 import logoWhite from "@/assets/seedco-logo-white.svg";
 import { CountrySelector } from "@/components/country-selector";
 import { SiteSearch } from "@/components/site-search";
+import { NewsletterForm } from "@/components/newsletter-form";
 
 const onlineShop = "https://www.seedcoonlineshop.com/zm/";
 
@@ -81,7 +82,7 @@ export function SiteFooter() {
           <div className="footer-brand"><Brand /><h3 className="footer-title">Find us on:</h3><div className="footer-socials">{socials.map(({ name, href, Icon }) => <Button asChild variant="outline" size="icon" className="footer-social" key={name}><a href={href} target="_blank" rel="noreferrer" aria-label={name} title={name}><Icon aria-hidden="true" /></a></Button>)}</div></div>
           <div><h3 className="footer-title">Quick Links</h3><a className="footer-link" href={onlineShop} target="_blank" rel="noreferrer">Buy Seeds Online</a><a className="footer-link" href="/learn-with-seed-co">Learn With Seed Co</a><a className="footer-link" href="/news">News</a><a className="footer-link" href="/contact-us">Contact Us</a></div>
           <div><h3 className="footer-title">Innovations</h3><a className="footer-link" href="/service-innovations">Service Innovations</a><a className="footer-link" href="/product-innovations">Product Innovations</a></div>
-          <div className="footer-contact"><Mail aria-hidden="true" className="footer-mail-icon" /><h3 className="footer-title">Become part of our mailing list</h3><a href="mailto:Zambia.seedco@seedcogroup.com" className="footer-email"><span>Zambia.seedco@seedcogroup.com</span><ArrowRight aria-hidden="true" /></a></div>
+          <NewsletterForm />
         </div>
       </div>
       <div className="footer-bottom"><div className="mx-auto flex max-w-screen-2xl flex-col gap-3 px-6 py-5 text-xs sm:flex-row sm:items-center sm:justify-between"><p>Copyright © 2026 Seed Co Zambia. All Rights Reserved.</p><a href="/privacy-policy">Privacy policy</a></div></div>
