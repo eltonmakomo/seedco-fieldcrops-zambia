@@ -31,4 +31,4 @@
 - [x] Re-framed farmers banner wide so both people fully show on inner-page heroes
 - [x] Restore and verify the exact live Agronomists directory with working phone contacts
 
-- [ ] Restore the Soya dry-land varieties shown in the supplied image and verify the page
+- [x] Restore the Soya dry-land varieties shown in the supplied image and verify the page
