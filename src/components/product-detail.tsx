@@ -43,8 +43,8 @@ export function ProductDetail({ page, path }: { page: LivePageData; path: string
     <div className="product-detail-overview">
       <div className="product-detail-media">{visuals.map((block, index) => block.t === "img" ? <figure key={index} className={index === 0 ? "product-detail-photo" : "product-detail-symbol"}><img src={enhancedImage(block.src)} alt={block.alt || page.title} loading={index === 0 ? "eager" : "lazy"} /></figure> : block.t === "video" ? <VideoPreview key={index} src={enhancedImage(block.src)} title={page.title} /> : null)}</div>
       <div className="product-detail-summary">{first && <ProductSection {...first} page={page} path={path} />}
-        {actions.length > 0 && <div className="product-detail-actions">{actions.map((block, index) => block.t === "link" && /^buy\s+now$/i.test(block.text) ? <Button key={index} asChild size="lg"><a href={resolveLiveHref(block.href)} target="_blank" rel="noreferrer"><ShoppingBag />{block.text}<ArrowRight /></a></Button> : <LiveContent key={index} page={{ title: page.title, blocks: [block] }} path={path} />)}</div>}
         {sections.slice(1).map((section, index) => <ProductSection key={index} {...section} page={page} path={path} />)}
+        {actions.length > 0 && <div className="product-detail-actions">{actions.map((block, index) => block.t === "link" && /^buy\s+now$/i.test(block.text) ? <Button key={index} asChild size="lg"><a href={resolveLiveHref(block.href)} target="_blank" rel="noreferrer"><ShoppingBag />{block.text}<ArrowRight /></a></Button> : <LiveContent key={index} page={{ title: page.title, blocks: [block] }} path={path} />)}</div>}
       </div>
     </div>
   </article>;
