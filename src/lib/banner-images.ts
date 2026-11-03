@@ -7,11 +7,12 @@ import agronomyImage from "@/assets/banner-agronomy.jpg";
 import mediaImage from "@/assets/banner-media.jpg";
 import careersImage from "@/assets/banner-careers.jpg";
 import contactImage from "@/assets/banner-contact.jpg";
-import { enhancedImage } from "@/lib/enhanced-images";
+import wheatImage from "@/assets/wheat-field-banner.jpg";
+import soyaImage from "@/assets/soya-field-banner.jpg";
 
 const banners: Array<[RegExp, string]> = [
-  [/^product_category\/wheat\/?$/, enhancedImage("https://seedcogroup.com/zm/fieldcrops/wp-content/uploads/2021/12/wheat_image.jpg")],
-  [/^product_category\/soyabeans\/?$/, enhancedImage("https://seedcogroup.com/zm/fieldcrops/wp-content/uploads/2024/04/soya_beans.jpg.webp")],
+  [/^product_category\/wheat\/?$/, wheatImage],
+  [/^product_category\/soyabeans\/?$/, soyaImage],
   [/^(products|sc-products|product_category|maize_subcategory)\b/, productsImage],
   [/^about-us\b/, aboutImage],
   [/^(agronomists|farming-regions|seed-co-agronomy-app|learn-with-seed-co)\b/, agronomyImage],
