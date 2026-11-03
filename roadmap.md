@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Restore all 9 live albums and their 52 selected photos; verify every image, album browsing and enlargement
+
 - [x] Refresh contact details, form and map presentation; verify desktop and mobile
 
 - [x] Audit 266 existing pages; restore confirmed calendar and Zone 2b omissions and repair document/pagination links (complete media parity remains unverified)
