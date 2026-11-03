@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Restore every live photo album and its full set of photos; verify album browsing and enlargement
+- [x] Restore all 9 live albums and their 52 selected photos; verify every image, album browsing and enlargement
 
 - [x] Refresh contact details, form and map presentation; verify desktop and mobile
 
