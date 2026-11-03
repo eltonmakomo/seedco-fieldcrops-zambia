@@ -85,7 +85,7 @@ export function SiteFooter() {
           <NewsletterForm />
         </div>
       </div>
-      <div className="footer-bottom"><div className="mx-auto flex max-w-screen-2xl flex-col gap-3 px-6 py-5 text-xs sm:flex-row sm:items-center sm:justify-between"><p>Copyright © 2026 Seed Co Zambia. All Rights Reserved.</p><a href="/privacy-policy">Privacy policy</a></div></div>
+      <div className="footer-bottom"><div className="mx-auto flex max-w-screen-2xl flex-col gap-3 px-6 py-5 text-xs sm:flex-row sm:items-center sm:justify-between"><p>Copyright © 2026 Seed Co Zambia. All Rights Reserved.</p><div className="flex flex-wrap items-center gap-5"><a href="/privacy-policy">Privacy policy</a><a href="https://www.quatrohaus.com/" target="_blank" rel="noopener noreferrer">Site by Quatrohaus</a></div></div></div>
     </footer>
   );
 }
