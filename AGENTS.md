@@ -28,3 +28,4 @@
 - Photo Gallery uses a source-derived album manifest with CDN-backed photos, a three-column album grid and accessible previous/next enlargement dialogs; use the live plugin's wg_content data, not all WordPress attachments. Why: each album preserves the exact selected photos and their order without importing unselected uploads or duplicates.
 
 - Resolve displayed photos through the shared enhanced-image registry and videos through the verified thumbnail registry, retaining source JSON and original framing. Why: faithful CDN-backed image improvements apply consistently without rewriting live content.
+- Remaining terminal pages use the shared content-detail presentation; empty custom-post records reuse only exact matching listing facts or media through detail-content. Why: final pages stay styled without inventing biographies, event dates or video destinations.
