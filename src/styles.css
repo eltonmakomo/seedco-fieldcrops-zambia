@@ -166,7 +166,9 @@
 .live-button { display: inline-flex; width: fit-content; align-items: center; gap: .5rem; border-radius: 999px; background: var(--primary); color: var(--primary-foreground); padding: .7rem 1.3rem; font-family: var(--font-condensed); font-weight: 600; transition: transform .2s, background .2s; }
 .live-button:hover { transform: translateY(-2px); background: color-mix(in oklch, var(--primary) 85%, black); }
 .live-button svg { width: 1rem; height: 1rem; }
-.live-cards { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); margin: .5rem 0 1rem; }
+.live-cards { display: grid; gap: 1.5rem; grid-template-columns: 1fr; margin: .5rem 0 1rem; }
+@media (min-width: 640px) { .live-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .live-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .live-card { display: flex; flex-direction: column; overflow: hidden; border-radius: 1.25rem; border: 1px solid var(--border); background: var(--card); transition: transform .25s, box-shadow .25s; }
 .live-card-link:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -24px color-mix(in oklch, var(--primary) 60%, transparent); }
 .live-media { aspect-ratio: 4 / 3; overflow: hidden; background: var(--secondary); }
