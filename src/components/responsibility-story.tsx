@@ -1,8 +1,10 @@
 import { ArrowLeft, ArrowRight, CalendarDays, HeartHandshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getLivePage, LiveContent, type LiveBlock, type LivePageData } from "@/components/live-page";
+import restoredPhotos from "@/lib/responsibility-photos.json";
 
 const listingPath = "about-us/corporate-social-responsibility";
+const photoSources: Record<string, string> = restoredPhotos;
 
 export function responsibilityStory(path: string) {
   const listing = getLivePage(listingPath);
@@ -32,7 +34,7 @@ export function ResponsibilityStory({ page, path }: { page: LivePageData; path: 
   let firstParagraph = true;
   return <article className="responsibility-story" aria-label={page.title}>
     {groups.map((blocks, index) => {
-      if (blocks.every((block) => block.t === "img")) return <div className={`responsibility-photos ${blocks.length > 1 ? "responsibility-photos-grid" : ""}`} key={index}>{blocks.map((block, imageIndex) => block.t === "img" ? <figure key={imageIndex}><img src={block.src} alt={block.alt} loading="lazy" /></figure> : null)}</div>;
+      if (blocks.every((block) => block.t === "img")) return <div className={`responsibility-photos ${blocks.length > 1 ? "responsibility-photos-grid" : ""}`} key={index}>{blocks.map((block, imageIndex) => block.t === "img" ? <figure key={imageIndex}><img src={photoSources[block.src] ?? block.src} alt={block.alt} loading="lazy" /></figure> : null)}</div>;
       const isLead = firstParagraph && blocks[0]?.t === "p";
       if (isLead) firstParagraph = false;
       const quote = blocks[0]?.t === "p" && /^[“"]/.test(blocks[0].text);

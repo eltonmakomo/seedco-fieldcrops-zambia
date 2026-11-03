@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Style all Corporate Social Responsibility story details and verify original content, photos and mobile layout
+- [x] Style all 8 Corporate Social Responsibility story details; verify original text, restore 11 old-address photos and check mobile layout
 
 - [x] Restore all 9 live albums and their 52 selected photos; verify every image, album browsing and enlargement
 
