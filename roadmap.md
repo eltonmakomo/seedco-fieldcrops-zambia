@@ -2,6 +2,7 @@
 
 - [ ] Audit all available live-site content and correct confirmed omissions
 - [ ] Add and verify the top-bar country dropdown with Seed Co Group first
+- [ ] Refresh the footer and replace social-media labels with accessible icons
 
 - [x] Apply the shared preview and player format to all videos and verify player opening/closing across pages
 
