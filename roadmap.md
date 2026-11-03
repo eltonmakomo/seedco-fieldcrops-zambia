@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Style individual news stories and verify original content, photos, dates, return navigation and mobile layout
+
 - [x] Improve photo and video-thumbnail clarity with faithful image processing and higher-resolution originals; verify all 315 enhanced assets, representative pages, gallery enlargement, playback and mobile layouts
 
 - [x] Move all product details beside the picture and verify it stays visible while scrolling
