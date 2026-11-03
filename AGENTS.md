@@ -17,3 +17,4 @@
 - Render all actual videos with the shared VideoPreview and grouped-video grid; leave map embeds unchanged. Why: consistent previews and accessible dialog playback stay reusable without mistaking maps for videos.
 - Keep official country destinations in a shared data module and render the top-bar selector with the accessible dropdown primitive. Why: the country template reuses verified destinations and keyboard navigation.
 - Normalize scraped sibling-site, document and careers-pagination destinations through the shared live-link resolver. Why: source-relative links must not become nonexistent local pages.
+- Group FAQ headings and their original answer blocks into accessible expandable items, with support contacts rendered separately. Why: questions stay scannable without duplicating or rewriting live-site answers.
