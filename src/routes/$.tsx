@@ -13,7 +13,7 @@ import { ZambiaRegionsMap } from "@/components/zambia-regions-map";
 import { bannerFor } from "@/lib/banner-images";
 import { SectionMenu } from "@/components/section-menu";
 import { FaqsContent } from "@/components/faqs-page";
-import { ContactForm } from "@/components/contact-form";
+import { ContactPage } from "@/components/contact-page";
 import { PhotoGallery } from "@/components/photo-gallery";
 
 const sectionLabel = (path: string) => {
@@ -51,11 +51,12 @@ export const Route = createFileRoute("/$")({
 function ContentPage() {
   const page = Route.useLoaderData();
   const path = Route.useParams()._splat ?? "";
+  const zones = parseZones(page);
   return <PageShell>
     <section className="inner-hero editorial-hero"><img src={bannerFor(path)} width={1920} height={720} alt="" className="absolute inset-0 h-full w-full object-cover" /><div className="inner-shade absolute inset-0" />
       <div className="editorial-hero-inner mx-auto max-w-screen-2xl px-6"><div className="editorial-hero-copy"><nav className="editorial-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><ArrowRight aria-hidden="true" /><span>{sectionLabel(path)}</span></nav><h1>{page.title}</h1><span className="editorial-title-rule" /></div></div>
     </section>
-    <section className="editorial-section"><div className="editorial-layout mx-auto max-w-screen-2xl px-6"><SectionMenu path={path} /><div className="editorial-content">{path === "media/photo-gallery" ? <PhotoGallery page={page} /> : path === "media/faqs" ? <FaqsContent page={page} /> : path === "innovations" ? <InnovationsContent page={page} /> : path === "product-innovations" ? <ProductInnovationsContent page={page} /> : path === "calculators" ? <CalculatorsContent page={page} /> : isCareersList(path) ? <CareersList page={page} path={path} /> : parseZones(page) ? <ZoneList zones={parseZones(page)!} /> : parseVarieties(page) ? <VarietySections page={page} path={path} /> : <LiveContent page={page} path={path} footprint={path === "about-us/our-story"} team={["about-us/board-of-directors", "about-us/management-team", "about-us/sales-team", "about-us/research-team"].includes(path)} />}{path === "farming-regions" && <ZambiaRegionsMap />}{path === "contact-us" && <ContactForm />}</div></div></section>
-    <section className="bg-secondary"><div className="mx-auto flex max-w-screen-2xl flex-col items-start justify-between gap-6 px-6 py-10 sm:flex-row sm:items-center"><div><p className="eyebrow">Need local guidance?</p><h2 className="mt-2 font-display text-3xl font-bold text-primary">Our team is ready to help.</h2></div><Button asChild size="lg"><a href="/contact-us">Contact Us <ArrowRight /></a></Button></div></section>
+    <section className="editorial-section"><div className="editorial-layout mx-auto max-w-screen-2xl px-6"><SectionMenu path={path} /><div className="editorial-content">{path === "contact-us" ? <ContactPage page={page} /> : path === "media/photo-gallery" ? <PhotoGallery page={page} /> : path === "media/faqs" ? <FaqsContent page={page} /> : path === "innovations" ? <InnovationsContent page={page} /> : path === "product-innovations" ? <ProductInnovationsContent page={page} /> : path === "calculators" ? <CalculatorsContent page={page} /> : isCareersList(path) ? <CareersList page={page} path={path} /> : zones ? <ZoneList zones={zones} /> : parseVarieties(page) ? <VarietySections page={page} path={path} /> : <LiveContent page={page} path={path} footprint={path === "about-us/our-story"} team={["about-us/board-of-directors", "about-us/management-team", "about-us/sales-team", "about-us/research-team"].includes(path)} />}{path === "farming-regions" && <ZambiaRegionsMap />}</div></div></section>
+    {path !== "contact-us" && <section className="bg-secondary"><div className="mx-auto flex max-w-screen-2xl flex-col items-start justify-between gap-6 px-6 py-10 sm:flex-row sm:items-center"><div><p className="eyebrow">Need local guidance?</p><h2 className="mt-2 font-display text-3xl font-bold text-primary">Our team is ready to help.</h2></div><Button asChild size="lg"><a href="/contact-us">Contact Us <ArrowRight /></a></Button></div></section>}
   </PageShell>;
 }
