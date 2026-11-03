@@ -23,3 +23,5 @@
 ## Backlog
 - [ ] Centered page-pill pagination replacing scraped digit links (in progress)
 - [ ] Ensure faces in photos are not covered by the sticky nav bar (in progress)
+- [x] Removed the standalone homepage video; 3 testimonials remain in one row
+- [x] Re-framed farmers banner wide so both people fully show on inner-page heroes

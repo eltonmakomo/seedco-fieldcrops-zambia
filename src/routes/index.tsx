@@ -28,7 +28,6 @@ const testimonials: Array<[string, string]> = [
   ["0FTan-mW4QI", "Seed Co Farmer Testimonial Petauke"],
   ["iKrZJIIJj7g", "Seed Co Farmer Testimonial Kasama"],
   ["EltACOVd3AA", "Seed Co Zambia Chikankata Testimonial"],
-  ["hCHSd0oGqyE", "Seed Co Zambia Testimonial Solwezi Farmer"],
 ];
 
 const homeFaqs = [
