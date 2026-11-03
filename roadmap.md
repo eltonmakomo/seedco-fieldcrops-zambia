@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Style individual news stories and verify original content, photos, dates, return navigation and mobile layout
+- [x] Audit all 265 inner pages, apply shared styling to remaining final pages, reuse exact listing facts for empty profiles/events/media and verify content coverage, navigation and mobile layouts (31 empty utility/custom-post records have no source body to invent)
+
 - [x] Improve photo and video-thumbnail clarity with faithful image processing and higher-resolution originals; verify all 315 enhanced assets, representative pages, gallery enlargement, playback and mobile layouts
 
 - [x] Move all product details beside the picture and verify it stays visible while scrolling
