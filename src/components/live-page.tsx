@@ -157,7 +157,9 @@ function CardView({ card, team = false }: { card: Card; team?: boolean }) {
   const links = card.items.filter((x): x is Extract<LiveBlock, { t: "link" }> => x.t === "link" && !isContact(x));
   const main = links[0];
   const caption = card.items.find((x) => x.t === "p");
-  const isArticle = card.items.some((x) => x.t === "link" && !isContact(x) && CTA.test(x.text.trim()));
+  const linkedPage = main ? getLivePage(resolveLiveHref(main.href)) : undefined;
+  const isArticle = card.items.some((x) => x.t === "link" && !isContact(x) && CTA.test(x.text.trim()))
+    || Boolean(linkedPage?.blocks.some((x) => x.t === "link" && /^\/category\/(blog|news)(?:\/|$)/.test(x.href)));
   const isPortrait = Boolean(card.img && (team || isExtendedTeamPhoto(card.img)));
   const cardClass = isArticle ? "live-card live-card-photo" : isPortrait ? "live-card live-card-portrait" : "live-card";
   const videoTitle = caption && caption.t === "p" ? caption.text : "Seed Co video";
