@@ -37,8 +37,8 @@
 
 - [x] Restore the missing video thumbnail shown in the supplied image and verify playback
 
-- [ ] Restore Photo Gallery content from the live site and verify images
+- [x] Restore Photo Gallery content from the live site and verify images
 
-- [ ] Verify and restore the additional video thumbnails from the latest screenshots
+- [x] Verify and restore the additional video thumbnails from the latest screenshots
 
-- [ ] Add a Contact Us form with validated, stored enquiries and verify a submission
+- [x] Add a Contact Us form with validated, stored enquiries and verify a submission
