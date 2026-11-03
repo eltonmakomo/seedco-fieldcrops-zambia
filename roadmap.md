@@ -1,5 +1,9 @@
 # Roadmap
 
+- [ ] Replace Wheat and Soya banners with generated crop-field imagery and verify
+- [ ] Remove the decorative plant icon above the contact heading
+- [ ] Make the search icon open working site search and verify results and navigation
+
 - [x] Add banner images to Wheat and Soya pages and verify their framing
 
 - [x] Style all Service Innovations detail pages and verify original copy, download links, video playback and smaller-screen layouts
