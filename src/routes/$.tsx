@@ -46,7 +46,8 @@ export const Route = createFileRoute("/$")({
   head: ({ loaderData, params }) => {
     const title = `${loaderData?.title ?? "Seed Co Zambia"} | Seed Co Zambia Field Crops`;
     const description = loaderData ? firstText(loaderData).slice(0, 160) : "Seed Co Zambia Field Crops";
-    const cover = loaderData && isProductDetail(params._splat ?? "") ? firstImage(loaderData) : undefined;
+    const path = params._splat ?? "";
+    const cover = /^product_category\/(wheat|soyabeans)\/?$/.test(path) ? bannerFor(path) : loaderData && isProductDetail(path) ? firstImage(loaderData) : undefined;
     return { meta: [
       { title }, { name: "description", content: description },
       { property: "og:title", content: title }, { property: "og:description", content: description },
