@@ -1,3 +1,6 @@
+import recovered0 from "@/assets/enhanced/clear-7614470d0904.webp.asset.json";
+import recovered1 from "@/assets/enhanced/clear-6a1dc9b6eb44.webp.asset.json";
+import recovered2 from "@/assets/enhanced/clear-93ff8e96df31.webp.asset.json";
 import enhanced0 from "@/assets/enhanced/clear-f37e7b88ed64.webp.asset.json";
 import enhanced1 from "@/assets/enhanced/clear-d3b45f6e308d.webp.asset.json";
 import enhanced2 from "@/assets/enhanced/clear-489c305aa0bf.webp.asset.json";
@@ -322,6 +325,9 @@ import enhanced280 from "@/assets/enhanced/clear-d1c2e21ec300.webp.asset.json";
 import source280 from "@/assets/team/ravasingadi.jpg";
 
 const sources: Record<string, string> = {
+  "http://104.238.170.140/seedcogroup/zm/fieldcrops/wp-content/uploads/2021/10/Service-Innovations-Online-Image-1.jpg": recovered0.url,
+  "http://104.238.170.140/seedcogroup/zm/fieldcrops/wp-content/uploads/2021/10/Service-Innovations-Online-Image-3-.jpg": recovered1.url,
+  "http://104.238.170.140/seedcogroup/zm/fieldcrops/wp-content/uploads/2021/10/Service-Innovations-Online-Image-2.jpg": recovered2.url,
   ["https://seedcogroup.com/zm/fieldcrops/wp-content/uploads/2026/10/IMG_5962-1024x683.webp"]: enhanced0.url,
   ["https://seedcogroup.com/zm/fieldcrops/wp-content/uploads/2026/10/IMG_5957-1024x683.webp"]: enhanced1.url,
   ["https://seedcogroup.com/zm/fieldcrops/wp-content/uploads/2026/10/IMG_5985-copy-1-971x1024.webp"]: enhanced2.url,

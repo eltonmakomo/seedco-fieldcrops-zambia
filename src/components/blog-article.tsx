@@ -1,3 +1,4 @@
+import { enhancedImage } from "@/lib/enhanced-images";
 import { ArrowLeft, ArrowRight, CalendarDays, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getLivePage, LiveContent, type LiveBlock, type LivePageData } from "@/components/live-page";
@@ -40,7 +41,7 @@ export function BlogArticle({ page, path }: { page: LivePageData; path: string }
   let leadPlaced = false;
   return <article className="blog-article" aria-label={page.title}>
     {groups.map((blocks, index) => {
-      if (blocks.every((block) => block.t === "img")) return <div key={index} className={`blog-article-photos${blocks.length > 1 ? " blog-article-photos-grid" : ""}`}>{blocks.map((block, photoIndex) => block.t === "img" ? <figure key={photoIndex}><img src={block.src} alt={block.alt} loading={index === 0 ? "eager" : "lazy"} /></figure> : null)}</div>;
+      if (blocks.every((block) => block.t === "img")) return <div key={index} className={`blog-article-photos${blocks.length > 1 ? " blog-article-photos-grid" : ""}`}>{blocks.map((block, photoIndex) => block.t === "img" ? <figure key={photoIndex}><img src={enhancedImage(block.src)} alt={block.alt} loading={index === 0 ? "eager" : "lazy"} /></figure> : null)}</div>;
       const lead = !leadPlaced && blocks[0]?.t === "p";
       if (lead) leadPlaced = true;
       const quote = blocks[0]?.t === "p" && /^[“"]/.test(blocks[0].text);
