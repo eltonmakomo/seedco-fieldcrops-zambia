@@ -154,12 +154,13 @@ function segment(blocks: LiveBlock[], path?: string): Segment[] {
 }
 
 function CardView({ card, team = false }: { card: Card; team?: boolean }) {
-  const links = card.items.filter((x): x is Extract<LiveBlock, { t: "link" }> => x.t === "link" && !isContact(x));
+  const links = card.items.filter((x): x is Extract<LiveBlock, { t: "link" }> => x.t === "link" && !isContact(x) && !/^\/category\//.test(resolveLiveHref(x.href)));
   const main = links[0];
   const caption = card.items.find((x) => x.t === "p");
   const linkedPage = main ? getLivePage(resolveLiveHref(main.href)) : undefined;
   const isArticle = card.items.some((x) => x.t === "link" && !isContact(x) && CTA.test(x.text.trim()))
-    || Boolean(linkedPage?.blocks.some((x) => x.t === "link" && /^\/category\/(blog|news)(?:\/|$)/.test(x.href)));
+    || Boolean(linkedPage?.blocks.some((x) => x.t === "link" && /^\/category\/(blog|news)(?:\/|$)/.test(x.href)))
+    || card.items.some((x) => x.t === "link" && /^\/category\//.test(resolveLiveHref(x.href)));
   const isPortrait = Boolean(card.img && (team || isExtendedTeamPhoto(card.img)));
   const cardClass = isArticle ? "live-card live-card-photo" : isPortrait ? "live-card live-card-portrait" : "live-card";
   const videoTitle = caption && caption.t === "p" ? caption.text : "Seed Co video";
