@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Style all 13 individual blog articles and verify original content, photos, return links and mobile layout
+
 - [x] Style all 12 career detail pages and verify original job information, application email links and mobile layout
 
 - [x] Style all 8 Corporate Social Responsibility story details; verify original text, restore 11 old-address photos and check mobile layout
