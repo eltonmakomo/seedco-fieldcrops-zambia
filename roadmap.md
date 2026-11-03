@@ -1,5 +1,9 @@
 # Roadmap
 
+- [x] Style Promotions and all Google Play and Apple Store links; verify downloads and layout
+
+- [x] Add and verify the crop-field banners on Farmers’ Hub Wheat and Soya pages
+
 - [x] Include Privacy policy and Site by Quatrohaus in the footer
 
 - [x] Add the supplied mailing-list signup to the footer and verify subscription storage and layout

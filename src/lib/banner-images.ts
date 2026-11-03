@@ -11,8 +11,8 @@ import wheatImage from "@/assets/wheat-field-banner.jpg";
 import soyaImage from "@/assets/soya-field-banner.jpg";
 
 const banners: Array<[RegExp, string]> = [
-  [/^product_category\/wheat\/?$/, wheatImage],
-  [/^product_category\/soyabeans\/?$/, soyaImage],
+  [/^(?:product_category|farming-regions)\/wheat\/?$/, wheatImage],
+  [/^(?:product_category\/soyabeans|farming-regions\/soya)\/?$/, soyaImage],
   [/^(products|sc-products|product_category|maize_subcategory)\b/, productsImage],
   [/^about-us\b/, aboutImage],
   [/^(agronomists|farming-regions|seed-co-agronomy-app|learn-with-seed-co)\b/, agronomyImage],

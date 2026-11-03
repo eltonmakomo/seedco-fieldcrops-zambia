@@ -1,9 +1,10 @@
-import { ArrowLeft, ArrowRight, CalendarDays, ExternalLink, Sprout } from "lucide-react";
+import { ArrowLeft, ArrowRight, CalendarDays, Sprout } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getLivePage, LiveContent, type LiveBlock, type LivePageData } from "@/components/live-page";
 import { enhancedImage } from "@/lib/enhanced-images";
 import { resolveLiveHref } from "@/lib/live-links";
 import { VideoPreview, youtubeVideoId } from "@/components/video-preview";
+import { AppStoreLinks } from "@/components/app-store-links";
 
 export function serviceInnovation(path: string) {
   const blocks = getLivePage("service-innovations")?.blocks ?? [];
@@ -23,7 +24,7 @@ export function ServiceInnovationHeader({ page, date }: { page: LivePageData; da
 }
 
 export function ServiceInnovationDetail({ page, path }: { page: LivePageData; path: string }) {
-  const source = serviceInnovation(path);
+  const source = serviceInnovation(path === "promotions" ? "seed-co-agronomy-app" : path);
   const content: LiveBlock[] = [];
   const downloads: Array<{ image?: Extract<LiveBlock, { t: "img" }> | undefined; link: Extract<LiveBlock, { t: "link" }> }> = [];
   for (let index = 0; index < page.blocks.length; index++) {
@@ -41,15 +42,14 @@ export function ServiceInnovationDetail({ page, path }: { page: LivePageData; pa
     <div className={app ? "service-app-layout" : "service-story-layout"}>
       <div className="service-innovation-copy blog-article">
         {content.map((block, index) => {
+          if (path === "promotions" && index === 0 && block.t === "p") return <h2 className="font-display text-2xl font-bold text-foreground" key={index}>{block.text}</h2>;
           if (block.t === "img" && youtubeVideoId(block.src)) return <div className="service-innovation-video" key={index}><VideoPreview src={block.src} title={page.title} /></div>;
           if (block.t === "img") return <figure className="service-innovation-photo" key={index}><img src={enhancedImage(block.src)} alt={block.alt} loading={index === 0 ? "eager" : "lazy"} /></figure>;
           return <div key={index} className={index === 0 && block.t === "p" ? "blog-article-lead" : "blog-article-copy"}><LiveContent page={{ title: page.title, blocks: [block] }} path={path} /></div>;
         })}
         {app && <section className="service-downloads" aria-label="Seedney downloads">
           {downloadLabel && <LiveContent page={{ title: page.title, blocks: [downloadLabel] }} path={path} />}
-          <div className="service-download-grid">{downloads.map(({ image, link }) => <Button key={link.href} asChild variant="outline" className="service-download"><a href={link.href} target="_blank" rel="noopener noreferrer">
-            {image && <img src={enhancedImage(image.src)} alt="" />}<span>{link.text}</span><ExternalLink aria-hidden="true" />
-          </a></Button>)}</div>
+          <AppStoreLinks downloads={downloads} />
         </section>}
       </div>
       {app && source?.image && <figure className="service-app-photo"><img src={enhancedImage(source.image.src)} alt={source.image.alt} /></figure>}
