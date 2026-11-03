@@ -5,13 +5,15 @@ import { LiveContent, type LivePageData } from "@/components/live-page";
 export function ContactPage({ page }: { page: LivePageData }) {
   const heading = page.blocks.find((block) => block.t === "h3");
   const paragraphs = page.blocks.filter((block) => block.t === "p");
-  const address = paragraphs[0]?.text ?? "";
-  const details = paragraphs[1]?.text ?? "";
+  const addressBlock = paragraphs[0];
+  const detailsBlock = paragraphs[1];
+  const address = addressBlock && "text" in addressBlock ? addressBlock.text : "";
+  const details = detailsBlock && "text" in detailsBlock ? detailsBlock.text : "";
   const phone = details.match(/Telephone:\s*(.*?)\s*Email:/)?.[1];
   const email = details.match(/Email:\s*(\S+@\S+)/)?.[1];
   const sales = details.match(/Sales Email\s*:\s*(\S+@\S+)/)?.[1];
   const maps = page.blocks.filter((block) => block.t === "video");
-  const remainder = page.blocks.filter((block) => block !== heading && !paragraphs.slice(0, 2).includes(block as typeof paragraphs[number]) && block.t !== "video");
+  const remainder = page.blocks.filter((block) => block !== heading && block !== addressBlock && block !== detailsBlock && block.t !== "video");
   return <div className="contact-page">
     <div className="contact-main">
       <section className="contact-details" aria-labelledby="contact-office-title">
