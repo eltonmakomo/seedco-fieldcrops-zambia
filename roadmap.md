@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Add banner images to Wheat and Soya pages and verify their framing
+
 - [ ] Style all Service Innovations detail pages and verify original copy, download links, video playback and smaller-screen layouts
 
 - [x] Style individual news stories and verify original content, photos, dates, return navigation and mobile layout
