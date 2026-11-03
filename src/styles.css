@@ -438,3 +438,24 @@ body{background:
 .footer-bottom a:hover{text-decoration:underline;text-underline-offset:4px}
 @media(max-width:1100px){.footer-layout{grid-template-columns:repeat(2,minmax(0,1fr));gap:2.5rem}.footer-contact{border:0;padding-left:0}}
 @media(max-width:480px){.footer-layout{gap:2rem 1.25rem}.footer-brand,.footer-contact{grid-column:1/-1}}
+
+/* Innovations page */
+.innov{display:grid;gap:var(--stack,2rem)}
+.innov-overview{position:relative;display:flex;gap:1.5rem;align-items:flex-start;padding:1.75rem 2rem;border-radius:1rem;background:var(--card);border:1px solid color-mix(in oklab,var(--primary) 10%,transparent);border-left:4px solid var(--brand-green);box-shadow:0 14px 34px -26px color-mix(in oklab,var(--primary) 55%,transparent);overflow:hidden}
+.innov-overview::after{content:"";position:absolute;right:-4rem;top:-4rem;width:12rem;height:12rem;border-radius:999px;background:color-mix(in oklab,var(--brand-green) 10%,transparent);pointer-events:none}
+.innov-overview-icon{flex:none;display:grid;place-items:center;width:3.25rem;height:3.25rem;border-radius:.9rem;background:color-mix(in oklab,var(--brand-green) 12%,transparent);color:var(--brand-green)}
+.innov-overview-icon svg{width:1.6rem;height:1.6rem}
+.innov-overview-copy{min-width:0}
+.innov-overview-text{margin-top:.5rem;font-size:1.05rem;line-height:1.85;color:var(--foreground)}
+.innov-grid{display:grid;gap:1.25rem;grid-template-columns:1fr}
+@media (min-width:760px){.innov-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.innov-card{position:relative;display:flex;flex-direction:column;gap:.85rem;padding:1.75rem 1.5rem 1.5rem;border-radius:1rem;background:var(--card);border:1px solid color-mix(in oklab,var(--primary) 10%,transparent);box-shadow:0 12px 30px -24px color-mix(in oklab,var(--primary) 55%,transparent);transition:transform .3s,box-shadow .3s,border-color .3s}
+.innov-card:hover{transform:translateY(-4px);border-color:color-mix(in oklab,var(--brand-green) 45%,transparent);box-shadow:0 20px 40px -26px color-mix(in oklab,var(--brand-green) 60%,transparent)}
+.innov-card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;border-radius:1rem 1rem 0 0;background:linear-gradient(90deg,var(--brand-green),var(--brand-red));opacity:0;transition:opacity .3s}
+.innov-card:hover::before{opacity:1}
+.innov-card-index{position:absolute;top:1.1rem;right:1.25rem;font-family:var(--font-condensed);font-weight:700;font-size:1.05rem;letter-spacing:.08em;color:color-mix(in oklab,var(--primary) 30%,transparent)}
+.innov-card-icon{display:grid;place-items:center;width:3rem;height:3rem;border-radius:.85rem;background:color-mix(in oklab,var(--brand-green) 12%,transparent);color:var(--brand-green);transition:background .3s,color .3s}
+.innov-card:hover .innov-card-icon{background:var(--brand-green);color:var(--primary-foreground)}
+.innov-card-icon svg{width:1.5rem;height:1.5rem}
+.innov-card h3{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--primary)}
+.innov-card p{font-size:.98rem;line-height:1.8;color:var(--foreground)}
