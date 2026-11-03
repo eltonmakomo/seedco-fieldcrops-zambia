@@ -1,4 +1,4 @@
-import { ArrowUpRight, Mail, MapPin, Phone, Sprout } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { LiveContent, type LivePageData } from "@/components/live-page";
 
@@ -17,7 +17,6 @@ export function ContactPage({ page }: { page: LivePageData }) {
   return <div className="contact-page">
     <div className="contact-main">
       <section className="contact-details" aria-labelledby="contact-office-title">
-        <span className="contact-brand-mark"><Sprout aria-hidden="true" /></span>
         <h2 id="contact-office-title">{heading && "text" in heading ? heading.text : page.title}</h2>
         <div className="contact-detail-row"><span className="contact-detail-icon"><MapPin aria-hidden="true" /></span><div><h3>Address</h3><p>{address}</p></div></div>
         {phone && <div className="contact-detail-row"><span className="contact-detail-icon"><Phone aria-hidden="true" /></span><div><h3>Telephone</h3><a href={`tel:${phone.replace(/\s/g, "")}`}>{phone}<ArrowUpRight aria-hidden="true" /></a></div></div>}
