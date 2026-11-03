@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Move all product details beside the picture and verify it stays visible while scrolling
+- [x] Move all product details beside the picture and verify it stays visible while scrolling
 
 - [x] Style all 26 final product detail pages and verify content, photos, product links and smaller-screen layout
 
