@@ -394,3 +394,16 @@ body{background:
 
 /* Hero banners: keep people's faces fully visible (crop from the bottom, never clip heads at the top). */
 .editorial-hero img, .inner-hero img { object-position: center top; }
+
+/* Live agronomist directory: original cells, directly callable contacts. */
+.live-directory{min-width:0;border:1px solid var(--border);border-top:3px solid var(--brand-green);border-radius:var(--radius);overflow:hidden;background:var(--card)}
+.live-directory table{width:100%;border-collapse:collapse;text-align:left;font-size:.9rem}
+.live-directory th{padding:1rem 1.25rem;background:var(--secondary);font-family:var(--font-condensed);font-size:1rem;font-weight:700;color:var(--foreground)}
+.live-directory td{padding:1rem 1.25rem;border-top:1px solid var(--border);line-height:1.6;overflow-wrap:anywhere}
+.live-directory td:first-child{font-weight:700}
+.live-directory tbody tr:nth-child(even){background:var(--background)}
+.live-directory tbody tr:hover{background:var(--secondary)}
+.live-directory a{color:var(--brand-green);text-decoration:underline;text-underline-offset:4px;white-space:nowrap}
+.live-directory a:hover{color:var(--brand-red)}
+.live-directory a:focus-visible{outline:2px solid var(--ring);outline-offset:4px}
+@media(max-width:700px){.live-directory thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.live-directory tr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);padding:1rem;gap:.75rem 1rem;border-top:1px solid var(--border)}.live-directory tbody tr:first-child{border-top:0}.live-directory td{display:block;min-width:0;padding:0;border:0;font-size:.85rem}.live-directory td:before{content:attr(data-label);display:block;margin-bottom:.2rem;font-family:var(--font-condensed);font-size:.75rem;font-weight:600;color:var(--muted-foreground)}.live-directory td:first-child{grid-column:1/-1;font-size:1rem}.live-directory td:first-child:before{display:none}.live-directory td:empty{display:none}}

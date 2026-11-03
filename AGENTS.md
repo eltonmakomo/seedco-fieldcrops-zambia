@@ -8,7 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
-- Inner pages render verbatim live-site content from `src/lib/live-content.json` (scraped blocks keyed by path) via `src/components/live-page.tsx`; unknown paths 404. Why: the site must mirror the live Field Crops content exactly; swap the JSON to adapt to another country.
+- Inner pages render verbatim live-site content from `src/lib/live-content.json` (scraped blocks keyed by path, including table headers and rows) via `src/components/live-page.tsx`; unknown paths 404. Why: the site must mirror the live Field Crops content exactly without losing tabular directories; swap the JSON to adapt to another country.
 - Inner-page sibling navigation is derived from shared navGroups and sticks below the header; use a horizontal strip on smaller screens. Why: country navigation remains reusable without duplicating links.
 - The farming-regions map and side list share one selection state and reuse the live site's SVG boundaries and zone destinations. Why: geographic highlighting must match the existing region information without inventing data.
 - The Our Story "proud African footprint" country list renders as the interactive Africa map (`src/components/africa-footprint-map.tsx`) instead of a plain list; map and list share one selection state and no country is invented. Why: the map highlights exactly the countries the live page names.
