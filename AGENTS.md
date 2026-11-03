@@ -17,3 +17,6 @@
 - Render all actual videos with the shared VideoPreview and grouped-video grid; leave map embeds unchanged. Why: consistent previews and accessible dialog playback stay reusable without mistaking maps for videos.
 - Keep official country destinations in a shared data module and render the top-bar selector with the accessible dropdown primitive. Why: the country template reuses verified destinations and keyboard navigation.
 - Normalize scraped sibling-site, document and careers-pagination destinations through the shared live-link resolver. Why: source-relative links must not become nonexistent local pages.
+- Group FAQ headings and their original answer blocks into accessible expandable items, with support contacts rendered separately. Why: questions stay scannable without duplicating or rewriting live-site answers.
+- Public contact enquiries use shared validation and an insert-only server function into a service-role-only table; visitors cannot read submissions. Why: enquiries are durably stored without exposing customer details.
+- Photo Gallery renders original gallery blocks in a three-column grid with accessible enlargement dialogs and CDN-backed photos. Why: live content remains reusable and photographs can be inspected without leaving the page.

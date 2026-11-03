@@ -32,3 +32,13 @@
 - [x] Restore and verify the exact live Agronomists directory with working phone contacts
 
 - [x] Restore the Soya dry-land varieties shown in the supplied image and verify the page
+
+- [x] Improve FAQ presentation while preserving every question and answer; verify expanding answers and mobile layout
+
+- [x] Restore the missing video thumbnail shown in the supplied image and verify playback
+
+- [x] Restore Photo Gallery content from the live site and verify images
+
+- [x] Verify and restore the additional video thumbnails from the latest screenshots
+
+- [x] Add a Contact Us form with validated, stored enquiries and verify a submission

@@ -12,10 +12,13 @@ export function VideoPreview({ src, title }: { src: string; title: string }) {
   const id = youtubeVideoId(src);
   const [open, setOpen] = useState(false);
   const fallback = (img: HTMLImageElement) => {
-    if (id && !img.dataset["fallback"] && img.naturalWidth < 200) {
-      img.dataset["fallback"] = "1";
-      img.src = `https://i.ytimg.com/vi/${id}/sddefault.jpg`;
-    }
+    if (!id || img.naturalWidth >= 200) return;
+    const sizes = ["sddefault", "hqdefault", "mqdefault", "0"];
+    const next = Number(img.dataset["fallback"] ?? "0");
+    const size = sizes[next];
+    if (!size) return;
+    img.dataset["fallback"] = String(next + 1);
+    img.src = `https://i.ytimg.com/vi/${id}/${size}.jpg`;
   };
   if (!id) return <div className="live-media live-media-video live-embed"><iframe src={src} title={title} loading="lazy" allowFullScreen /></div>;
   return <Dialog.Root open={open} onOpenChange={setOpen}>
