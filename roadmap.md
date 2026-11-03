@@ -1,8 +1,8 @@
 # Roadmap
 
-- [ ] Replace Wheat and Soya banners with generated crop-field imagery and verify
-- [ ] Remove the decorative plant icon above the contact heading
-- [ ] Make the search icon open working site search and verify results and navigation
+- [x] Replace Wheat and Soya banners with generated crop-field imagery and verify
+- [x] Remove the decorative plant icon above the contact heading
+- [x] Make the search icon open working site search and verify results and navigation
 
 - [x] Add banner images to Wheat and Soya pages and verify their framing
 
