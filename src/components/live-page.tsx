@@ -3,6 +3,7 @@ import liveContent from "@/lib/live-content.json";
 import { isExtendedTeamPhoto, teamPhoto } from "@/lib/team-photos";
 import { AfricaFootprintMap } from "@/components/africa-footprint-map";
 import { VideoPreview } from "@/components/video-preview";
+import { resolveLiveHref } from "@/lib/live-links";
 
 export type LiveBlock =
   | { t: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "li"; text: string }
@@ -35,6 +36,7 @@ function ytId(src: string) {
 const isExternal = (href: string) => /^https?:/.test(href);
 
 function SmartLink({ href, className, children }: { href: string; className?: string; children: React.ReactNode }) {
+  href = resolveLiveHref(href);
   return isExternal(href) ? <a href={href} className={className} target="_blank" rel="noreferrer">{children}</a> : <a href={href} className={className}>{children}</a>;
 }
 
@@ -200,7 +202,7 @@ function PaginationRow({ p }: { p: Pagination }) {
       {Array.from({ length: p.max }, (_, k) => k + 1).map((n) =>
         n === p.current
           ? <span key={n} className="live-page live-page-current" aria-current="page">{n}</span>
-          : <a key={n} className="live-page" href={n === 1 ? p.base : `${p.base}/page/${n}`}>{n}</a>,
+           : <a key={n} className="live-page" href={resolveLiveHref(n === 1 ? p.base : `${p.base}/page/${n}`)}>{n}</a>,
       )}
     </nav>
   );
