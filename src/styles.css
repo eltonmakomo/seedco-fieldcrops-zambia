@@ -109,7 +109,14 @@
 @utility seed-mark { position: relative; display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border: 2px solid var(--primary); border-radius: 50% 50% 50% 18%; transform: rotate(-8deg); color: var(--primary); }
 .seed-mark i{position:absolute;top:-8px;width:2px;height:10px;background:var(--primary)}.seed-mark i:before,.seed-mark i:after{content:"";position:absolute;width:8px;height:5px;border-radius:100% 0;background:var(--accent);top:1px}.seed-mark i:before{right:1px;transform:rotate(-24deg)}.seed-mark i:after{left:1px;transform:scaleX(-1) rotate(-24deg)}.seed-mark b{font-family:var(--font-display);font-size:.76rem;transform:rotate(8deg)}
 .seed-mark-inverted{border-color:var(--primary-foreground);color:var(--primary-foreground)}.seed-mark-inverted i{background:var(--primary-foreground)}
-@utility flag-zm { display:inline-block;width:1rem;height:1rem;border-radius:50%;background:conic-gradient(var(--primary-foreground) 0 25%,var(--accent) 0 50%,oklch(.5 .2 25) 0 75%,var(--primary-foreground) 0); }
+.flag-dot{display:inline-block;width:1rem;height:1rem;flex:none;border-radius:50%;box-shadow:inset 0 0 0 1px rgb(0 0 0/.14)}
+.flag-zm{background:linear-gradient(90deg,#198A00 0 62%,#DE2010 62% 74%,#000 74% 87%,#EF7D00 87%)}
+.flag-bw{background:linear-gradient(180deg,#75AADB 0 37%,#fff 37% 43%,#000 43% 57%,#fff 57% 63%,#75AADB 63%)}
+.flag-ke{background:linear-gradient(180deg,#000 0 30%,#fff 30% 36%,#B61E24 36% 64%,#fff 64% 70%,#006341 70%)}
+.flag-mw{background:linear-gradient(180deg,#000 0 34%,#CE1126 34% 67%,#339E35 67%)}
+.flag-ng{background:linear-gradient(90deg,#008751 0 33%,#fff 33% 67%,#008751 67%)}
+.flag-tz{background:linear-gradient(135deg,#1EB53A 0 36%,#FCD116 36% 42%,#000 42% 58%,#FCD116 58% 64%,#00A3DD 64%)}
+.flag-zw{background:linear-gradient(180deg,#319208 0 14%,#FFD200 14% 29%,#DE2010 29% 43%,#000 43% 57%,#DE2010 57% 71%,#FFD200 71% 86%,#319208 86%)}
 @utility footer-title { margin-bottom: 1rem; font-family: var(--font-condensed); font-size: .76rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: color-mix(in oklab,var(--primary-foreground) 82%,transparent); }
 @utility footer-link { display: block; margin-top: .65rem; font-size: .86rem; color: color-mix(in oklab,var(--primary-foreground) 68%,transparent); transition: color .2s ease; }
 .footer-link:hover{color:var(--primary-foreground)}
