@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Refresh contact details, form and map presentation; verify desktop and mobile
+
 - [x] Audit 266 existing pages; restore confirmed calendar and Zone 2b omissions and repair document/pagination links (complete media parity remains unverified)
 - [x] Add and verify the top-bar country dropdown with Seed Co Group first
 - [x] Refresh the footer and replace social-media labels with accessible icons
