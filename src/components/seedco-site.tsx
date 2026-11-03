@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { navGroups } from "@/lib/seedco-content";
 import logo from "@/assets/seedco-logo.svg";
 import logoWhite from "@/assets/seedco-logo-white.svg";
+import { CountrySelector } from "@/components/country-selector";
 
 const onlineShop = "https://www.seedcoonlineshop.com/zm/";
 
@@ -24,10 +25,9 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
   const [open, setOpen] = useState(false);
   return (
     <header className={overlay ? "site-header site-header-overlay" : "site-header"}>
-      <div className={`hidden lg:block ${overlay ? "header-utility-overlay" : "bg-primary text-primary-foreground"}`}>
+      <div className={overlay ? "header-utility-overlay" : "bg-primary text-primary-foreground"}>
         <div className="mx-auto flex h-8 max-w-screen-2xl items-center justify-end gap-6 px-6 font-condensed text-xs font-semibold uppercase tracking-[0.12em]">
-          <a href="https://seedcogroup.com/" target="_blank" rel="noreferrer" className="transition-opacity hover:opacity-70">Seed Co Group</a>
-          <span className="inline-flex items-center gap-2"><span className="flag-zm" /> Zambia</span>
+          <CountrySelector />
         </div>
       </div>
       <div className="mx-auto grid h-24 max-w-screen-2xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 sm:px-6 lg:flex lg:justify-between">

@@ -93,6 +93,11 @@
 @utility site-header { position:sticky;top:0;z-index:50;border-bottom:1px solid color-mix(in oklab,var(--border) 70%,transparent);background:color-mix(in oklab,var(--background) 90%,transparent);backdrop-filter:blur(20px); }
 @utility site-header-overlay { position:absolute;width:100%;border-bottom-color:color-mix(in oklab,var(--primary-foreground) 16%,transparent);background:linear-gradient(color-mix(in oklab,var(--forest-shadow) 58%,transparent),transparent); }
 @utility header-utility-overlay { background:color-mix(in oklab,var(--forest-shadow) 34%,transparent);color:var(--primary-foreground); }
+.country-trigger{height:2rem;border-radius:0;padding:0 .5rem;background:transparent;color:var(--primary-foreground);font-family:var(--font-condensed);font-size:.75rem;font-weight:700;text-transform:uppercase}
+.country-trigger:hover,.country-trigger[data-state="open"]{background:color-mix(in oklab,var(--primary-foreground) 14%,transparent);color:var(--primary-foreground)}
+.country-menu{z-index:80;width:14rem;border-top:3px solid var(--brand-red);border-radius:0 0 var(--radius) var(--radius);background:color-mix(in oklab,var(--card) 85%,transparent);backdrop-filter:blur(32px) saturate(140%);box-shadow:var(--shadow-soft);padding:.5rem}
+.country-menu-item{min-height:2.5rem;cursor:pointer;font-family:var(--font-condensed);font-size:.95rem;font-weight:600}
+.country-menu-item:focus,.country-menu-item[data-highlighted]{background:var(--muted);color:var(--brand-red)}
 @utility nav-group { position: relative; }
 @utility nav-panel { pointer-events: none; position: absolute; top: 100%; left: 50%; width: 34rem; transform: translate(-50%, 8px); border: 1px solid var(--border); border-top: 3px solid var(--brand-red); border-radius: 0 0 8px 8px; background: color-mix(in oklab,var(--card) 78%,transparent); backdrop-filter: blur(32px) saturate(140%); padding: .9rem .9rem .8rem; opacity: 0; visibility: hidden; box-shadow: var(--shadow-soft); transition: opacity .22s ease, transform .22s ease, visibility .22s; z-index: 60; }
 .nav-group:hover .nav-panel,.nav-group:focus-within .nav-panel{pointer-events:auto;opacity:1;visibility:visible;transform:translate(-50%,0)}
