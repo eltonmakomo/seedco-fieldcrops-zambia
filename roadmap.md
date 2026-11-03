@@ -40,3 +40,5 @@
 - [ ] Restore Photo Gallery content from the live site and verify images
 
 - [ ] Verify and restore the additional video thumbnails from the latest screenshots
+
+- [ ] Add a Contact Us form with validated, stored enquiries and verify a submission
