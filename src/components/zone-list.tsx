@@ -22,7 +22,7 @@ function split(text?: string) {
   if (!text) return null;
   const m = text.match(/^(.*?)\s*Irrigated:\s*(.*?)\s*Dry Land:\s*(.*)$/i);
   if (!m) return { summary: text };
-  const list = (s: string) => s.split(",").map((x) => x.trim()).filter(Boolean);
+  const list = (s = "") => s.split(",").map((x) => x.trim()).filter(Boolean);
   return { summary: m[1], irrigated: list(m[2]), dry: list(m[3]) };
 }
 
