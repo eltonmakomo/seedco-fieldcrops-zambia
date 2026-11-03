@@ -27,6 +27,7 @@ export function NewsArticleHeader({ page, date }: { page: LivePageData; date?: s
     <div className="news-article-label"><Newspaper aria-hidden="true" /><span>News</span></div>
     <h1>{page.title}</h1>
     <div className="blog-article-meta"><span><Newspaper aria-hidden="true" />Seed Co Zambia</span>{date && <span><CalendarDays aria-hidden="true" />{date}</span>}</div>
+    <div className="mt-4 flex flex-wrap gap-3">{page.blocks.map((block, index) => block.t === "link" && /^\/category\//.test(resolveLiveHref(block.href)) ? <span key={index} className="card-category">{block.text}</span> : null)}</div>
   </div></header>;
 }
 
