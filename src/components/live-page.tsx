@@ -8,6 +8,7 @@ export type LiveBlock =
   | { t: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "li"; text: string }
   | { t: "img"; src: string; alt: string }
   | { t: "video"; src: string }
+  | { t: "table"; headers: string[]; rows: string[][] }
   | { t: "link"; text: string; href: string };
 export type LivePageData = { title: string; blocks: LiveBlock[] };
 
@@ -171,7 +172,7 @@ function CardView({ card, team = false }: { card: Card; team?: boolean }) {
           if (x.t === "link") return !card.video && !CTA.test(x.text.trim()) ? <h3 key={k}>{x.text}</h3> : <span key={k} className="card-link">{x.text} <ArrowRight /></span>;
           if (x.t === "p") return <p key={k}>{x.text}</p>;
           if (x.t === "img" || x.t === "video") return null;
-          return <h3 key={k}>{x.text}</h3>;
+          return "text" in x ? <h3 key={k}>{x.text}</h3> : null;
         })}
       </div>
     </>
@@ -187,6 +188,7 @@ function BlockView({ block }: { block: LiveBlock }) {
     case "p": return <p className="live-p">{block.text}</p>;
     case "img": return <figure className="live-figure"><img src={block.src} alt={block.alt} loading="lazy" /></figure>;
     case "video": return <VideoPreview src={block.src} title="Seed Co Zambia video" />;
+    case "table": return <div className="live-directory"><table aria-label="Agronomists"><thead><tr>{block.headers.map((header) => <th key={header} scope="col">{header}</th>)}</tr></thead><tbody>{block.rows.map((row, i) => <tr key={i}>{block.headers.map((header, k) => <td key={header} data-label={header}>{header === "Contact" && row[k] ? <a href={`tel:+${row[k].replace(/\D/g, "")}`}>{row[k]}</a> : row[k]}</td>)}</tr>)}</tbody></table></div>;
     case "link": return <SmartLink href={block.href} className="live-button">{block.text} <ArrowRight /></SmartLink>;
     default: return null;
   }

@@ -21,7 +21,8 @@
 - [x] Verify map highlighting, zone navigation and smaller-screen layout
 
 ## Backlog
-- [ ] Centered page-pill pagination replacing scraped digit links (in progress)
-- [ ] Ensure faces in photos are not covered by the sticky nav bar (in progress)
+- [x] Centered page-pill pagination replacing scraped digit links
+- [x] Ensure faces in photos are not covered by the sticky nav bar
 - [x] Removed the standalone homepage video; 3 testimonials remain in one row
 - [x] Re-framed farmers banner wide so both people fully show on inner-page heroes
+- [x] Restore and verify the exact live Agronomists directory with working phone contacts
