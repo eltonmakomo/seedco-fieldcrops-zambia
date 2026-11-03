@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Move all product details beside the picture and verify it stays visible while scrolling
+
 - [x] Style all 26 final product detail pages and verify content, photos, product links and smaller-screen layout
 
 - [x] Style all 13 individual blog articles and verify original content, photos, return links and mobile layout
