@@ -8,6 +8,13 @@
       "when": 1793702232038,
       "tag": "0000_create_contact_submissions",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1793710784394,
+      "tag": "0001_create_newsletter_subscriptions",
+      "breakpoints": true
     }
   ]
 }
