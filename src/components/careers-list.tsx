@@ -27,7 +27,8 @@ export function CareersList({ page, path }: { page: LivePageData; path: string }
       <div className="job-grid">
         {jobs.map((j) => {
           const href = resolveLiveHref(j.href);
-          const loc = j.text.join(" ").match(/based in ([^.,]+(?:, Zambia)?)/i)?.[1];
+          const loc0 = j.text.join(" ").match(/based in ([^.,]+(?:, Zambia)?)/i)?.[1];
+          const loc = loc0 && loc0.length < 30 ? loc0 : undefined;
           return (
             <article className="job-card" key={j.href}>
               <div className="job-top">
