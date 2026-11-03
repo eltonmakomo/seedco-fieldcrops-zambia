@@ -50,6 +50,7 @@ export function detailContent(page: LivePageData, path: string): LivePageData {
 }
 
 export function isGenericDetail(path: string, page: LivePageData) {
+  if (["contact-us", "innovations", "product-innovations", "calculators"].includes(path)) return false;
   if (detailParent(path)) return true;
   if (!page.blocks.length) return true;
   // Repeated destination cards, directories, and paginated sections remain listings.

@@ -10,7 +10,7 @@ const datePattern = /^(?:January|February|March|April|May|June|July|August|Septe
 
 export function newsArticle(path: string): { date?: string | undefined } | undefined {
   const normalized = path.replace(/^\/+|\/+$/g, "");
-  if (/^(?:category\/)?news(?:\/page\/\d+)?$/.test(normalized)) return undefined;
+  if (normalized.startsWith("category/") || /^news(?:\/page\/\d+)?$/.test(normalized)) return undefined;
   for (const [, listing] of listings) {
     const blocks = listing.blocks as LiveBlock[];
     const index = blocks.findIndex((block) => block.t === "link" && resolveLiveHref(block.href) === `/${normalized}` && !/^read more$/i.test(block.text));
