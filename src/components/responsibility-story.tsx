@@ -15,7 +15,7 @@ export function responsibilityStory(path: string) {
   return { date: next?.t === "p" ? next.text : undefined };
 }
 
-export function ResponsibilityStoryHeader({ page, date }: { page: LivePageData; date?: string }) {
+export function ResponsibilityStoryHeader({ page, date }: { page: LivePageData; date?: string | undefined }) {
   return <header className="responsibility-header"><div className="mx-auto max-w-screen-2xl px-6">
     <Button asChild variant="link" className="h-auto px-0"><a href={`/${listingPath}`}><ArrowLeft />Corporate Social Responsibility</a></Button>
     <h1>{page.title}</h1>
