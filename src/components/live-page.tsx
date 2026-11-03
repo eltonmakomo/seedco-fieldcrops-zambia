@@ -174,6 +174,7 @@ function CardView({ card, team = false }: { card: Card; team?: boolean }) {
       <div className="live-card-copy">
         {card.items.map((x, k) => {
           if (x.t === "link" && isContact(x)) return <a key={k} href={x.href} className="card-contact">{x.text}</a>;
+          if (x.t === "link" && /^\/category\//.test(resolveLiveHref(x.href))) return <span key={k} className="card-category">{x.text}</span>;
           if (x.t === "link") return !card.video && !CTA.test(x.text.trim()) ? <h3 key={k}>{x.text}</h3> : <span key={k} className="card-link">{x.text} <ArrowRight /></span>;
           if (x.t === "p") return <p key={k}>{x.text}</p>;
           if (x.t === "img" || x.t === "video") return null;
