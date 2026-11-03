@@ -528,3 +528,17 @@ body{background:
 .calc-hint{font-size:.78rem;color:var(--muted-foreground)}
 .calc-result{display:flex;flex-direction:column;gap:.3rem;margin-top:auto;padding:1rem 1.2rem;border-radius:.8rem;background:color-mix(in oklab,var(--brand-green) 10%,transparent);border:1px solid color-mix(in oklab,var(--brand-green) 25%,transparent)}
 .calc-result strong{font-size:1.75rem;font-weight:800;color:var(--brand-green);overflow-wrap:anywhere}
+.job-grid{display:grid;gap:1.25rem;grid-template-columns:1fr}
+@media (min-width:768px){.job-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1280px){.job-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.job-card{display:flex;flex-direction:column;gap:.75rem;min-width:0;padding:1.5rem;border-radius:1rem;background:var(--card);border:1px solid color-mix(in oklab,var(--primary) 12%,transparent);border-top:4px solid var(--brand-green);box-shadow:0 14px 34px -26px color-mix(in oklab,var(--primary) 55%,transparent);transition:transform .25s,box-shadow .25s,border-top-color .25s}
+.job-card:hover{transform:translateY(-3px);border-top-color:var(--brand-red);box-shadow:0 22px 40px -24px color-mix(in oklab,var(--primary) 60%,transparent)}
+.job-top{display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap}
+.job-icon{display:grid;place-items:center;width:2.75rem;height:2.75rem;border-radius:.8rem;background:color-mix(in oklab,var(--brand-green) 12%,transparent);color:var(--brand-green)}
+.job-icon svg{width:1.3rem;height:1.3rem}
+.job-date{display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .7rem;border-radius:999px;font-size:.78rem;font-weight:700;background:color-mix(in oklab,var(--brand-red) 10%,transparent);color:var(--brand-red)}
+.job-date svg,.job-loc svg{width:.95rem;height:.95rem;flex:none}
+.job-title{font-size:1.2rem;font-weight:800;line-height:1.25;color:var(--foreground)}
+.job-loc{display:flex;align-items:center;gap:.35rem;font-size:.85rem;font-weight:600;color:var(--brand-green)}
+.job-text{font-size:.92rem;line-height:1.6;color:var(--muted-foreground);overflow-wrap:anywhere}
+.job-card .zone-cta{margin-top:auto}
