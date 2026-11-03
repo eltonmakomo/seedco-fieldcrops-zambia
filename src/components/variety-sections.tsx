@@ -1,7 +1,7 @@
 import { Check, Droplets, Sprout, Sun } from "lucide-react";
 import { LiveContent, type LiveBlock, type LivePageData } from "@/components/live-page";
 
-type Variety = { name: string; tag?: string; facts: string[] };
+type Variety = { name: string; tag?: string | undefined; facts: string[] };
 type Section = { title: string; names: string[]; varieties: Variety[] };
 
 const txt = (b: LiveBlock) => ("text" in b ? String(b.text ?? "") : "");
