@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Add the supplied mailing-list signup to the footer and verify subscription storage and layout
+
 - [x] Replace Wheat and Soya banners with generated crop-field imagery and verify
 - [x] Remove the decorative plant icon above the contact heading
 - [x] Make the search icon open working site search and verify results and navigation
