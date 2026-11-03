@@ -24,6 +24,7 @@ import { isProductDetail, ProductDetail, ProductDetailHeader } from "@/component
 import { newsArticle, NewsArticle, NewsArticleHeader } from "@/components/news-article";
 import { detailContent, detailParent, isGenericDetail } from "@/lib/detail-content";
 import { ContentDetail, ContentDetailHeader } from "@/components/content-detail";
+import { serviceInnovation, ServiceInnovationDetail, ServiceInnovationHeader } from "@/components/service-innovation-detail";
 
 const sectionLabel = (path: string) => {
   const s = path.split("/")[0] ?? "";
@@ -67,6 +68,7 @@ function ContentPage() {
   const career = isCareerDetail(path);
   const blog = blogArticle(path);
   const product = isProductDetail(path);
+  const service = serviceInnovation(path);
   const news = !blog && !story ? newsArticle(path) : undefined;
   const detail = isGenericDetail(path, page);
   return <PageShell>

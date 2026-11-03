@@ -355,6 +355,23 @@ body{background:
 .news-article-header h1:after{content:"";display:block;width:4rem;height:3px;background:var(--brand-red);margin-top:1.5rem}
 .news-article .blog-article-photos:first-child{padding-bottom:.5rem;border-bottom:1px solid var(--border)}
 .news-article .live-h2{border-top:0;padding-top:0}
+.service-innovation-detail{display:grid;gap:2rem;min-width:0}
+.service-app-layout{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:2.5rem;align-items:start}
+.service-innovation-copy{min-width:0}
+.service-app-photo{margin:0;position:sticky;top:152px;overflow:hidden;border-radius:var(--radius);background:var(--secondary)}
+.service-app-photo img{display:block;width:100%;height:auto}
+.service-downloads{display:grid;gap:1rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.service-download-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.service-download{height:auto;min-height:6rem;display:flex;flex-wrap:wrap;justify-content:flex-start;gap:.75rem;padding:1rem;background:var(--card);border-top:3px solid var(--primary);white-space:normal}
+.service-download img{width:auto;max-width:100%;height:2rem;object-fit:contain;object-position:left}
+.service-download span{font-weight:700}
+.service-download>svg{margin-left:auto;width:1rem;height:1rem;color:var(--primary);flex:none}
+.service-story-layout{max-width:64rem;margin-inline:auto}
+.service-innovation-photo{margin:0;overflow:hidden;border-radius:var(--radius);background:var(--muted)}
+.service-innovation-photo img{display:block;width:100%;height:auto}
+.service-innovation-video .tvid-media{aspect-ratio:16/9;width:100%;height:auto}
+@media(max-width:900px){.service-app-layout{grid-template-columns:minmax(0,1fr);gap:2rem}.service-app-photo{position:static;max-width:34rem;width:100%;margin-inline:auto}}
+@media(max-width:480px){.service-download-grid{grid-template-columns:minmax(0,1fr)}}
 .content-detail{min-width:0;display:grid;grid-template-columns:minmax(0,1fr);gap:1.5rem}
 .content-detail-body{min-width:0;overflow-wrap:anywhere}
 .content-detail .live-content{margin:0;display:grid;gap:1.25rem}

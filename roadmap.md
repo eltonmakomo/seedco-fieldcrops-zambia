@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Style all Service Innovations detail pages and verify original copy, download links, video playback and smaller-screen layouts
+
 - [x] Style individual news stories and verify original content, photos, dates, return navigation and mobile layout
 - [x] Audit all 265 inner pages, apply shared styling to remaining final pages, reuse exact listing facts for empty profiles/events/media and verify content coverage, navigation and mobile layouts (31 empty utility/custom-post records have no source body to invent)
 
