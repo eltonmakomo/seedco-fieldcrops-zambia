@@ -1,6 +1,6 @@
 // Section-specific banner images for inner-page heroes, so every part of the
 // site carries its own visual instead of one shared photo.
-import farmersImage from "@/assets/seedco-farmers.jpg";
+import farmersImage from "@/assets/banner-farmers-wide.jpg";
 import productsImage from "@/assets/banner-products.jpg";
 import aboutImage from "@/assets/banner-about.jpg";
 import agronomyImage from "@/assets/banner-agronomy.jpg";
