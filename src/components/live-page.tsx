@@ -3,6 +3,7 @@ import liveContent from "@/lib/live-content.json";
 import { isExtendedTeamPhoto, teamPhoto } from "@/lib/team-photos";
 import { AfricaFootprintMap } from "@/components/africa-footprint-map";
 import { VideoPreview } from "@/components/video-preview";
+import { resolveLiveHref } from "@/lib/live-links";
 
 export type LiveBlock =
   | { t: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "li"; text: string }
@@ -35,6 +36,7 @@ function ytId(src: string) {
 const isExternal = (href: string) => /^https?:/.test(href);
 
 function SmartLink({ href, className, children }: { href: string; className?: string; children: React.ReactNode }) {
+  href = resolveLiveHref(href);
   return isExternal(href) ? <a href={href} className={className} target="_blank" rel="noreferrer">{children}</a> : <a href={href} className={className}>{children}</a>;
 }
 
@@ -188,7 +190,7 @@ function BlockView({ block }: { block: LiveBlock }) {
     case "p": return <p className="live-p">{block.text}</p>;
     case "img": return <figure className="live-figure"><img src={block.src} alt={block.alt} loading="lazy" /></figure>;
     case "video": return <VideoPreview src={block.src} title="Seed Co Zambia video" />;
-    case "table": return <div className="live-directory"><table aria-label="Agronomists"><thead><tr>{block.headers.map((header) => <th key={header} scope="col">{header}</th>)}</tr></thead><tbody>{block.rows.map((row, i) => <tr key={i}>{block.headers.map((header, k) => <td key={header} data-label={header}>{header === "Contact" && row[k] ? <a href={`tel:+${row[k].replace(/\D/g, "")}`}>{row[k]}</a> : row[k]}</td>)}</tr>)}</tbody></table></div>;
+     case "table": return <div className="live-directory"><table aria-label={block.headers.includes("Contact") ? "Agronomists" : "Events Calendar"}><thead><tr>{block.headers.map((header) => <th key={header} scope="col">{header}</th>)}</tr></thead><tbody>{block.rows.map((row, i) => <tr key={i}>{block.headers.map((header, k) => <td key={header} data-label={header}>{header === "Contact" && row[k] ? <a href={`tel:+${row[k].replace(/\D/g, "")}`}>{row[k]}</a> : row[k]}</td>)}</tr>)}</tbody></table></div>;
     case "link": return <SmartLink href={block.href} className="live-button">{block.text} <ArrowRight /></SmartLink>;
     default: return null;
   }
@@ -200,7 +202,7 @@ function PaginationRow({ p }: { p: Pagination }) {
       {Array.from({ length: p.max }, (_, k) => k + 1).map((n) =>
         n === p.current
           ? <span key={n} className="live-page live-page-current" aria-current="page">{n}</span>
-          : <a key={n} className="live-page" href={n === 1 ? p.base : `${p.base}/page/${n}`}>{n}</a>,
+           : <a key={n} className="live-page" href={resolveLiveHref(n === 1 ? p.base : `${p.base}/page/${n}`)}>{n}</a>,
       )}
     </nav>
   );

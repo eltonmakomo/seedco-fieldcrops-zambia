@@ -1,10 +1,11 @@
 import { useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, ChevronDown, ExternalLink, Menu, Search, ShoppingBag, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Facebook, Linkedin, Mail, Menu, Search, ShoppingBag, Twitter, X, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navGroups } from "@/lib/seedco-content";
 import logo from "@/assets/seedco-logo.svg";
 import logoWhite from "@/assets/seedco-logo-white.svg";
+import { CountrySelector } from "@/components/country-selector";
 
 const onlineShop = "https://www.seedcoonlineshop.com/zm/";
 
@@ -24,10 +25,9 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
   const [open, setOpen] = useState(false);
   return (
     <header className={overlay ? "site-header site-header-overlay" : "site-header"}>
-      <div className={`hidden lg:block ${overlay ? "header-utility-overlay" : "bg-primary text-primary-foreground"}`}>
+      <div className={overlay ? "header-utility-overlay" : "bg-primary text-primary-foreground"}>
         <div className="mx-auto flex h-8 max-w-screen-2xl items-center justify-end gap-6 px-6 font-condensed text-xs font-semibold uppercase tracking-[0.12em]">
-          <a href="https://seedcogroup.com/" target="_blank" rel="noreferrer" className="transition-opacity hover:opacity-70">Seed Co Group</a>
-          <span className="inline-flex items-center gap-2"><span className="flag-zm" /> Zambia</span>
+          <CountrySelector />
         </div>
       </div>
       <div className="mx-auto grid h-24 max-w-screen-2xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 sm:px-6 lg:flex lg:justify-between">
@@ -66,22 +66,24 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
 }
 
 const socials = [
-  ["Facebook", "https://www.facebook.com/seedcozambia"], ["Twitter", "https://twitter.com/SeedCoZambia"],
-  ["YouTube", "https://www.youtube.com/channel/UCrlVuj5uYRjTRXJWSmkozjQ"], ["LinkedIn", "https://www.linkedin.com/company/seedco-zambia-international-zambia-limited/"],
+  { name: "Facebook", href: "https://www.facebook.com/seedcozambia", Icon: Facebook },
+  { name: "Twitter", href: "https://twitter.com/SeedCoZambia", Icon: Twitter },
+  { name: "YouTube", href: "https://www.youtube.com/channel/UCrlVuj5uYRjTRXJWSmkozjQ", Icon: Youtube },
+  { name: "LinkedIn", href: "https://www.linkedin.com/company/seedco-zambia-international-zambia-limited/", Icon: Linkedin },
 ];
 
 export function SiteFooter() {
   return (
-    <footer className="relative mt-auto overflow-hidden bg-primary text-primary-foreground">
-      <div className="mx-auto max-w-screen-2xl px-6 pb-8 pt-16">
-        <div className="grid gap-10 border-b border-primary-foreground/15 pb-12 md:grid-cols-2 lg:grid-cols-4">
-          <div><Brand inverted /><h3 className="footer-title mt-6">Find us on:</h3>{socials.map(([n, h]) => <a key={n} className="footer-link" href={h} target="_blank" rel="noreferrer">{n} <ExternalLink className="inline size-3" /></a>)}</div>
-          <div><h3 className="footer-title">Quick Links</h3><a className="footer-link" href={onlineShop} target="_blank" rel="noreferrer">Buy Seeds Online</a><a className="footer-link" href="/farming-regions">Learn With Seed Co</a><a className="footer-link" href="/news">News</a><a className="footer-link" href="/contact-us">Contact Us</a></div>
+    <footer className="site-footer">
+      <div className="mx-auto max-w-screen-2xl px-6">
+        <div className="footer-layout">
+          <div className="footer-brand"><Brand /><h3 className="footer-title">Find us on:</h3><div className="footer-socials">{socials.map(({ name, href, Icon }) => <Button asChild variant="outline" size="icon" className="footer-social" key={name}><a href={href} target="_blank" rel="noreferrer" aria-label={name} title={name}><Icon aria-hidden="true" /></a></Button>)}</div></div>
+          <div><h3 className="footer-title">Quick Links</h3><a className="footer-link" href={onlineShop} target="_blank" rel="noreferrer">Buy Seeds Online</a><a className="footer-link" href="/learn-with-seed-co">Learn With Seed Co</a><a className="footer-link" href="/news">News</a><a className="footer-link" href="/contact-us">Contact Us</a></div>
           <div><h3 className="footer-title">Innovations</h3><a className="footer-link" href="/service-innovations">Service Innovations</a><a className="footer-link" href="/product-innovations">Product Innovations</a></div>
-          <div><h3 className="footer-title">Become part of our mailing list</h3><a href="mailto:Zambia.seedco@seedcogroup.com" className="mt-2 inline-flex items-center gap-2 font-condensed font-semibold text-primary-foreground">Zambia.seedco@seedcogroup.com <ArrowRight className="size-4" /></a></div>
+          <div className="footer-contact"><Mail aria-hidden="true" className="footer-mail-icon" /><h3 className="footer-title">Become part of our mailing list</h3><a href="mailto:Zambia.seedco@seedcogroup.com" className="footer-email"><span>Zambia.seedco@seedcogroup.com</span><ArrowRight aria-hidden="true" /></a></div>
         </div>
-        <div className="flex flex-col gap-3 pt-7 text-xs text-primary-foreground/55 sm:flex-row sm:items-center sm:justify-between"><p>Copyright © 2026 Seed Co Zambia. All Rights Reserved.</p><a href="/privacy-policy" className="hover:text-primary-foreground">Privacy policy</a></div>
       </div>
+      <div className="footer-bottom"><div className="mx-auto flex max-w-screen-2xl flex-col gap-3 px-6 py-5 text-xs sm:flex-row sm:items-center sm:justify-between"><p>Copyright © 2026 Seed Co Zambia. All Rights Reserved.</p><a href="/privacy-policy">Privacy policy</a></div></div>
     </footer>
   );
 }
