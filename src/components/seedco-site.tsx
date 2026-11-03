@@ -1,11 +1,12 @@
 import { useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, ChevronDown, Facebook, Linkedin, Mail, Menu, Search, ShoppingBag, Twitter, X, Youtube } from "lucide-react";
+import { ArrowRight, ChevronDown, Facebook, Linkedin, Mail, Menu, ShoppingBag, Twitter, X, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navGroups } from "@/lib/seedco-content";
 import logo from "@/assets/seedco-logo.svg";
 import logoWhite from "@/assets/seedco-logo-white.svg";
 import { CountrySelector } from "@/components/country-selector";
+import { SiteSearch } from "@/components/site-search";
 
 const onlineShop = "https://www.seedcoonlineshop.com/zm/";
 
@@ -49,7 +50,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
           <a href="/contact-us" className={`flex items-center px-3 font-condensed text-[15px] font-semibold transition-colors ${overlay ? "text-primary-foreground hover:text-accent" : "text-foreground hover:text-brand-red"}`}>Contact Us</a>
         </nav>
         <div className="flex shrink-0 items-center gap-2">
-          <Button asChild variant="ghost" size="icon" className={`hidden sm:inline-flex ${overlay ? "text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground" : ""}`} aria-label="Search"><a href="/products"><Search /></a></Button>
+          <SiteSearch overlay={overlay} />
           <Button asChild className={`hidden sm:inline-flex ${overlay ? "bg-primary-foreground text-primary hover:bg-primary-foreground/90" : ""}`}><a href={onlineShop} target="_blank" rel="noreferrer"><ShoppingBag />Buy seeds</a></Button>
           <Button variant="ghost" size="icon" className={`lg:hidden ${overlay ? "border border-primary-foreground/20 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground" : ""}`} onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"}>{open ? <X /> : <Menu />}</Button>
         </div>
