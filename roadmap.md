@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Improve photo and video-thumbnail clarity with faithful image processing and higher-resolution originals; verify all 315 enhanced assets, representative pages, gallery enlargement, playback and mobile layouts
+
 - [x] Move all product details beside the picture and verify it stays visible while scrolling
 
 - [x] Style all 26 final product detail pages and verify content, photos, product links and smaller-screen layout

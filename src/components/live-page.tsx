@@ -1,3 +1,4 @@
+import { enhancedImage } from "@/lib/enhanced-images";
 import { ArrowRight, Eye, Sprout, Wheat, HeartHandshake, Users, Handshake, CircleCheck, Award, ShieldCheck, Lightbulb } from "lucide-react";
 import liveContent from "@/lib/live-content.json";
 import { isExtendedTeamPhoto, teamPhoto } from "@/lib/team-photos";
@@ -169,7 +170,7 @@ function CardView({ card, team = false }: { card: Card; team?: boolean }) {
       {card.video ? (
         <VideoPreview src={`https://www.youtube.com/embed/${card.video}`} title={videoTitle} />
       ) : card.img ? (
-        <div className={`live-media${isExtendedTeamPhoto(card.img) ? " live-media-extended-portrait" : ""}`}><img src={teamPhoto(card.img)} alt={card.alt || main?.text || ""} loading="lazy" /></div>
+        <div className={`live-media${isExtendedTeamPhoto(card.img) ? " live-media-extended-portrait" : ""}`}><img src={enhancedImage(teamPhoto(card.img))} alt={card.alt || main?.text || ""} loading="lazy" /></div>
       ) : null}
       <div className="live-card-copy">
         {card.items.map((x, k) => {
@@ -192,8 +193,8 @@ function BlockView({ block }: { block: LiveBlock }) {
     case "h3": case "h4": return <h3 className="live-h3">{block.text}</h3>;
     case "h5": return <h4 className="live-h4">{block.text}</h4>;
     case "p": return <p className="live-p">{block.text}</p>;
-    case "img": return <figure className="live-figure"><img src={block.src} alt={block.alt} loading="lazy" /></figure>;
-    case "video": return <VideoPreview src={block.src} title="Seed Co Zambia video" />;
+    case "img": return <figure className="live-figure"><img src={enhancedImage(block.src)} alt={block.alt} loading="lazy" /></figure>;
+    case "video": return <VideoPreview src={enhancedImage(block.src)} title="Seed Co Zambia video" />;
      case "table": return <div className="live-directory"><table aria-label={block.headers.includes("Contact") ? "Agronomists" : "Events Calendar"}><thead><tr>{block.headers.map((header) => <th key={header} scope="col">{header}</th>)}</tr></thead><tbody>{block.rows.map((row, i) => <tr key={i}>{block.headers.map((header, k) => <td key={header} data-label={header}>{header === "Contact" && row[k] ? <a href={`tel:+${row[k].replace(/\D/g, "")}`}>{row[k]}</a> : row[k]}</td>)}</tr>)}</tbody></table></div>;
     case "link": return <SmartLink href={block.href} className="live-button">{block.text} <ArrowRight /></SmartLink>;
     default: return null;

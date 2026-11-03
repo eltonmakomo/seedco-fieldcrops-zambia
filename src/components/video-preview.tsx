@@ -1,3 +1,4 @@
+import { videoThumbnail } from "@/lib/video-thumbnails";
 import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Play, X } from "lucide-react";
@@ -24,7 +25,7 @@ export function VideoPreview({ src, title }: { src: string; title: string }) {
   return <Dialog.Root open={open} onOpenChange={setOpen}>
     <Dialog.Trigger asChild>
       <Button variant="ghost" className="tvid-media" aria-label={`Play video: ${title}`}>
-        <img className="tvid-thumb" src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`} alt="" loading="lazy"
+        <img className="tvid-thumb" src={videoThumbnail(id) ?? `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`} alt="" loading="lazy"
           ref={(img) => { if (img?.complete) fallback(img); }}
           onLoad={(event) => fallback(event.currentTarget)}
           onError={(event) => fallback(event.currentTarget)} />
