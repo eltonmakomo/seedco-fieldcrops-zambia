@@ -36,3 +36,5 @@
 - [ ] Improve FAQ presentation while preserving every question and answer; verify expanding answers and mobile layout
 
 - [ ] Restore the missing video thumbnail shown in the supplied image and verify playback
+
+- [ ] Restore Photo Gallery content from the live site and verify images
