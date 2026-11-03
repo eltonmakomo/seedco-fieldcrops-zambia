@@ -352,7 +352,8 @@ body{background:
 .blog-article-meta{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;font-size:.85rem;color:var(--muted-foreground)}
 .blog-article-meta span{display:flex;align-items:center;gap:.5rem}
 .blog-article-meta svg{width:1rem;height:1rem;color:var(--primary)}
-.blog-article{display:grid;gap:1.5rem;min-width:0}
+.blog-article{display:grid;grid-template-columns:minmax(0,1fr);gap:1.5rem;min-width:0}
+.blog-article>div,.blog-article .live-content{min-width:0;overflow-wrap:anywhere}
 .blog-article .live-content{margin:0;display:grid;gap:1rem}
 .blog-article .live-p{margin:0;color:var(--foreground);line-height:1.95;overflow-wrap:anywhere}
 .blog-article .live-list{margin:0}
