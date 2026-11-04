@@ -64,7 +64,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
       </div>
       {open && (
         <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-border bg-background px-4 py-4 lg:hidden">
-          {navGroups.map((group) => <details key={group.label} className="border-b border-border py-1"><summary className="cursor-pointer py-3 font-condensed text-lg font-semibold">{group.label}</summary><div className="grid gap-1 pb-3">{group.children.map((item)=><a key={item.href} href={item.href} className="py-2 pl-3 text-sm text-muted-foreground">{item.label}</a>)}</div></details>)}
+          {navGroups.map((group) => <details key={group.label} className="mobile-nav-group border-b border-border py-1"><summary className="flex cursor-pointer items-center justify-between gap-3 py-3 font-condensed text-lg font-semibold"><span>{group.label}</span><ChevronDown className="mobile-nav-chevron size-5 shrink-0 text-muted-foreground" /></summary><div className="grid gap-1 pb-3">{group.children.map((item)=><a key={item.href} href={item.href} className="py-2 pl-3 text-sm text-muted-foreground">{item.label}</a>)}</div></details>)}
           <a href="/contact-us" className="block py-4 font-condensed text-lg font-semibold">Contact Us</a>
           <Button asChild className="mt-2 w-full"><a href={onlineShop} target="_blank" rel="noreferrer"><ShoppingBag />Buy seeds online</a></Button>
         </div>
