@@ -75,7 +75,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
 
 const socials = [
   { name: "Facebook", href: "https://www.facebook.com/seedcozambia", Icon: Facebook },
-  { name: "Twitter", href: "https://twitter.com/SeedCoZambia", Icon: Twitter },
+  { name: "X", href: "https://twitter.com/SeedCoZambia", Icon: XLogo },
   { name: "YouTube", href: "https://www.youtube.com/channel/UCrlVuj5uYRjTRXJWSmkozjQ", Icon: Youtube },
   { name: "LinkedIn", href: "https://www.linkedin.com/company/seedco-zambia-international-zambia-limited/", Icon: Linkedin },
 ];
