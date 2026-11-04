@@ -543,6 +543,10 @@ body{background:
 .footer-email span{overflow-wrap:anywhere;min-width:0}.footer-email svg{width:1rem;height:1rem;flex:none}.footer-email:hover{color:var(--brand-red)}
 .footer-bottom{background:var(--primary);color:var(--primary-foreground)}
 .footer-bottom a:hover{text-decoration:underline;text-underline-offset:4px}
+.mobile-nav-group>summary{list-style:none}
+.mobile-nav-group>summary::-webkit-details-marker{display:none}
+.mobile-nav-chevron{transition:transform .2s ease}
+.mobile-nav-group[open] .mobile-nav-chevron{transform:rotate(180deg)}
 @media(max-width:1100px){.footer-layout{grid-template-columns:repeat(2,minmax(0,1fr));gap:2.5rem}.footer-contact{border:0;padding-left:0}}
 @media(max-width:480px){.footer-layout{gap:2rem 1.25rem}.footer-brand,.footer-contact{grid-column:1/-1}}
 
