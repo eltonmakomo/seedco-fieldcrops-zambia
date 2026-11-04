@@ -1,6 +1,6 @@
 import { enhancedImage } from "@/lib/enhanced-images";
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Bean, Download, Leaf, ShoppingBag, Sprout, Wheat } from "lucide-react";
+import { ArrowRight, Bean, Download, Leaf, Sprout, Wheat } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageShell } from "@/components/seedco-site";
 import { VideoPreview } from "@/components/video-preview";
@@ -88,7 +88,7 @@ function HomePage() {
 
     <section className="organic-field-note"><div className="organic-note-image"><img src={enhancedImage(`${U}/2021/09/tips2.jpg`)} loading="lazy" alt="Tip of the Day" /></div><div className="organic-note-copy"><p className="eyebrow text-primary-foreground">Tip of the Day</p><blockquote>Seed Co varieties combine high yielding ability and good agronomic traits such as drought and disease tolerance, good “standability”, stability across seasons and regions.</blockquote>
       <h3 className="mt-8 font-display text-2xl font-bold">Quick Links</h3>
-      <div className="organic-resource-list"><a href={shop} target="_blank" rel="noreferrer"><ShoppingBag /><span><b>1.</b>Buy Seeds Online</span><ArrowRight /></a><a href="/learn-with-seed-co"><span><b>2.</b>Learn With Seed Co</span><ArrowRight /></a><a href="/news"><span><b>3.</b>News</span><ArrowRight /></a><a href="/contact-us"><span><b>4.</b>Contact Us</span><ArrowRight /></a></div>
+      <div className="organic-resource-list"><a href={shop} target="_blank" rel="noreferrer"><span><b>1.</b>Buy Seeds Online</span><ArrowRight /></a><a href="/learn-with-seed-co"><span><b>2.</b>Learn With Seed Co</span><ArrowRight /></a><a href="/news"><span><b>3.</b>News</span><ArrowRight /></a><a href="/contact-us"><span><b>4.</b>Contact Us</span><ArrowRight /></a></div>
     </div></section>
 
     <section className="organic-stories"><div className="mx-auto max-w-screen-2xl px-6"><div className="organic-section-head"><div><p className="eyebrow">Farmer voices</p><h2>Testimonials</h2></div><a href="/testimonial">View all testimonials <ArrowRight /></a></div>
