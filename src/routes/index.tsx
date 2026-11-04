@@ -1,6 +1,6 @@
 import { enhancedImage } from "@/lib/enhanced-images";
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Bean, Download, Leaf, ShoppingBag, Sprout, Wheat } from "lucide-react";
+import { ArrowRight, Bean, Download, Leaf, Sprout, Wheat } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageShell } from "@/components/seedco-site";
 import { VideoPreview } from "@/components/video-preview";
